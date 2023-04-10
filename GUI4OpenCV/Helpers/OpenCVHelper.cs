@@ -10,10 +10,10 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap Canny(Bitmap bitmap)
+        public static Bitmap Canny(Bitmap bitmap, double threshold1=100, double threshold2=255, int apertureSize=3, bool L2gradient=false)
         {
             var dst = new Mat();
-            Cv2.Canny(bitmap.ToMat(), dst, 100, 255);
+            Cv2.Canny(bitmap.ToMat(), dst, threshold1, threshold2, apertureSize, L2gradient);
             var t = dst.ToBitmap();
             return t;
         }

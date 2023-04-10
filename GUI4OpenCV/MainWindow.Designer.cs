@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             plImages = new Panel();
-            plOperates = new Panel();
             tableLayoutPanel1 = new TableLayoutPanel();
             picTopLeft = new PictureBox();
             picTopRight = new PictureBox();
             picBottomLeft = new PictureBox();
             picBottomRight = new PictureBox();
-            label1 = new Label();
+            plOperates = new Panel();
             btnSelectImage = new Button();
+            label1 = new Label();
+            btnCanny = new Button();
+            label2 = new Label();
             plImages.SuspendLayout();
-            plOperates.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picTopRight).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBottomLeft).BeginInit();
             ((System.ComponentModel.ISupportInitialize)picBottomRight).BeginInit();
+            plOperates.SuspendLayout();
             SuspendLayout();
             // 
             // plImages
@@ -56,17 +58,6 @@
             plImages.Padding = new Padding(1);
             plImages.Size = new Size(779, 757);
             plImages.TabIndex = 0;
-            // 
-            // plOperates
-            // 
-            plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            plOperates.BorderStyle = BorderStyle.FixedSingle;
-            plOperates.Controls.Add(btnSelectImage);
-            plOperates.Controls.Add(label1);
-            plOperates.Location = new Point(797, 12);
-            plOperates.Name = "plOperates";
-            plOperates.Size = new Size(595, 757);
-            plOperates.TabIndex = 1;
             // 
             // tableLayoutPanel1
             // 
@@ -128,15 +119,18 @@
             picBottomRight.TabIndex = 0;
             picBottomRight.TabStop = false;
             // 
-            // label1
+            // plOperates
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(17, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(51, 19);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(btnCanny);
+            plOperates.Controls.Add(btnSelectImage);
+            plOperates.Controls.Add(label2);
+            plOperates.Controls.Add(label1);
+            plOperates.Location = new Point(797, 12);
+            plOperates.Name = "plOperates";
+            plOperates.Size = new Size(595, 757);
+            plOperates.TabIndex = 1;
             // 
             // btnSelectImage
             // 
@@ -147,6 +141,36 @@
             btnSelectImage.Text = "选择图像";
             btnSelectImage.UseVisualStyleBackColor = true;
             btnSelectImage.Click += btnSelectImage_Click;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(17, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(51, 19);
+            label1.TabIndex = 0;
+            label1.Text = "label1";
+            // 
+            // btnCanny
+            // 
+            btnCanny.Location = new Point(187, 40);
+            btnCanny.Name = "btnCanny";
+            btnCanny.Size = new Size(131, 29);
+            btnCanny.TabIndex = 1;
+            btnCanny.Text = "边缘检测";
+            btnCanny.UseVisualStyleBackColor = true;
+            btnCanny.Click += btnCanny_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(171, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(51, 19);
+            label2.TabIndex = 0;
+            label2.Text = "label1";
             // 
             // MainWindow
             // 
@@ -160,13 +184,13 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainWindow";
             plImages.ResumeLayout(false);
-            plOperates.ResumeLayout(false);
-            plOperates.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picTopLeft).EndInit();
             ((System.ComponentModel.ISupportInitialize)picTopRight).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBottomLeft).EndInit();
             ((System.ComponentModel.ISupportInitialize)picBottomRight).EndInit();
+            plOperates.ResumeLayout(false);
+            plOperates.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -181,5 +205,7 @@
         private Panel plOperates;
         private Button btnSelectImage;
         private Label label1;
+        private Button btnCanny;
+        private Label label2;
     }
 }
