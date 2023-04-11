@@ -67,5 +67,13 @@ namespace GUI4OpenCV
             picBottomLeft.Image = null;
             picBottomRight.Image = null;
         }
+
+        private void btnPrewitt_Click(object sender, EventArgs e)
+        {
+            var img = (Bitmap)picTopLeft.Image;
+            picTopRight.Image = OpenCVHelper.Prewitt(img);
+            picBottomLeft.Image = OpenCVHelper.PrewittX(img);
+            picBottomRight.Image = OpenCVHelper.PrewittY(img);
+        }
     }
 }

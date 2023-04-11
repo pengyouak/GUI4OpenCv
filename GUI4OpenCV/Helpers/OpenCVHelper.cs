@@ -187,6 +187,69 @@ namespace GUI4OpenCV.Helpers
         }
         #endregion
 
+        #region Prewitt算子
+
+        public static Bitmap PrewittX(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Prewitt算子 X向量
+            ///*
+            // *   -1   0    1
+            // *   -1   0    1
+            // *   -1   0    1
+            // *   
+            // *   二位矩阵
+            // */
+            InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -1, 0, 1 }, { -1, 0, 1 }, { -1, 0, 1 } });
+            using Mat dstX = new Mat();
+            //Cv2.Filter2D(src, dstX, src.Depth(), kernelRX, new Point(-1, -1), 0);
+            Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstX.ToBitmap();
+        }
+
+        public static Bitmap PrewittY(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Prewitt算子 Y向量
+            ///*
+            //*     -1    -1    -1
+            //*      0     0     0
+            //*      1     1     1
+            //*   
+            //*   二位矩阵
+            //*/
+            InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -1, -1, -1 }, { 0, 0, 0 }, { 1, 1, 1 } });
+            using Mat dstY = new Mat();
+            //Cv2.Filter2D(src, dstY, src.Depth(), kernelRY, new Point(-1, -1), 0);
+            Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstY.ToBitmap();
+        }
+
+        /// <summary>
+        /// 边缘检测Prewitt算子
+        /// </summary>
+        /// <param name="path"></param>
+        public static Bitmap Prewitt(Bitmap bitmap)
+        {
+            var sobelX = PrewittX(bitmap);
+            var sobelY = PrewittY(bitmap);
+
+            using Mat x = new Mat();
+            using Mat y = new Mat();
+            Cv2.ConvertScaleAbs(sobelX.ToMat(), x);
+            Cv2.ConvertScaleAbs(sobelY.ToMat(), y);
+
+            using Mat sobel = new Mat();
+            Cv2.AddWeighted(x, 0.5, y, 0.5, 0, sobel);
+
+            return sobel.ToBitmap();
+        }
+        #endregion
+
         #endregion
         /// <summary>
         /// 放大

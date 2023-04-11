@@ -35,13 +35,14 @@
             picBottomLeft = new PictureBox();
             picBottomRight = new PictureBox();
             plOperates = new Panel();
+            btnLaplace = new Button();
             btnSobel = new Button();
             btnRoberts = new Button();
             btnCanny = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnLaplace = new Button();
+            btnPrewitt = new Button();
             plImages.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -126,6 +127,7 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(btnPrewitt);
             plOperates.Controls.Add(btnLaplace);
             plOperates.Controls.Add(btnSobel);
             plOperates.Controls.Add(btnRoberts);
@@ -137,6 +139,16 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(595, 757);
             plOperates.TabIndex = 1;
+            // 
+            // btnLaplace
+            // 
+            btnLaplace.Location = new Point(187, 145);
+            btnLaplace.Name = "btnLaplace";
+            btnLaplace.Size = new Size(131, 29);
+            btnLaplace.TabIndex = 1;
+            btnLaplace.Text = "Laplace";
+            btnLaplace.UseVisualStyleBackColor = true;
+            btnLaplace.Click += btnLaplace_Click;
             // 
             // btnSobel
             // 
@@ -198,15 +210,15 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // btnLaplace
+            // btnPrewitt
             // 
-            btnLaplace.Location = new Point(187, 145);
-            btnLaplace.Name = "btnLaplace";
-            btnLaplace.Size = new Size(131, 29);
-            btnLaplace.TabIndex = 1;
-            btnLaplace.Text = "Laplace";
-            btnLaplace.UseVisualStyleBackColor = true;
-            btnLaplace.Click += btnLaplace_Click;
+            btnPrewitt.Location = new Point(187, 180);
+            btnPrewitt.Name = "btnPrewitt";
+            btnPrewitt.Size = new Size(131, 29);
+            btnPrewitt.TabIndex = 1;
+            btnPrewitt.Text = "Prewitt";
+            btnPrewitt.UseVisualStyleBackColor = true;
+            btnPrewitt.Click += btnPrewitt_Click;
             // 
             // MainWindow
             // 
@@ -246,5 +258,6 @@
         private Button btnRoberts;
         private Button btnSobel;
         private Button btnLaplace;
+        private Button btnPrewitt;
     }
 }
