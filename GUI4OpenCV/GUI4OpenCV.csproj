@@ -17,10 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Images\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="ConfigWindows\ConfigBilateralFilter.cs">
       <SubType>Form</SubType>
     </Compile>
