@@ -46,11 +46,13 @@
             btnMedianBlur = new Button();
             btnBlur = new Button();
             btnCanny = new Button();
+            btnBanary = new Button();
             btnGry = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnBanary = new Button();
+            btnShrink = new Button();
+            btnStructure = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -113,6 +115,8 @@
             plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
+            plOperates.Controls.Add(btnStructure);
+            plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnGry);
             plOperates.Controls.Add(btnSelectImage);
@@ -263,6 +267,16 @@
             btnCanny.UseVisualStyleBackColor = true;
             btnCanny.Click += btnCanny_Click;
             // 
+            // btnBanary
+            // 
+            btnBanary.Location = new Point(27, 110);
+            btnBanary.Name = "btnBanary";
+            btnBanary.Size = new Size(131, 29);
+            btnBanary.TabIndex = 1;
+            btnBanary.Text = "二值处理";
+            btnBanary.UseVisualStyleBackColor = true;
+            btnBanary.Click += btnBanary_Click;
+            // 
             // btnGry
             // 
             btnGry.Location = new Point(27, 75);
@@ -303,15 +317,25 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnBanary
+            // btnShrink
             // 
-            btnBanary.Location = new Point(27, 110);
-            btnBanary.Name = "btnBanary";
-            btnBanary.Size = new Size(131, 29);
-            btnBanary.TabIndex = 1;
-            btnBanary.Text = "二值处理";
-            btnBanary.UseVisualStyleBackColor = true;
-            btnBanary.Click += btnBanary_Click;
+            btnShrink.Location = new Point(27, 145);
+            btnShrink.Name = "btnShrink";
+            btnShrink.Size = new Size(131, 29);
+            btnShrink.TabIndex = 1;
+            btnShrink.Text = "收缩图像";
+            btnShrink.UseVisualStyleBackColor = true;
+            btnShrink.Click += btnShrink_Click;
+            // 
+            // btnStructure
+            // 
+            btnStructure.Location = new Point(27, 180);
+            btnStructure.Name = "btnStructure";
+            btnStructure.Size = new Size(131, 29);
+            btnStructure.TabIndex = 1;
+            btnStructure.Text = "膨胀处理";
+            btnStructure.UseVisualStyleBackColor = true;
+            btnStructure.Click += btnStructure_Click;
             // 
             // MainWindow
             // 
@@ -357,5 +381,7 @@
         private Button btnBoxFilter;
         private Button btnGry;
         private Button btnBanary;
+        private Button btnStructure;
+        private Button btnShrink;
     }
 }

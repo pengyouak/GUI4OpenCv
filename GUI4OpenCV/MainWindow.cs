@@ -49,8 +49,6 @@ namespace GUI4OpenCV
         }
 
         #region ÕºœÒ‘§¥¶¿Ì
-
-        #endregion
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
             var dlg = new OpenFileDialog()
@@ -81,8 +79,27 @@ namespace GUI4OpenCV
             if (config.ShowDialog() != DialogResult.OK) return;
 
             var image = Image.FromFile(_sourceImagePath);
-            picTopLeft.Image = OpenCVHelper.GrayToBinary(OpenCVHelper.RgbToGray((Bitmap)image), config.Thresh,config.MaxVal);
+            picTopLeft.Image = OpenCVHelper.GrayToBinary(OpenCVHelper.RgbToGray((Bitmap)image), config.Thresh, config.MaxVal);
         }
+
+        private void btnShrink_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigShrink();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            var img = (Bitmap)picTopLeft.Image;
+            picTopLeft.Image = OpenCVHelper.Shrink(img, config.ShrinkRate);
+        }
+
+        private void btnStructure_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigStructure();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            var img = (Bitmap)picTopLeft.Image;
+            picTopLeft.Image = OpenCVHelper.Structure(img, config.SWidth, config.SHeight);
+        }
+        #endregion
 
         #region ±ﬂ‘µºÏ≤‚
         private void btnCanny_Click(object sender, EventArgs e)

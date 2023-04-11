@@ -54,9 +54,9 @@ namespace GUI4OpenCV.Helpers
         /// <param name="bitmap"></param>
         /// <param name="p"></param>
         /// <returns></returns>
-        public static Bitmap Structure(Bitmap bitmap, int p = 2)
+        public static Bitmap Structure(Bitmap bitmap, int width = 2, int height=2)
         {
-            var element = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(p, p));
+            var element = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(width, height));
             var dltDst = new Mat();
             Cv2.Dilate(bitmap.ToMat(), dltDst, element);
             var t = dltDst.ToBitmap();

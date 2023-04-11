@@ -36,6 +36,12 @@
     <Compile Update="ConfigWindows\ConfigGrayToBanary.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConfigWindows\ConfigStructure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConfigWindows\ConfigShrink.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigOpaque.cs">
       <SubType>Form</SubType>
     </Compile>
