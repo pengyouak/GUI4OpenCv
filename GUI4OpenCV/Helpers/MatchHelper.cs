@@ -138,10 +138,10 @@ namespace GUI4OpenCV.Helpers
 
         public static Mat FindMatFromImageByBinary(Bitmap imgSrc, Bitmap imgSub, double threshold = 0.9)
         {
-            var src = OpenCVHelper.RgbToGray(imgSrc);
+            var src = PretreatmentHelper.RgbToGray(imgSrc);
             //src = OpenCVHelper.GrayToBinary(src);
 
-            var dst = OpenCVHelper.RgbToGray(imgSub);
+            var dst = PretreatmentHelper.RgbToGray(imgSub);
             //dst = OpenCVHelper.GrayToBinary(dst);
 
             return FindMatFromImage(src, dst, threshold);
@@ -184,23 +184,23 @@ namespace GUI4OpenCV.Helpers
 
             if (matchOptimizeOptions.Gray)
             {
-                src = OpenCVHelper.RgbToGray(src);
-                dst = OpenCVHelper.RgbToGray(dst);
+                src = PretreatmentHelper.RgbToGray(src);
+                dst = PretreatmentHelper.RgbToGray(dst);
             }
             if (matchOptimizeOptions.Blur)
             {
-                src = OpenCVHelper.Blur(src);
-                dst = OpenCVHelper.Blur(dst);
+                src = FilterHelper.Blur(src);
+                dst = FilterHelper.Blur(dst);
             }
             if (matchOptimizeOptions.Binary)
             {
-                src = OpenCVHelper.GrayToBinary(src);
-                dst = OpenCVHelper.GrayToBinary(dst);
+                src = PretreatmentHelper.GrayToBinary(src);
+                dst = PretreatmentHelper.GrayToBinary(dst);
             }
             if (matchOptimizeOptions.Structure)
             {
-                src = OpenCVHelper.Structure(src);
-                dst = OpenCVHelper.Structure(dst);
+                src = PretreatmentHelper.Structure(src);
+                dst = PretreatmentHelper.Structure(dst);
             }
             if (matchOptimizeOptions.Canny)
             {

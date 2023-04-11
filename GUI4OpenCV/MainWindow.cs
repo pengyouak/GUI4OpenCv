@@ -79,7 +79,7 @@ namespace GUI4OpenCV
 
         private void btnGry_Click(object sender, EventArgs e)
         {
-            picTopLeft.Image = OpenCVHelper.RgbToGray((Bitmap)picTopLeft.Image);
+            picTopLeft.Image = PretreatmentHelper.RgbToGray((Bitmap)picTopLeft.Image);
         }
 
         private void btnBanary_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace GUI4OpenCV
             if (config.ShowDialog() != DialogResult.OK) return;
 
             var image = Image.FromFile(_sourceImagePath);
-            picTopLeft.Image = OpenCVHelper.GrayToBinary(OpenCVHelper.RgbToGray((Bitmap)image), config.Thresh, config.MaxVal);
+            picTopLeft.Image = PretreatmentHelper.GrayToBinary(PretreatmentHelper.RgbToGray((Bitmap)image), config.Thresh, config.MaxVal);
         }
 
         private void btnShrink_Click(object sender, EventArgs e)
@@ -97,7 +97,7 @@ namespace GUI4OpenCV
             if (config.ShowDialog() != DialogResult.OK) return;
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopLeft.Image = OpenCVHelper.Shrink(img, config.ShrinkRate);
+            picTopLeft.Image = PretreatmentHelper.Shrink(img, config.ShrinkRate);
         }
 
         private void btnStructure_Click(object sender, EventArgs e)
@@ -106,7 +106,7 @@ namespace GUI4OpenCV
             if (config.ShowDialog() != DialogResult.OK) return;
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopLeft.Image = OpenCVHelper.Structure(img, config.SWidth, config.SHeight);
+            picTopLeft.Image = PretreatmentHelper.Structure(img, config.SWidth, config.SHeight);
         }
         #endregion
 
@@ -275,7 +275,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.Blur(img, config.BlurWidth, config.BlurHeight);
+            picTopRight.Image = FilterHelper.Blur(img, config.BlurWidth, config.BlurHeight);
         }
 
         private void btnMedianBlur_Click(object sender, EventArgs e)
@@ -293,7 +293,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.MedianBlur(img, config.KSize);
+            picTopRight.Image = FilterHelper.MedianBlur(img, config.KSize);
         }
 
         private void btnBilateralFilter_Click(object sender, EventArgs e)
@@ -311,7 +311,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.BilateralFilter(img, config.D, config.SigmaColor, config.SigmaSpace);
+            picTopRight.Image = FilterHelper.BilateralFilter(img, config.D, config.SigmaColor, config.SigmaSpace);
         }
 
         private void btnOpaque_Click(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.Opaque(img, config.KSize);
+            picTopRight.Image = FilterHelper.Opaque(img, config.KSize);
         }
 
         private void btnGaussianBlur_Click(object sender, EventArgs e)
@@ -347,7 +347,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.GaussianBlur(img, config.KSize, config.SigmaX);
+            picTopRight.Image = FilterHelper.GaussianBlur(img, config.KSize, config.SigmaX);
         }
 
         private void btnBoxFilter_Click(object sender, EventArgs e)
@@ -365,7 +365,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.BoxFilter(img, config.KSize);
+            picTopRight.Image = FilterHelper.BoxFilter(img, config.KSize);
         }
 
         private void btnMorphologyEx_Click(object sender, EventArgs e)
@@ -383,7 +383,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.MorphologyEx(img, config.MorphTypes);
+            picTopRight.Image = FilterHelper.MorphologyEx(img, config.MorphTypes);
         }
 
         #endregion
