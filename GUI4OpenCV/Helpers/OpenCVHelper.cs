@@ -1,7 +1,5 @@
-﻿using NumSharp;
-using OpenCvSharp;
+﻿using OpenCvSharp;
 using OpenCvSharp.Extensions;
-using System.IO;
 
 namespace GUI4OpenCV.Helpers
 {

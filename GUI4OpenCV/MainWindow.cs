@@ -169,28 +169,49 @@ namespace GUI4OpenCV
 
         private void btnKrisch_Click(object sender, EventArgs e)
         {
-            ChangeTable(2, 3);
+            var config = new ConfigKrisch();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(3, 4);
             var picTopMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
             var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            var picMidLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picMidMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picMidMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
             var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
             var picBottomMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
 
             SetControlPosition(new List<(Control, Point)>
             {
                 (picTopMid,new Point(0,1)),
-                (picTopRight,new Point(0,2)),
-                (picBottomLeft,new Point(1,0)),
-                (picBottomMid,new Point(1,1)),
-                (picBottomRight,new Point(1,2)),
+                (picTopMidRight,new Point(0,2)),
+                (picTopRight,new Point(0,3)),
+
+                (picMidLeft,new Point(1,0)),
+                (picMidMid,new Point(1,1)),
+                (picMidMidRight,new Point(1,2)),
+                (picMidRight,new Point(1,3)),
+
+                (picBottomLeft,new Point(2,0)),
+                (picBottomMid,new Point(2,1)),
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopMid.Image = FindEdgesHelper.Krisch(img);
-            picTopRight.Image = FindEdgesHelper.KrischNorth(img);
-            picBottomLeft.Image = FindEdgesHelper.KrischNorthWest(img);
-            picBottomMid.Image = FindEdgesHelper.KrischWest(img);
-            picBottomRight.Image = FindEdgesHelper.KrischSouthWest(img);
+            picTopMid.Image = FindEdgesHelper.Krisch(img, config.Alpha, config.Beta, config.Delta);
+            picTopMidRight.Image = FindEdgesHelper.KrischNorth(img, config.Delta);
+            picTopRight.Image = FindEdgesHelper.KrischNorthEast(img, config.Delta);
+
+            picMidLeft.Image = FindEdgesHelper.KrischEast(img, config.Delta);
+            picMidMid.Image = FindEdgesHelper.KrischSouthEast(img, config.Delta);
+            picMidMidRight.Image = FindEdgesHelper.KrischSouth(img, config.Delta);
+            picMidRight.Image = FindEdgesHelper.KrischSouthWest(img, config.Delta);
+
+            picBottomLeft.Image = FindEdgesHelper.KrischWest(img, config.Delta);
+            picBottomMid.Image = FindEdgesHelper.KrischNorthWest(img, config.Delta);
         }
         #endregion
     }

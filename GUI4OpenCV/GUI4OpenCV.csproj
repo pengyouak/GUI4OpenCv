@@ -20,4 +20,10 @@
     <Folder Include="Images\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="ConfigWindows\ConfigKrisch.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>
