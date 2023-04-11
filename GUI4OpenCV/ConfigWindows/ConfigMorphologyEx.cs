@@ -1,13 +1,5 @@
-﻿using OpenCvSharp;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using GUI4OpenCV.Extensions;
+using OpenCvSharp;
 
 namespace GUI4OpenCV.ConfigWindows
 {
@@ -32,7 +24,7 @@ namespace GUI4OpenCV.ConfigWindows
         {
             if (((MorphTypes)cboMorphTypes.SelectedItem) == MorphTypes.HitMiss)
             {
-                MessageBox.Show("此类型会执行异常，暂不支持选择，或者可以通过代码自行修正后选择。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                "此类型会执行异常，暂不支持选择，或者可以通过代码自行修正后选择。".ShowInformationMessageBox();
                 return;
             }
 
