@@ -32,6 +32,7 @@
             table = new TableLayoutPanel();
             picTopLeft = new PictureBox();
             plOperates = new Panel();
+            btnKrisch = new Button();
             btnPrewitt = new Button();
             btnLaplace = new Button();
             btnSobel = new Button();
@@ -40,7 +41,6 @@
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnKrisch = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -102,6 +102,16 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(595, 757);
             plOperates.TabIndex = 1;
+            // 
+            // btnKrisch
+            // 
+            btnKrisch.Location = new Point(187, 215);
+            btnKrisch.Name = "btnKrisch";
+            btnKrisch.Size = new Size(131, 29);
+            btnKrisch.TabIndex = 1;
+            btnKrisch.Text = "Krisch";
+            btnKrisch.UseVisualStyleBackColor = true;
+            btnKrisch.Click += btnKrisch_Click;
             // 
             // btnPrewitt
             // 
@@ -167,7 +177,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(171, 9);
+            label2.Location = new Point(217, 9);
             label2.Name = "label2";
             label2.Size = new Size(65, 19);
             label2.TabIndex = 0;
@@ -177,21 +187,11 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(17, 9);
+            label1.Location = new Point(52, 9);
             label1.Name = "label1";
-            label1.Size = new Size(51, 19);
+            label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
-            label1.Text = "label1";
-            // 
-            // btnKrisch
-            // 
-            btnKrisch.Location = new Point(187, 215);
-            btnKrisch.Name = "btnKrisch";
-            btnKrisch.Size = new Size(131, 29);
-            btnKrisch.TabIndex = 1;
-            btnKrisch.Text = "Krisch";
-            btnKrisch.UseVisualStyleBackColor = true;
-            btnKrisch.Click += btnKrisch_Click;
+            label1.Text = "图像预处理";
             // 
             // MainWindow
             // 
