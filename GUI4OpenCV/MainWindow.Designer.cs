@@ -105,7 +105,7 @@
             // 
             // btnKrisch
             // 
-            btnKrisch.Location = new Point(187, 215);
+            btnKrisch.Location = new Point(175, 215);
             btnKrisch.Name = "btnKrisch";
             btnKrisch.Size = new Size(131, 29);
             btnKrisch.TabIndex = 1;
@@ -115,7 +115,7 @@
             // 
             // btnPrewitt
             // 
-            btnPrewitt.Location = new Point(187, 180);
+            btnPrewitt.Location = new Point(175, 180);
             btnPrewitt.Name = "btnPrewitt";
             btnPrewitt.Size = new Size(131, 29);
             btnPrewitt.TabIndex = 1;
@@ -125,7 +125,7 @@
             // 
             // btnLaplace
             // 
-            btnLaplace.Location = new Point(187, 145);
+            btnLaplace.Location = new Point(175, 145);
             btnLaplace.Name = "btnLaplace";
             btnLaplace.Size = new Size(131, 29);
             btnLaplace.TabIndex = 1;
@@ -135,7 +135,7 @@
             // 
             // btnSobel
             // 
-            btnSobel.Location = new Point(187, 110);
+            btnSobel.Location = new Point(175, 110);
             btnSobel.Name = "btnSobel";
             btnSobel.Size = new Size(131, 29);
             btnSobel.TabIndex = 1;
@@ -145,7 +145,7 @@
             // 
             // btnRoberts
             // 
-            btnRoberts.Location = new Point(187, 75);
+            btnRoberts.Location = new Point(175, 75);
             btnRoberts.Name = "btnRoberts";
             btnRoberts.Size = new Size(131, 29);
             btnRoberts.TabIndex = 1;
@@ -155,7 +155,7 @@
             // 
             // btnCanny
             // 
-            btnCanny.Location = new Point(187, 40);
+            btnCanny.Location = new Point(175, 40);
             btnCanny.Name = "btnCanny";
             btnCanny.Size = new Size(131, 29);
             btnCanny.TabIndex = 1;
@@ -177,7 +177,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(217, 9);
+            label2.Location = new Point(205, 9);
             label2.Name = "label2";
             label2.Size = new Size(65, 19);
             label2.TabIndex = 0;
