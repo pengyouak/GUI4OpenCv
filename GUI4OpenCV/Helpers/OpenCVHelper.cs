@@ -103,6 +103,32 @@ namespace GUI4OpenCV.Helpers
         }
 
         /// <summary>
+        /// 高斯双边滤波
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap BilateralFilter(Bitmap bitmap)
+        {
+            var gaussian = new Mat();
+            Cv2.BilateralFilter(bitmap.ToMat(), gaussian,15,120,10, BorderTypes.Default);
+            return gaussian.ToBitmap();
+        }
+
+        /// <summary>
+        /// 模糊
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap Opaque(Bitmap bitmap)
+        {
+            int ksize = 15;
+            using Mat kernal = Mat.Ones(new OpenCvSharp.Size(ksize, ksize), MatType.CV_32F)/(float)(ksize*ksize);
+            var opaque = new Mat();
+            Cv2.Filter2D(bitmap.ToMat(), opaque, -1,kernal,new OpenCvSharp.Point(-1,-1),0.0, BorderTypes.Default);
+            return opaque.ToBitmap();
+        }
+
+        /// <summary>
         /// 高斯滤波
         /// </summary>
         /// <param name="bitmap"></param>
