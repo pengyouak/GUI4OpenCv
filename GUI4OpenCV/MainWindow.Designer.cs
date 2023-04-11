@@ -38,6 +38,12 @@
             btnLaplace = new Button();
             btnSobel = new Button();
             btnRoberts = new Button();
+            btnMorphologyEx = new Button();
+            btnBoxFilter = new Button();
+            btnGaussianBlur = new Button();
+            btnOpaque = new Button();
+            btnBilateralFilter = new Button();
+            btnMedianBlur = new Button();
             btnBlur = new Button();
             btnCanny = new Button();
             btnSelectImage = new Button();
@@ -97,6 +103,12 @@
             plOperates.Controls.Add(btnLaplace);
             plOperates.Controls.Add(btnSobel);
             plOperates.Controls.Add(btnRoberts);
+            plOperates.Controls.Add(btnMorphologyEx);
+            plOperates.Controls.Add(btnBoxFilter);
+            plOperates.Controls.Add(btnGaussianBlur);
+            plOperates.Controls.Add(btnOpaque);
+            plOperates.Controls.Add(btnBilateralFilter);
+            plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
             plOperates.Controls.Add(btnSelectImage);
@@ -166,6 +178,66 @@
             btnRoberts.Text = "Roberts算子";
             btnRoberts.UseVisualStyleBackColor = true;
             btnRoberts.Click += btnRoberts_Click;
+            // 
+            // btnMorphologyEx
+            // 
+            btnMorphologyEx.Location = new Point(325, 250);
+            btnMorphologyEx.Name = "btnMorphologyEx";
+            btnMorphologyEx.Size = new Size(131, 29);
+            btnMorphologyEx.TabIndex = 1;
+            btnMorphologyEx.Text = "形态学滤波";
+            btnMorphologyEx.UseVisualStyleBackColor = true;
+            btnMorphologyEx.Click += btnMorphologyEx_Click;
+            // 
+            // btnBoxFilter
+            // 
+            btnBoxFilter.Location = new Point(325, 215);
+            btnBoxFilter.Name = "btnBoxFilter";
+            btnBoxFilter.Size = new Size(131, 29);
+            btnBoxFilter.TabIndex = 1;
+            btnBoxFilter.Text = "盒式滤波";
+            btnBoxFilter.UseVisualStyleBackColor = true;
+            btnBoxFilter.Click += btnBoxFilter_Click;
+            // 
+            // btnGaussianBlur
+            // 
+            btnGaussianBlur.Location = new Point(325, 180);
+            btnGaussianBlur.Name = "btnGaussianBlur";
+            btnGaussianBlur.Size = new Size(131, 29);
+            btnGaussianBlur.TabIndex = 1;
+            btnGaussianBlur.Text = "高斯滤波";
+            btnGaussianBlur.UseVisualStyleBackColor = true;
+            btnGaussianBlur.Click += btnGaussianBlur_Click;
+            // 
+            // btnOpaque
+            // 
+            btnOpaque.Location = new Point(325, 145);
+            btnOpaque.Name = "btnOpaque";
+            btnOpaque.Size = new Size(131, 29);
+            btnOpaque.TabIndex = 1;
+            btnOpaque.Text = "模糊";
+            btnOpaque.UseVisualStyleBackColor = true;
+            btnOpaque.Click += btnOpaque_Click;
+            // 
+            // btnBilateralFilter
+            // 
+            btnBilateralFilter.Location = new Point(325, 110);
+            btnBilateralFilter.Name = "btnBilateralFilter";
+            btnBilateralFilter.Size = new Size(131, 29);
+            btnBilateralFilter.TabIndex = 1;
+            btnBilateralFilter.Text = "高斯双边滤波";
+            btnBilateralFilter.UseVisualStyleBackColor = true;
+            btnBilateralFilter.Click += btnBilateralFilter_Click;
+            // 
+            // btnMedianBlur
+            // 
+            btnMedianBlur.Location = new Point(325, 75);
+            btnMedianBlur.Name = "btnMedianBlur";
+            btnMedianBlur.Size = new Size(131, 29);
+            btnMedianBlur.TabIndex = 1;
+            btnMedianBlur.Text = "中值滤波";
+            btnMedianBlur.UseVisualStyleBackColor = true;
+            btnMedianBlur.Click += btnMedianBlur_Click;
             // 
             // btnBlur
             // 
@@ -253,5 +325,11 @@
         private Button btnKrisch;
         private Label label3;
         private Button btnBlur;
+        private Button btnMedianBlur;
+        private Button btnBilateralFilter;
+        private Button btnOpaque;
+        private Button btnGaussianBlur;
+        private Button btnMorphologyEx;
+        private Button btnBoxFilter;
     }
 }

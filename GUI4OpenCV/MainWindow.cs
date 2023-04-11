@@ -236,6 +236,92 @@ namespace GUI4OpenCV
             picTopRight.Image = OpenCVHelper.Blur(img, config.BlurWidth, config.BlurHeight);
         }
 
+        private void btnMedianBlur_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigMedianBlur();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.MedianBlur(img, config.KSize);
+        }
+
+        private void btnBilateralFilter_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigBilateralFilter();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.BilateralFilter(img, config.D, config.SigmaColor, config.SigmaSpace);
+        }
+
+        private void btnOpaque_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigOpaque();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.Opaque(img, config.KSize);
+        }
+
+        private void btnGaussianBlur_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigGaussianBlur();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.GaussianBlur(img, config.KSize, config.SigmaX);
+        }
+
+        private void btnBoxFilter_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnMorphologyEx_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
     }
 }

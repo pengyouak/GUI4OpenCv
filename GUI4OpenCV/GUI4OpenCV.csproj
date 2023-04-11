@@ -21,6 +21,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ConfigWindows\ConfigBilateralFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConfigWindows\ConfigGaussianBlur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConfigWindows\ConfigOpaque.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConfigWindows\ConfigMedianBlur.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigBlur.cs">
       <SubType>Form</SubType>
     </Compile>
