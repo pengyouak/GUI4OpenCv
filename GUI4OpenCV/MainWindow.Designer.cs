@@ -35,10 +35,12 @@
             picBottomLeft = new PictureBox();
             picBottomRight = new PictureBox();
             plOperates = new Panel();
-            btnSelectImage = new Button();
-            label1 = new Label();
+            btnRoberts = new Button();
             btnCanny = new Button();
+            btnSelectImage = new Button();
             label2 = new Label();
+            label1 = new Label();
+            btnSobel = new Button();
             plImages.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -123,6 +125,8 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(btnSobel);
+            plOperates.Controls.Add(btnRoberts);
             plOperates.Controls.Add(btnCanny);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
@@ -131,6 +135,26 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(595, 757);
             plOperates.TabIndex = 1;
+            // 
+            // btnRoberts
+            // 
+            btnRoberts.Location = new Point(187, 75);
+            btnRoberts.Name = "btnRoberts";
+            btnRoberts.Size = new Size(131, 29);
+            btnRoberts.TabIndex = 1;
+            btnRoberts.Text = "Roberts";
+            btnRoberts.UseVisualStyleBackColor = true;
+            btnRoberts.Click += btnRoberts_Click;
+            // 
+            // btnCanny
+            // 
+            btnCanny.Location = new Point(187, 40);
+            btnCanny.Name = "btnCanny";
+            btnCanny.Size = new Size(131, 29);
+            btnCanny.TabIndex = 1;
+            btnCanny.Text = "Canny";
+            btnCanny.UseVisualStyleBackColor = true;
+            btnCanny.Click += btnCanny_Click;
             // 
             // btnSelectImage
             // 
@@ -142,6 +166,16 @@
             btnSelectImage.UseVisualStyleBackColor = true;
             btnSelectImage.Click += btnSelectImage_Click;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(171, 9);
+            label2.Name = "label2";
+            label2.Size = new Size(65, 19);
+            label2.TabIndex = 0;
+            label2.Text = "边缘检测";
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -152,25 +186,15 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // btnCanny
+            // btnSobel
             // 
-            btnCanny.Location = new Point(187, 40);
-            btnCanny.Name = "btnCanny";
-            btnCanny.Size = new Size(131, 29);
-            btnCanny.TabIndex = 1;
-            btnCanny.Text = "边缘检测";
-            btnCanny.UseVisualStyleBackColor = true;
-            btnCanny.Click += btnCanny_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(171, 9);
-            label2.Name = "label2";
-            label2.Size = new Size(51, 19);
-            label2.TabIndex = 0;
-            label2.Text = "label1";
+            btnSobel.Location = new Point(187, 110);
+            btnSobel.Name = "btnSobel";
+            btnSobel.Size = new Size(131, 29);
+            btnSobel.TabIndex = 1;
+            btnSobel.Text = "Sobel";
+            btnSobel.UseVisualStyleBackColor = true;
+            btnSobel.Click += btnSobel_Click;
             // 
             // MainWindow
             // 
@@ -207,5 +231,7 @@
         private Label label1;
         private Button btnCanny;
         private Label label2;
+        private Button btnRoberts;
+        private Button btnSobel;
     }
 }
