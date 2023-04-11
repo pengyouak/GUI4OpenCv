@@ -222,7 +222,6 @@ namespace GUI4OpenCV
             var config = new ConfigBlur();
             if (config.ShowDialog() != DialogResult.OK) return;
 
-
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
@@ -240,7 +239,6 @@ namespace GUI4OpenCV
         {
             var config = new ConfigMedianBlur();
             if (config.ShowDialog() != DialogResult.OK) return;
-
 
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
@@ -260,7 +258,6 @@ namespace GUI4OpenCV
             var config = new ConfigBilateralFilter();
             if (config.ShowDialog() != DialogResult.OK) return;
 
-
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
@@ -278,7 +275,6 @@ namespace GUI4OpenCV
         {
             var config = new ConfigOpaque();
             if (config.ShowDialog() != DialogResult.OK) return;
-
 
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
@@ -298,7 +294,6 @@ namespace GUI4OpenCV
             var config = new ConfigGaussianBlur();
             if (config.ShowDialog() != DialogResult.OK) return;
 
-
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
@@ -314,12 +309,35 @@ namespace GUI4OpenCV
 
         private void btnBoxFilter_Click(object sender, EventArgs e)
         {
+            var config = new ConfigBoxFilter();
+            if (config.ShowDialog() != DialogResult.OK) return;
 
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.BoxFilter(img, config.KSize);
         }
 
         private void btnMorphologyEx_Click(object sender, EventArgs e)
         {
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
 
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.MorphologyEx(img);
         }
 
         #endregion

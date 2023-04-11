@@ -27,6 +27,9 @@
     <Compile Update="ConfigWindows\ConfigGaussianBlur.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConfigWindows\ConfigBoxFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigOpaque.cs">
       <SubType>Form</SubType>
     </Compile>
