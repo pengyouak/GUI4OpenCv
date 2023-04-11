@@ -48,6 +48,9 @@ namespace GUI4OpenCV
             table.ResumeLayout();
         }
 
+        #region ÕºœÒ‘§¥¶¿Ì
+
+        #endregion
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
             var dlg = new OpenFileDialog()
@@ -65,6 +68,11 @@ namespace GUI4OpenCV
 
             ChangeTable(1, 1);
             picTopLeft.Image = image;
+        }
+
+        private void btnGry_Click(object sender, EventArgs e)
+        {
+            picTopLeft.Image = OpenCVHelper.RgbToGray((Bitmap)picTopLeft.Image);
         }
 
         #region ±ﬂ‘µºÏ≤‚

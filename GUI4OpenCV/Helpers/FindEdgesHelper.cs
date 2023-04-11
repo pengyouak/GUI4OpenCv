@@ -26,8 +26,7 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap RobertsX(Bitmap bitmap)
         {
-            using Mat dst = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), dst, ColorConversionCodes.BGR2GRAY);
+            using Mat dst = bitmap.ToMat();
 
             using (Mat src = dst)
             using (Mat dstX = new Mat())
@@ -47,8 +46,7 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap RobertsY(Bitmap bitmap)
         {
-            using Mat dst = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), dst, ColorConversionCodes.BGR2GRAY);
+            using Mat dst = bitmap.ToMat();
 
             using (Mat src = dst)
             using (Mat dstY = new Mat())
@@ -87,8 +85,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap SobelX(Bitmap bitmap)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -1, 0, 1 }, { -2, 0, 2 }, { -1, 0, 1 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), 0, 0);
@@ -98,8 +95,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap SobelY(Bitmap bitmap)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -1, -2, -1 }, { 0, 0, 0 }, { 1, 2, 2 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
@@ -132,8 +128,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap Laplace(Bitmap bitmap)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             #region 拉普拉斯算子
             InputArray kernel = InputArray.Create<int>(new int[3, 3] { { 0, -1, 0 }, { -1, 4, -1 }, { 0, -1, 0 } });
             using Mat dstGry = new Mat();
@@ -148,8 +143,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap PrewittX(Bitmap bitmap)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -1, 0, 1 }, { -1, 0, 1 }, { -1, 0, 1 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), 0, 0);
@@ -159,8 +153,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap PrewittY(Bitmap bitmap)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -1, -1, -1 }, { 0, 0, 0 }, { 1, 1, 1 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
@@ -193,8 +186,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischNorth(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { 5, 5, 5 }, { -3, 0, -3 }, { -3, -3, -3 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -204,8 +196,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischNorthEast(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -3, 5, 5 }, { -3, 0, 5 }, { -3, -3, -3 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -215,8 +206,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischEast(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -3, -3, 5 }, { -3, 0, 5 }, { -3, -3, 5 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -226,8 +216,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischSouthEast(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -3, -3, -3 }, { -3, 0, 5 }, { -3, 5, 5 } });
             using Mat dstX = new Mat();
             Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -237,8 +226,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischSouth(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -3, -3, -3 }, { -3, 0, -3 }, { 5, 5, 5 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -248,8 +236,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischSouthWest(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -3, -3, -3 }, { 5, 0, -3 }, { 5, 5, -3 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -259,8 +246,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischWest(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { 5, -3, -3 }, { 5, 0, -3 }, { 5, -3, -3 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), delta, 0);
@@ -270,8 +256,7 @@ namespace GUI4OpenCV.Helpers
 
         public static Bitmap KrischNorthWest(Bitmap bitmap, double delta = 0)
         {
-            using Mat srcGry = new Mat();
-            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            using Mat srcGry = bitmap.ToMat();
             InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { 5, 5, -3 }, { 5, 0, -3 }, { -3, -3, -3 } });
             using Mat dstY = new Mat();
             Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), delta, 0);

@@ -49,6 +49,7 @@
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
+            btnGry = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -111,6 +112,7 @@
             plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
+            plOperates.Controls.Add(btnGry);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
             plOperates.Controls.Add(label1);
@@ -289,6 +291,16 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
+            // btnGry
+            // 
+            btnGry.Location = new Point(27, 75);
+            btnGry.Name = "btnGry";
+            btnGry.Size = new Size(131, 29);
+            btnGry.TabIndex = 1;
+            btnGry.Text = "灰度处理";
+            btnGry.UseVisualStyleBackColor = true;
+            btnGry.Click += btnGry_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -331,5 +343,6 @@
         private Button btnGaussianBlur;
         private Button btnMorphologyEx;
         private Button btnBoxFilter;
+        private Button btnGry;
     }
 }
