@@ -21,6 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ConfigWindows\ConfigBlur.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigKrisch.cs">
       <SubType>Form</SubType>
     </Compile>

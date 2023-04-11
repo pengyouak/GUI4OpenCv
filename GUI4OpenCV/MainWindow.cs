@@ -214,5 +214,28 @@ namespace GUI4OpenCV
             picBottomMid.Image = FindEdgesHelper.KrischNorthWest(img, config.Delta);
         }
         #endregion
+
+        #region ÂË²¨
+
+        private void btnBlur_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigBlur();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = OpenCVHelper.Blur(img, config.BlurWidth, config.BlurHeight);
+        }
+
+        #endregion
     }
 }

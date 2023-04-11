@@ -32,17 +32,17 @@
             table = new TableLayoutPanel();
             picTopLeft = new PictureBox();
             plOperates = new Panel();
+            label3 = new Label();
             btnKrisch = new Button();
             btnPrewitt = new Button();
             btnLaplace = new Button();
             btnSobel = new Button();
             btnRoberts = new Button();
+            btnBlur = new Button();
             btnCanny = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            label3 = new Label();
-            btnBlur = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -107,6 +107,16 @@
             plOperates.Size = new Size(595, 757);
             plOperates.TabIndex = 1;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(374, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(37, 19);
+            label3.TabIndex = 2;
+            label3.Text = "滤波";
+            // 
             // btnKrisch
             // 
             btnKrisch.Location = new Point(175, 215);
@@ -157,6 +167,16 @@
             btnRoberts.UseVisualStyleBackColor = true;
             btnRoberts.Click += btnRoberts_Click;
             // 
+            // btnBlur
+            // 
+            btnBlur.Location = new Point(325, 40);
+            btnBlur.Name = "btnBlur";
+            btnBlur.Size = new Size(131, 29);
+            btnBlur.TabIndex = 1;
+            btnBlur.Text = "均值滤波";
+            btnBlur.UseVisualStyleBackColor = true;
+            btnBlur.Click += btnBlur_Click;
+            // 
             // btnCanny
             // 
             btnCanny.Location = new Point(175, 40);
@@ -196,25 +216,6 @@
             label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(374, 9);
-            label3.Name = "label3";
-            label3.Size = new Size(37, 19);
-            label3.TabIndex = 2;
-            label3.Text = "滤波";
-            // 
-            // btnBlur
-            // 
-            btnBlur.Location = new Point(325, 40);
-            btnBlur.Name = "btnBlur";
-            btnBlur.Size = new Size(131, 29);
-            btnBlur.TabIndex = 1;
-            btnBlur.Text = "均值滤波";
-            btnBlur.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 

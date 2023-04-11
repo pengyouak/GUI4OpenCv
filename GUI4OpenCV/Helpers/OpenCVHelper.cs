@@ -81,11 +81,11 @@ namespace GUI4OpenCV.Helpers
         /// 均值滤波
         /// </summary>
         /// <returns></returns>
-        public static Bitmap Blur(Bitmap bitmap)
+        public static Bitmap Blur(Bitmap bitmap, int width = 3, int heigth=3)
         {
             // 均值滤波
             var blur = new Mat();
-            Cv2.Blur(bitmap.ToMat(), blur, new OpenCvSharp.Size(3, 3));
+            Cv2.Blur(bitmap.ToMat(), blur, new OpenCvSharp.Size(width, heigth));
             return blur.ToBitmap();
         }
 
