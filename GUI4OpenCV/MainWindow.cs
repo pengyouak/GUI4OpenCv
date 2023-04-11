@@ -72,7 +72,6 @@ namespace GUI4OpenCV
         {
             if (!string.IsNullOrWhiteSpace(_sourceImagePath))
             {
-                ChangeTable(1, 1);
                 var image = Image.FromFile(_sourceImagePath);
                 picTopLeft.Image = image;
             }
