@@ -62,10 +62,20 @@ namespace GUI4OpenCV
             if (dlg.ShowDialog() != DialogResult.OK) return;
 
             _sourceImagePath = dlg.FileName;
-            var image = Image.FromFile(dlg.FileName);
 
             ChangeTable(1, 1);
+            var image = Image.FromFile(_sourceImagePath);
             picTopLeft.Image = image;
+        }
+
+        private void btnRestore_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(_sourceImagePath))
+            {
+                ChangeTable(1, 1);
+                var image = Image.FromFile(_sourceImagePath);
+                picTopLeft.Image = image;
+            }
         }
 
         private void btnGry_Click(object sender, EventArgs e)
@@ -111,9 +121,9 @@ namespace GUI4OpenCV
             ChangeTable(2, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -130,9 +140,9 @@ namespace GUI4OpenCV
         private void btnRoberts_Click(object sender, EventArgs e)
         {
             ChangeTable(2, 2);
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -150,9 +160,9 @@ namespace GUI4OpenCV
         private void btnSobel_Click(object sender, EventArgs e)
         {
             ChangeTable(2, 2);
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -170,7 +180,7 @@ namespace GUI4OpenCV
         private void btnLaplace_Click(object sender, EventArgs e)
         {
             ChangeTable(1, 2);
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -184,9 +194,9 @@ namespace GUI4OpenCV
         private void btnPrewitt_Click(object sender, EventArgs e)
         {
             ChangeTable(2, 2);
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -207,17 +217,17 @@ namespace GUI4OpenCV
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(3, 4);
-            var picTopMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picTopMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picTopMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
-            var picMidLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picMidMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picMidMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picMidLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picMidMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picMidMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picMidRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
-            var picBottomMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picBottomMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -259,7 +269,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -277,7 +287,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -295,7 +305,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -313,7 +323,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -331,7 +341,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -349,7 +359,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -367,7 +377,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
             SetControlPosition(new List<(Control, Point)>
             {

@@ -46,13 +46,14 @@
             btnMedianBlur = new Button();
             btnBlur = new Button();
             btnCanny = new Button();
+            btnStructure = new Button();
+            btnShrink = new Button();
             btnBanary = new Button();
             btnGry = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnShrink = new Button();
-            btnStructure = new Button();
+            btnRestore = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -93,7 +94,7 @@
             picTopLeft.Location = new Point(9, 9);
             picTopLeft.Name = "picTopLeft";
             picTopLeft.Size = new Size(376, 365);
-            picTopLeft.SizeMode = PictureBoxSizeMode.CenterImage;
+            picTopLeft.SizeMode = PictureBoxSizeMode.Zoom;
             picTopLeft.TabIndex = 0;
             picTopLeft.TabStop = false;
             // 
@@ -119,6 +120,7 @@
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnGry);
+            plOperates.Controls.Add(btnRestore);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
             plOperates.Controls.Add(label1);
@@ -267,9 +269,29 @@
             btnCanny.UseVisualStyleBackColor = true;
             btnCanny.Click += btnCanny_Click;
             // 
+            // btnStructure
+            // 
+            btnStructure.Location = new Point(27, 215);
+            btnStructure.Name = "btnStructure";
+            btnStructure.Size = new Size(131, 29);
+            btnStructure.TabIndex = 1;
+            btnStructure.Text = "膨胀处理";
+            btnStructure.UseVisualStyleBackColor = true;
+            btnStructure.Click += btnStructure_Click;
+            // 
+            // btnShrink
+            // 
+            btnShrink.Location = new Point(27, 180);
+            btnShrink.Name = "btnShrink";
+            btnShrink.Size = new Size(131, 29);
+            btnShrink.TabIndex = 1;
+            btnShrink.Text = "收缩图像";
+            btnShrink.UseVisualStyleBackColor = true;
+            btnShrink.Click += btnShrink_Click;
+            // 
             // btnBanary
             // 
-            btnBanary.Location = new Point(27, 110);
+            btnBanary.Location = new Point(27, 145);
             btnBanary.Name = "btnBanary";
             btnBanary.Size = new Size(131, 29);
             btnBanary.TabIndex = 1;
@@ -279,7 +301,7 @@
             // 
             // btnGry
             // 
-            btnGry.Location = new Point(27, 75);
+            btnGry.Location = new Point(27, 110);
             btnGry.Name = "btnGry";
             btnGry.Size = new Size(131, 29);
             btnGry.TabIndex = 1;
@@ -317,25 +339,15 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnShrink
+            // btnRestore
             // 
-            btnShrink.Location = new Point(27, 145);
-            btnShrink.Name = "btnShrink";
-            btnShrink.Size = new Size(131, 29);
-            btnShrink.TabIndex = 1;
-            btnShrink.Text = "收缩图像";
-            btnShrink.UseVisualStyleBackColor = true;
-            btnShrink.Click += btnShrink_Click;
-            // 
-            // btnStructure
-            // 
-            btnStructure.Location = new Point(27, 180);
-            btnStructure.Name = "btnStructure";
-            btnStructure.Size = new Size(131, 29);
-            btnStructure.TabIndex = 1;
-            btnStructure.Text = "膨胀处理";
-            btnStructure.UseVisualStyleBackColor = true;
-            btnStructure.Click += btnStructure_Click;
+            btnRestore.Location = new Point(27, 75);
+            btnRestore.Name = "btnRestore";
+            btnRestore.Size = new Size(131, 29);
+            btnRestore.TabIndex = 1;
+            btnRestore.Text = "还原图像";
+            btnRestore.UseVisualStyleBackColor = true;
+            btnRestore.Click += btnRestore_Click;
             // 
             // MainWindow
             // 
@@ -383,5 +395,6 @@
         private Button btnBanary;
         private Button btnStructure;
         private Button btnShrink;
+        private Button btnRestore;
     }
 }
