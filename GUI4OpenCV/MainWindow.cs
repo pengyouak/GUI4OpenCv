@@ -327,6 +327,9 @@ namespace GUI4OpenCV
 
         private void btnMorphologyEx_Click(object sender, EventArgs e)
         {
+            var config = new ConfigMorphologyEx();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
             ChangeTable(1, 2);
             var img = (Bitmap)picTopLeft.Image;
 
@@ -337,7 +340,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.MorphologyEx(img);
+            picTopRight.Image = OpenCVHelper.MorphologyEx(img, config.MorphTypes);
         }
 
         #endregion

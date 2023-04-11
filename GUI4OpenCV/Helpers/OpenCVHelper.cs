@@ -157,13 +157,14 @@ namespace GUI4OpenCV.Helpers
         /// 形态学 Open滤波
         /// </summary>
         /// <param name="bitmap"></param>
+        /// <param name="morphTypes"></param>
         /// <returns></returns>
-        public static Bitmap MorphologyEx(Bitmap bitmap)
+        public static Bitmap MorphologyEx(Bitmap bitmap, MorphTypes morphTypes= MorphTypes.Open)
         {
             // 形态学 Open
-            var morphotoOpen = new Mat();
-            Cv2.MorphologyEx(bitmap.ToMat(), morphotoOpen, MorphTypes.Open, new Mat());
-            return morphotoOpen.ToBitmap();
+            var morph = new Mat();   
+            Cv2.MorphologyEx(bitmap.ToMat(), morph, morphTypes, new Mat(), new OpenCvSharp.Point(-1,-1), (int)BorderTypes.Default);
+            return morph.ToBitmap();
         }
 
         #endregion 滤波
