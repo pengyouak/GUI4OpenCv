@@ -87,9 +87,9 @@ namespace GUI4OpenCV
                 (picBottomRight,new Point(1,1)),
             });
 
-            picTopRight.Image = OpenCVHelper.Canny(img, config.Threshold1, config.Threshold2, config.ApertureSize, config.L2gradient);
-            picBottomLeft.Image = OpenCVHelper.Canny(img, config.Threshold1 / 2, config.Threshold2 / 2, config.ApertureSize, config.L2gradient);
-            picBottomRight.Image = OpenCVHelper.Canny(img, config.Threshold1 / 3, config.Threshold2 / 3, config.ApertureSize, config.L2gradient);
+            picTopRight.Image = FindEdgesHelper.Canny(img, config.Threshold1, config.Threshold2, config.ApertureSize, config.L2gradient);
+            picBottomLeft.Image = FindEdgesHelper.Canny(img, config.Threshold1 / 2, config.Threshold2 / 2, config.ApertureSize, config.L2gradient);
+            picBottomRight.Image = FindEdgesHelper.Canny(img, config.Threshold1 / 3, config.Threshold2 / 3, config.ApertureSize, config.L2gradient);
         }
 
         private void btnRoberts_Click(object sender, EventArgs e)
@@ -107,9 +107,9 @@ namespace GUI4OpenCV
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.Roberts(img);
-            picBottomLeft.Image = OpenCVHelper.RobertsX(img);
-            picBottomRight.Image = OpenCVHelper.RobertsY(img);
+            picTopRight.Image = FindEdgesHelper.Roberts(img);
+            picBottomLeft.Image = FindEdgesHelper.RobertsX(img);
+            picBottomRight.Image = FindEdgesHelper.RobertsY(img);
         }
 
         private void btnSobel_Click(object sender, EventArgs e)
@@ -127,9 +127,9 @@ namespace GUI4OpenCV
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.Sobel(img);
-            picBottomLeft.Image = OpenCVHelper.SobelX(img);
-            picBottomRight.Image = OpenCVHelper.SobelY(img);
+            picTopRight.Image = FindEdgesHelper.Sobel(img);
+            picBottomLeft.Image = FindEdgesHelper.SobelX(img);
+            picBottomRight.Image = FindEdgesHelper.SobelY(img);
         }
 
         private void btnLaplace_Click(object sender, EventArgs e)
@@ -143,7 +143,7 @@ namespace GUI4OpenCV
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.Laplace(img);
+            picTopRight.Image = FindEdgesHelper.Laplace(img);
         }
 
         private void btnPrewitt_Click(object sender, EventArgs e)
@@ -161,9 +161,9 @@ namespace GUI4OpenCV
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.Prewitt(img);
-            picBottomLeft.Image = OpenCVHelper.PrewittX(img);
-            picBottomRight.Image = OpenCVHelper.PrewittY(img);
+            picTopRight.Image = FindEdgesHelper.Prewitt(img);
+            picBottomLeft.Image = FindEdgesHelper.PrewittX(img);
+            picBottomRight.Image = FindEdgesHelper.PrewittY(img);
         }
 
         private void btnKrisch_Click(object sender, EventArgs e)
@@ -185,11 +185,11 @@ namespace GUI4OpenCV
             });
 
             var img = (Bitmap)picTopLeft.Image;
-            picTopMid.Image = OpenCVHelper.Krisch(img);
-            picTopRight.Image = OpenCVHelper.KrischNorth(img);
-            picBottomLeft.Image = OpenCVHelper.KrischNorthWest(img);
-            picBottomMid.Image = OpenCVHelper.KrischWest(img);
-            picBottomRight.Image = OpenCVHelper.KrischSouthWest(img);
+            picTopMid.Image = FindEdgesHelper.Krisch(img);
+            picTopRight.Image = FindEdgesHelper.KrischNorth(img);
+            picBottomLeft.Image = FindEdgesHelper.KrischNorthWest(img);
+            picBottomMid.Image = FindEdgesHelper.KrischWest(img);
+            picBottomRight.Image = FindEdgesHelper.KrischSouthWest(img);
         }
     }
 }

@@ -204,8 +204,8 @@ namespace GUI4OpenCV.Helpers
             }
             if (matchOptimizeOptions.Canny)
             {
-                src = OpenCVHelper.Canny(src);
-                dst = OpenCVHelper.Canny(dst);
+                src = FindEdgesHelper.Canny(src);
+                dst = FindEdgesHelper.Canny(dst);
             }
 
             return FindPicFromImage(src, dst, threshold);
