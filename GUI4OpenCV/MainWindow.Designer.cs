@@ -46,10 +46,11 @@
             btnMedianBlur = new Button();
             btnBlur = new Button();
             btnCanny = new Button();
+            btnGry = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnGry = new Button();
+            btnBanary = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -112,6 +113,7 @@
             plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
+            plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnGry);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
@@ -261,6 +263,16 @@
             btnCanny.UseVisualStyleBackColor = true;
             btnCanny.Click += btnCanny_Click;
             // 
+            // btnGry
+            // 
+            btnGry.Location = new Point(27, 75);
+            btnGry.Name = "btnGry";
+            btnGry.Size = new Size(131, 29);
+            btnGry.TabIndex = 1;
+            btnGry.Text = "灰度处理";
+            btnGry.UseVisualStyleBackColor = true;
+            btnGry.Click += btnGry_Click;
+            // 
             // btnSelectImage
             // 
             btnSelectImage.Location = new Point(27, 40);
@@ -291,15 +303,15 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnGry
+            // btnBanary
             // 
-            btnGry.Location = new Point(27, 75);
-            btnGry.Name = "btnGry";
-            btnGry.Size = new Size(131, 29);
-            btnGry.TabIndex = 1;
-            btnGry.Text = "灰度处理";
-            btnGry.UseVisualStyleBackColor = true;
-            btnGry.Click += btnGry_Click;
+            btnBanary.Location = new Point(27, 110);
+            btnBanary.Name = "btnBanary";
+            btnBanary.Size = new Size(131, 29);
+            btnBanary.TabIndex = 1;
+            btnBanary.Text = "二值处理";
+            btnBanary.UseVisualStyleBackColor = true;
+            btnBanary.Click += btnBanary_Click;
             // 
             // MainWindow
             // 
@@ -344,5 +356,6 @@
         private Button btnMorphologyEx;
         private Button btnBoxFilter;
         private Button btnGry;
+        private Button btnBanary;
     }
 }

@@ -75,6 +75,15 @@ namespace GUI4OpenCV
             picTopLeft.Image = OpenCVHelper.RgbToGray((Bitmap)picTopLeft.Image);
         }
 
+        private void btnBanary_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigGrayToBanary();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            var image = Image.FromFile(_sourceImagePath);
+            picTopLeft.Image = OpenCVHelper.GrayToBinary(OpenCVHelper.RgbToGray((Bitmap)image), config.Thresh,config.MaxVal);
+        }
+
         #region ±ßÔµ¼ì²â
         private void btnCanny_Click(object sender, EventArgs e)
         {

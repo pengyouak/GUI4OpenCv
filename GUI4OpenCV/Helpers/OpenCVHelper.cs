@@ -39,25 +39,13 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <param name="thresh"></param>
+        /// <param name="maxval"></param>
         /// <returns></returns>
-        public static Bitmap GrayToBinary(Bitmap bitmap, double thresh = 135)
-        {
-            return Threshold(bitmap, ThresholdTypes.Binary, thresh);
-        }
-
-        /// <summary>
-        /// Threshold
-        /// </summary>
-        /// <param name="bitmap"></param>
-        /// <param name="thresholdTypes"></param>
-        /// <param name="thresh"></param>
-        /// <returns></returns>
-        public static Bitmap Threshold(Bitmap bitmap, ThresholdTypes thresholdTypes, double thresh = 125)
+        public static Bitmap GrayToBinary(Bitmap bitmap, double thresh = 135, double maxval=255)
         {
             var thdDst = new Mat();
-            var grayfirst = Cv2.Threshold(bitmap.ToMat(), thdDst, thresh, 255, thresholdTypes);
-            var t = thdDst.ToBitmap();
-            return t;
+            Cv2.Threshold(bitmap.ToMat(), thdDst, thresh, maxval, ThresholdTypes.Binary);
+            return thdDst.ToBitmap();
         }
 
         /// <summary>
