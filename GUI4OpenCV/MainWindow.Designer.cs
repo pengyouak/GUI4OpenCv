@@ -50,10 +50,12 @@
             btnShrink = new Button();
             btnBanary = new Button();
             btnGry = new Button();
+            btnRestore = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnRestore = new Button();
+            button1 = new Button();
+            label4 = new Label();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -68,7 +70,7 @@
             plImages.Location = new Point(12, 12);
             plImages.Name = "plImages";
             plImages.Padding = new Padding(1);
-            plImages.Size = new Size(779, 757);
+            plImages.Size = new Size(853, 757);
             plImages.TabIndex = 0;
             // 
             // table
@@ -85,7 +87,7 @@
             table.RowCount = 2;
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             table.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            table.Size = new Size(777, 755);
+            table.Size = new Size(851, 755);
             table.TabIndex = 0;
             // 
             // picTopLeft
@@ -93,7 +95,7 @@
             picTopLeft.Dock = DockStyle.Fill;
             picTopLeft.Location = new Point(9, 9);
             picTopLeft.Name = "picTopLeft";
-            picTopLeft.Size = new Size(376, 365);
+            picTopLeft.Size = new Size(413, 365);
             picTopLeft.SizeMode = PictureBoxSizeMode.Zoom;
             picTopLeft.TabIndex = 0;
             picTopLeft.TabStop = false;
@@ -102,6 +104,7 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(label4);
             plOperates.Controls.Add(label3);
             plOperates.Controls.Add(btnKrisch);
             plOperates.Controls.Add(btnPrewitt);
@@ -114,6 +117,7 @@
             plOperates.Controls.Add(btnOpaque);
             plOperates.Controls.Add(btnBilateralFilter);
             plOperates.Controls.Add(btnMedianBlur);
+            plOperates.Controls.Add(button1);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
             plOperates.Controls.Add(btnStructure);
@@ -124,9 +128,9 @@
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
             plOperates.Controls.Add(label1);
-            plOperates.Location = new Point(797, 12);
+            plOperates.Location = new Point(871, 12);
             plOperates.Name = "plOperates";
-            plOperates.Size = new Size(595, 757);
+            plOperates.Size = new Size(636, 757);
             plOperates.TabIndex = 1;
             // 
             // label3
@@ -309,6 +313,16 @@
             btnGry.UseVisualStyleBackColor = true;
             btnGry.Click += btnGry_Click;
             // 
+            // btnRestore
+            // 
+            btnRestore.Location = new Point(27, 75);
+            btnRestore.Name = "btnRestore";
+            btnRestore.Size = new Size(131, 29);
+            btnRestore.TabIndex = 1;
+            btnRestore.Text = "还原图像";
+            btnRestore.UseVisualStyleBackColor = true;
+            btnRestore.Click += btnRestore_Click;
+            // 
             // btnSelectImage
             // 
             btnSelectImage.Location = new Point(27, 40);
@@ -339,22 +353,31 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnRestore
+            // button1
             // 
-            btnRestore.Location = new Point(27, 75);
-            btnRestore.Name = "btnRestore";
-            btnRestore.Size = new Size(131, 29);
-            btnRestore.TabIndex = 1;
-            btnRestore.Text = "还原图像";
-            btnRestore.UseVisualStyleBackColor = true;
-            btnRestore.Click += btnRestore_Click;
+            button1.Location = new Point(475, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 29);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnBlur_Click;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(524, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 19);
+            label4.TabIndex = 2;
+            label4.Text = "滤波";
             // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1404, 781);
+            ClientSize = new Size(1519, 781);
             Controls.Add(plOperates);
             Controls.Add(plImages);
             Name = "MainWindow";
@@ -396,5 +419,7 @@
         private Button btnStructure;
         private Button btnShrink;
         private Button btnRestore;
+        private Label label4;
+        private Button button1;
     }
 }
