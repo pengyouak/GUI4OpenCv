@@ -163,7 +163,7 @@ namespace GUI4OpenCV.Helpers
         {
             // 形态学 Open
             var morph = new Mat();   
-            Cv2.MorphologyEx(bitmap.ToMat(), morph, morphTypes, new Mat(), new OpenCvSharp.Point(-1,-1), (int)BorderTypes.Default);
+            Cv2.MorphologyEx(bitmap.ToMat(), morph, morphTypes, new Mat(), new OpenCvSharp.Point(-1,-1), 1, BorderTypes.Default);
             return morph.ToBitmap();
         }
 

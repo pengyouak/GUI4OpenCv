@@ -27,5 +27,16 @@ namespace GUI4OpenCV.ConfigWindows
             }
             cboMorphTypes.SelectedIndex = 0;
         }
+
+        protected override void btnOK_Click(object sender, EventArgs e)
+        {
+            if (((MorphTypes)cboMorphTypes.SelectedItem) == MorphTypes.HitMiss)
+            {
+                MessageBox.Show("此类型会执行异常，暂不支持选择，或者可以通过代码自行修正后选择。", "提示", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            base.btnOK_Click(sender, e);
+        }
     }
 }
