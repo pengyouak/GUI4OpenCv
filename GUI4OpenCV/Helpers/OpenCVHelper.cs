@@ -81,7 +81,7 @@ namespace GUI4OpenCV.Helpers
         /// 均值滤波
         /// </summary>
         /// <returns></returns>
-        public static Bitmap Blur(Bitmap bitmap, int width = 3, int heigth=3)
+        public static Bitmap Blur(Bitmap bitmap, int width = 3, int heigth = 3)
         {
             // 均值滤波
             var blur = new Mat();
@@ -94,11 +94,11 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap MedianBlur(Bitmap bitmap)
+        public static Bitmap MedianBlur(Bitmap bitmap, int ksize = 3)
         {
             // 中值滤波
             var median = new Mat();
-            Cv2.MedianBlur(bitmap.ToMat(), median, 3);
+            Cv2.MedianBlur(bitmap.ToMat(), median, ksize);
             return median.ToBitmap();
         }
 
@@ -107,10 +107,10 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap BilateralFilter(Bitmap bitmap)
+        public static Bitmap BilateralFilter(Bitmap bitmap, int d = 15, double sigmaColor = 120, double sigmaSpace = 10)
         {
             var gaussian = new Mat();
-            Cv2.BilateralFilter(bitmap.ToMat(), gaussian,15,120,10, BorderTypes.Default);
+            Cv2.BilateralFilter(bitmap.ToMat(), gaussian, d, sigmaColor, sigmaSpace, BorderTypes.Default);
             return gaussian.ToBitmap();
         }
 
@@ -119,12 +119,11 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap Opaque(Bitmap bitmap)
+        public static Bitmap Opaque(Bitmap bitmap, int ksize = 15)
         {
-            int ksize = 15;
-            using Mat kernal = Mat.Ones(new OpenCvSharp.Size(ksize, ksize), MatType.CV_32F)/(float)(ksize*ksize);
+            using Mat kernal = Mat.Ones(new OpenCvSharp.Size(ksize, ksize), MatType.CV_32F) / (float)(ksize * ksize);
             var opaque = new Mat();
-            Cv2.Filter2D(bitmap.ToMat(), opaque, -1,kernal,new OpenCvSharp.Point(-1,-1),0.0, BorderTypes.Default);
+            Cv2.Filter2D(bitmap.ToMat(), opaque, -1, kernal, new OpenCvSharp.Point(-1, -1), 0.0, BorderTypes.Default);
             return opaque.ToBitmap();
         }
 
@@ -133,11 +132,11 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap GaussianBlur(Bitmap bitmap)
+        public static Bitmap GaussianBlur(Bitmap bitmap, int ksize = 3, double sigmaX = 0)
         {
             // 高斯滤波
             var gaussian = new Mat();
-            Cv2.GaussianBlur(bitmap.ToMat(), gaussian, new OpenCvSharp.Size(3, 3), 0);
+            Cv2.GaussianBlur(bitmap.ToMat(), gaussian, new OpenCvSharp.Size(ksize, ksize), sigmaX);
             return gaussian.ToBitmap();
         }
 
@@ -146,11 +145,11 @@ namespace GUI4OpenCV.Helpers
         /// </summary>
         /// <param name="bitmap"></param>
         /// <returns></returns>
-        public static Bitmap BoxFilter(Bitmap bitmap)
+        public static Bitmap BoxFilter(Bitmap bitmap, int ksize = 5)
         {
             // 盒式滤波
             var box = new Mat();
-            Cv2.BoxFilter(bitmap.ToMat(), box, MatType.CV_8UC3, new OpenCvSharp.Size(5, 5));
+            Cv2.BoxFilter(bitmap.ToMat(), box, MatType.CV_8UC3, new OpenCvSharp.Size(ksize, ksize));
             return box.ToBitmap();
         }
 
