@@ -165,5 +165,31 @@ namespace GUI4OpenCV
             picBottomLeft.Image = OpenCVHelper.PrewittX(img);
             picBottomRight.Image = OpenCVHelper.PrewittY(img);
         }
+
+        private void btnKrisch_Click(object sender, EventArgs e)
+        {
+            ChangeTable(2, 3);
+            var picTopMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picBottomMid = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+            var picBottomRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopMid,new Point(0,1)),
+                (picTopRight,new Point(0,2)),
+                (picBottomLeft,new Point(1,0)),
+                (picBottomMid,new Point(1,1)),
+                (picBottomRight,new Point(1,2)),
+            });
+
+            var img = (Bitmap)picTopLeft.Image;
+            picTopMid.Image = OpenCVHelper.Krisch(img);
+            picTopRight.Image = OpenCVHelper.KrischNorth(img);
+            picBottomLeft.Image = OpenCVHelper.KrischNorthWest(img);
+            picBottomMid.Image = OpenCVHelper.KrischWest(img);
+            picBottomRight.Image = OpenCVHelper.KrischSouthWest(img);
+        }
     }
 }

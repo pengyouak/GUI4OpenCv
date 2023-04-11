@@ -235,18 +235,127 @@ namespace GUI4OpenCV.Helpers
         /// <param name="path"></param>
         public static Bitmap Prewitt(Bitmap bitmap)
         {
-            var sobelX = PrewittX(bitmap);
-            var sobelY = PrewittY(bitmap);
+            var prewittX = PrewittX(bitmap);
+            var prewittY = PrewittY(bitmap);
 
             using Mat x = new Mat();
             using Mat y = new Mat();
-            Cv2.ConvertScaleAbs(sobelX.ToMat(), x);
-            Cv2.ConvertScaleAbs(sobelY.ToMat(), y);
+            Cv2.ConvertScaleAbs(prewittX.ToMat(), x);
+            Cv2.ConvertScaleAbs(prewittY.ToMat(), y);
 
-            using Mat sobel = new Mat();
-            Cv2.AddWeighted(x, 0.5, y, 0.5, 0, sobel);
+            using Mat prewitt = new Mat();
+            Cv2.AddWeighted(x, 0.5, y, 0.5, 0, prewitt);
 
-            return sobel.ToBitmap();
+            return prewitt.ToBitmap();
+        }
+        #endregion
+
+        #region Krisch算子
+
+        public static Bitmap KrischNorth(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Krisch算子 North 向量
+            ///*
+            // *   -3  -3    5
+            // *   -3   0    5
+            // *   -3  -3    5
+            // *   
+            // *   二位矩阵
+            // */
+            InputArray kernelRX = InputArray.Create<int>(new int[3, 3] { { -3, -3, 5 }, { -3, 0, 5 }, { -3, -3, 5 } });
+            using Mat dstX = new Mat();
+            Cv2.Filter2D(srcGry, dstX, -1, kernelRX, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstX.ToBitmap();
+        }
+
+        public static Bitmap KrischNorthWest(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Krisch算子 North West 向量
+            ///*
+            //*     -3    -5     5
+            //*     -3     0     5
+            //*     -3    -3    -3
+            //*   
+            //*   二位矩阵
+            //*/
+            InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { -3, -5, 5 }, { -3, 0, 5 }, { -3, -3, -3 } });
+            using Mat dstY = new Mat();
+            Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstY.ToBitmap();
+        }
+
+        public static Bitmap KrischWest(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Krisch算子 West向量
+            ///*
+            //*      5     5     5
+            //*     -3     0    -3
+            //*     -3    -3    -3
+            //*   
+            //*   二位矩阵
+            //*/
+            InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { 5, 5, 5 }, { -3, 0, -3 }, { -3, -3, -3 } });
+            using Mat dstY = new Mat();
+            Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstY.ToBitmap();
+        }
+
+        public static Bitmap KrischSouthWest(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            //Prewitt算子 Y向量
+            ///*
+            //*      5     5    -3
+            //*      5     0    -3
+            //*     -3    -3    -3
+            //*   
+            //*   二位矩阵
+            //*/
+            InputArray kernelRY = InputArray.Create<int>(new int[3, 3] { { 5, -5, -3 }, { 5, 0, -3 }, { -3, -3, -3 } });
+            using Mat dstY = new Mat();
+            Cv2.Filter2D(srcGry, dstY, -1, kernelRY, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstY.ToBitmap();
+        }
+
+        /// <summary>
+        /// 边缘检测Krisch算子
+        /// </summary>
+        /// <param name="path"></param>
+        public static Bitmap Krisch(Bitmap bitmap)
+        {
+            var krischN = KrischNorth(bitmap);
+            var krischNW = KrischNorthWest(bitmap);
+            var krischW = KrischWest(bitmap);
+            var krischSW = KrischSouthWest(bitmap);
+
+            using Mat north = new Mat();
+            using Mat northWest = new Mat();
+            using Mat west = new Mat();
+            using Mat southWest = new Mat();
+            Cv2.ConvertScaleAbs(krischN.ToMat(), north);
+            Cv2.ConvertScaleAbs(krischNW.ToMat(), northWest);
+            Cv2.ConvertScaleAbs(krischW.ToMat(), west);
+            Cv2.ConvertScaleAbs(krischSW.ToMat(), southWest);
+
+            using Mat krisch = new Mat();
+            using Mat krisch1 = new Mat();
+            using Mat krisch2 = new Mat();
+            Cv2.AddWeighted(north, 0.5, northWest, 0.5, 0, krisch1);
+            Cv2.AddWeighted(west, 0.5, southWest, 0.5, 0, krisch2);
+            Cv2.AddWeighted(krisch1, 0.5, krisch2, 0.5, 0, krisch);
+
+            return krisch.ToBitmap();
         }
         #endregion
 

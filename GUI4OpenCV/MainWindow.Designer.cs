@@ -40,6 +40,7 @@
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
+            btnKrisch = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -88,6 +89,7 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(btnKrisch);
             plOperates.Controls.Add(btnPrewitt);
             plOperates.Controls.Add(btnLaplace);
             plOperates.Controls.Add(btnSobel);
@@ -181,6 +183,16 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
+            // btnKrisch
+            // 
+            btnKrisch.Location = new Point(187, 215);
+            btnKrisch.Name = "btnKrisch";
+            btnKrisch.Size = new Size(131, 29);
+            btnKrisch.TabIndex = 1;
+            btnKrisch.Text = "Krisch";
+            btnKrisch.UseVisualStyleBackColor = true;
+            btnKrisch.Click += btnKrisch_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -214,5 +226,6 @@
         private Button btnLaplace;
         private Button btnPrewitt;
         private PictureBox picTopLeft;
+        private Button btnKrisch;
     }
 }
