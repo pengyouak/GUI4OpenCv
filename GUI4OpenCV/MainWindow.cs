@@ -67,6 +67,7 @@ namespace GUI4OpenCV
             picTopLeft.Image = image;
         }
 
+        #region ±ßÔµ¼ì²â
         private void btnCanny_Click(object sender, EventArgs e)
         {
             var config = new ConfigCanny();
@@ -191,5 +192,6 @@ namespace GUI4OpenCV
             picBottomMid.Image = FindEdgesHelper.KrischWest(img);
             picBottomRight.Image = FindEdgesHelper.KrischSouthWest(img);
         }
+        #endregion
     }
 }
