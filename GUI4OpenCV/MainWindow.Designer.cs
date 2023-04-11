@@ -41,6 +41,8 @@
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
+            label3 = new Label();
+            btnBlur = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -89,11 +91,13 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(label3);
             plOperates.Controls.Add(btnKrisch);
             plOperates.Controls.Add(btnPrewitt);
             plOperates.Controls.Add(btnLaplace);
             plOperates.Controls.Add(btnSobel);
             plOperates.Controls.Add(btnRoberts);
+            plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
@@ -109,7 +113,7 @@
             btnKrisch.Name = "btnKrisch";
             btnKrisch.Size = new Size(131, 29);
             btnKrisch.TabIndex = 1;
-            btnKrisch.Text = "Krisch";
+            btnKrisch.Text = "Krisch算子";
             btnKrisch.UseVisualStyleBackColor = true;
             btnKrisch.Click += btnKrisch_Click;
             // 
@@ -119,7 +123,7 @@
             btnPrewitt.Name = "btnPrewitt";
             btnPrewitt.Size = new Size(131, 29);
             btnPrewitt.TabIndex = 1;
-            btnPrewitt.Text = "Prewitt";
+            btnPrewitt.Text = "Prewitt算子";
             btnPrewitt.UseVisualStyleBackColor = true;
             btnPrewitt.Click += btnPrewitt_Click;
             // 
@@ -129,7 +133,7 @@
             btnLaplace.Name = "btnLaplace";
             btnLaplace.Size = new Size(131, 29);
             btnLaplace.TabIndex = 1;
-            btnLaplace.Text = "Laplace";
+            btnLaplace.Text = "Laplace算子";
             btnLaplace.UseVisualStyleBackColor = true;
             btnLaplace.Click += btnLaplace_Click;
             // 
@@ -139,7 +143,7 @@
             btnSobel.Name = "btnSobel";
             btnSobel.Size = new Size(131, 29);
             btnSobel.TabIndex = 1;
-            btnSobel.Text = "Sobel";
+            btnSobel.Text = "Sobel算子";
             btnSobel.UseVisualStyleBackColor = true;
             btnSobel.Click += btnSobel_Click;
             // 
@@ -149,7 +153,7 @@
             btnRoberts.Name = "btnRoberts";
             btnRoberts.Size = new Size(131, 29);
             btnRoberts.TabIndex = 1;
-            btnRoberts.Text = "Roberts";
+            btnRoberts.Text = "Roberts算子";
             btnRoberts.UseVisualStyleBackColor = true;
             btnRoberts.Click += btnRoberts_Click;
             // 
@@ -193,6 +197,25 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(374, 9);
+            label3.Name = "label3";
+            label3.Size = new Size(37, 19);
+            label3.TabIndex = 2;
+            label3.Text = "滤波";
+            // 
+            // btnBlur
+            // 
+            btnBlur.Location = new Point(325, 40);
+            btnBlur.Name = "btnBlur";
+            btnBlur.Size = new Size(131, 29);
+            btnBlur.TabIndex = 1;
+            btnBlur.Text = "均值滤波";
+            btnBlur.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -227,5 +250,7 @@
         private Button btnPrewitt;
         private PictureBox picTopLeft;
         private Button btnKrisch;
+        private Label label3;
+        private Button btnBlur;
     }
 }
