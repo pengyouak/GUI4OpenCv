@@ -35,12 +35,13 @@
             picBottomLeft = new PictureBox();
             picBottomRight = new PictureBox();
             plOperates = new Panel();
+            btnSobel = new Button();
             btnRoberts = new Button();
             btnCanny = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnSobel = new Button();
+            btnLaplace = new Button();
             plImages.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -125,6 +126,7 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(btnLaplace);
             plOperates.Controls.Add(btnSobel);
             plOperates.Controls.Add(btnRoberts);
             plOperates.Controls.Add(btnCanny);
@@ -135,6 +137,16 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(595, 757);
             plOperates.TabIndex = 1;
+            // 
+            // btnSobel
+            // 
+            btnSobel.Location = new Point(187, 110);
+            btnSobel.Name = "btnSobel";
+            btnSobel.Size = new Size(131, 29);
+            btnSobel.TabIndex = 1;
+            btnSobel.Text = "Sobel";
+            btnSobel.UseVisualStyleBackColor = true;
+            btnSobel.Click += btnSobel_Click;
             // 
             // btnRoberts
             // 
@@ -186,15 +198,15 @@
             label1.TabIndex = 0;
             label1.Text = "label1";
             // 
-            // btnSobel
+            // btnLaplace
             // 
-            btnSobel.Location = new Point(187, 110);
-            btnSobel.Name = "btnSobel";
-            btnSobel.Size = new Size(131, 29);
-            btnSobel.TabIndex = 1;
-            btnSobel.Text = "Sobel";
-            btnSobel.UseVisualStyleBackColor = true;
-            btnSobel.Click += btnSobel_Click;
+            btnLaplace.Location = new Point(187, 145);
+            btnLaplace.Name = "btnLaplace";
+            btnLaplace.Size = new Size(131, 29);
+            btnLaplace.TabIndex = 1;
+            btnLaplace.Text = "Laplace";
+            btnLaplace.UseVisualStyleBackColor = true;
+            btnLaplace.Click += btnLaplace_Click;
             // 
             // MainWindow
             // 
@@ -233,5 +245,6 @@
         private Label label2;
         private Button btnRoberts;
         private Button btnSobel;
+        private Button btnLaplace;
     }
 }

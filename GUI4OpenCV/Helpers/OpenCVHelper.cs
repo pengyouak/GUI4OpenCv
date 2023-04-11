@@ -164,6 +164,29 @@ namespace GUI4OpenCV.Helpers
         }
         #endregion
 
+        #region laplace算子
+
+        public static Bitmap Laplace(Bitmap bitmap)
+        {
+            using Mat srcGry = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), srcGry, ColorConversionCodes.BGR2GRAY);
+            #region 拉普拉斯算子
+            //拉普拉斯算子
+            ///*
+            // *      0    -1     0
+            // *     -1     4    -1
+            // *      0    -1     0
+            // *      二位矩阵
+            // */
+            InputArray kernel = InputArray.Create<int>(new int[3, 3] { { 0, -1, 0 }, { -1, 4, -1 }, { 0, -1, 0 } });
+            using Mat dstGry = new Mat();
+            Cv2.Filter2D(srcGry, dstGry, -1, kernel, new OpenCvSharp.Point(-1, -1), 0, 0);
+
+            return dstGry.ToBitmap();
+            #endregion
+        }
+        #endregion
+
         #endregion
         /// <summary>
         /// 放大

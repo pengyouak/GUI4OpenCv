@@ -47,17 +47,25 @@ namespace GUI4OpenCV
         private void btnRoberts_Click(object sender, EventArgs e)
         {
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.RobertsX(img);
-            picBottomLeft.Image = OpenCVHelper.RobertsY(img);
-            picBottomRight.Image = OpenCVHelper.Roberts(img);
+            picTopRight.Image = OpenCVHelper.Roberts(img);
+            picBottomLeft.Image = OpenCVHelper.RobertsX(img);
+            picBottomRight.Image = OpenCVHelper.RobertsY(img);
         }
 
         private void btnSobel_Click(object sender, EventArgs e)
         {
             var img = (Bitmap)picTopLeft.Image;
-            picTopRight.Image = OpenCVHelper.SobelX(img);
-            picBottomLeft.Image = OpenCVHelper.SobelY(img);
-            picBottomRight.Image = OpenCVHelper.Sobel(img);
+            picTopRight.Image = OpenCVHelper.Sobel(img);
+            picBottomLeft.Image = OpenCVHelper.SobelX(img);
+            picBottomRight.Image = OpenCVHelper.SobelY(img);
+        }
+
+        private void btnLaplace_Click(object sender, EventArgs e)
+        {
+            var img = (Bitmap)picTopLeft.Image;
+            picTopRight.Image = OpenCVHelper.Laplace(img);
+            picBottomLeft.Image = null;
+            picBottomRight.Image = null;
         }
     }
 }
