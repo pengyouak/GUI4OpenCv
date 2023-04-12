@@ -51,13 +51,31 @@
             btnStructure = new Button();
             btnShrink = new Button();
             btnBanary = new Button();
+            btnEqualHist = new Button();
             btnGryHist = new Button();
             btnGry = new Button();
             btnRestore = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            btnEqualHist = new Button();
+            button2 = new Button();
+            label5 = new Label();
+            button3 = new Button();
+            button4 = new Button();
+            label6 = new Label();
+            button5 = new Button();
+            button6 = new Button();
+            label7 = new Label();
+            button7 = new Button();
+            button8 = new Button();
+            label8 = new Label();
+            button9 = new Button();
+            button10 = new Button();
+            label9 = new Label();
+            button11 = new Button();
+            button12 = new Button();
+            button13 = new Button();
+            button14 = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -119,6 +137,19 @@
             plOperates.Controls.Add(btnOpaque);
             plOperates.Controls.Add(btnBilateralFilter);
             plOperates.Controls.Add(btnMedianBlur);
+            plOperates.Controls.Add(button6);
+            plOperates.Controls.Add(button10);
+            plOperates.Controls.Add(button14);
+            plOperates.Controls.Add(button13);
+            plOperates.Controls.Add(button12);
+            plOperates.Controls.Add(button8);
+            plOperates.Controls.Add(button4);
+            plOperates.Controls.Add(button5);
+            plOperates.Controls.Add(button11);
+            plOperates.Controls.Add(button9);
+            plOperates.Controls.Add(button7);
+            plOperates.Controls.Add(button3);
+            plOperates.Controls.Add(button2);
             plOperates.Controls.Add(button1);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
@@ -131,6 +162,11 @@
             plOperates.Controls.Add(btnRestore);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
+            plOperates.Controls.Add(label6);
+            plOperates.Controls.Add(label9);
+            plOperates.Controls.Add(label8);
+            plOperates.Controls.Add(label7);
+            plOperates.Controls.Add(label5);
             plOperates.Controls.Add(label1);
             plOperates.Location = new Point(871, 12);
             plOperates.Name = "plOperates";
@@ -141,11 +177,11 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(524, 9);
+            label4.Location = new Point(508, 9);
             label4.Name = "label4";
-            label4.Size = new Size(37, 19);
+            label4.Size = new Size(65, 19);
             label4.TabIndex = 2;
-            label4.Text = "滤波";
+            label4.Text = "图像变换";
             // 
             // label3
             // 
@@ -273,6 +309,8 @@
             button1.Name = "button1";
             button1.Size = new Size(131, 29);
             button1.TabIndex = 1;
+            button1.Tag = "https://blog.csdn.net/lweiyue/article/details/105782985";
+            button1.Text = "霍夫线变换";
             button1.UseVisualStyleBackColor = true;
             button1.Click += btnBlur_Click;
             // 
@@ -326,19 +364,30 @@
             btnBanary.UseVisualStyleBackColor = true;
             btnBanary.Click += btnBanary_Click;
             // 
+            // btnEqualHist
+            // 
+            btnEqualHist.Location = new Point(27, 180);
+            btnEqualHist.Name = "btnEqualHist";
+            btnEqualHist.Size = new Size(131, 29);
+            btnEqualHist.TabIndex = 1;
+            btnEqualHist.Text = "灰度均衡";
+            btnEqualHist.UseVisualStyleBackColor = true;
+            btnEqualHist.Click += btnEqualHist_Click;
+            // 
             // btnGryHist
             // 
+            btnGryHist.BackColor = Color.RosyBrown;
             btnGryHist.Location = new Point(27, 145);
             btnGryHist.Name = "btnGryHist";
             btnGryHist.Size = new Size(131, 29);
             btnGryHist.TabIndex = 1;
             btnGryHist.Text = "灰度直方图";
-            btnGryHist.UseVisualStyleBackColor = true;
+            btnGryHist.UseVisualStyleBackColor = false;
             btnGryHist.Click += btnGryHist_Click;
             // 
             // btnGry
             // 
-            btnGry.Location = new Point(27, 110);
+            btnGry.Location = new Point(175, 522);
             btnGry.Name = "btnGry";
             btnGry.Size = new Size(131, 29);
             btnGry.TabIndex = 1;
@@ -386,15 +435,198 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnEqualHist
+            // button2
             // 
-            btnEqualHist.Location = new Point(27, 180);
-            btnEqualHist.Name = "btnEqualHist";
-            btnEqualHist.Size = new Size(131, 29);
-            btnEqualHist.TabIndex = 1;
-            btnEqualHist.Text = "灰度均衡";
-            btnEqualHist.UseVisualStyleBackColor = true;
-            btnEqualHist.Click += btnEqualHist_Click;
+            button2.Location = new Point(475, 75);
+            button2.Name = "button2";
+            button2.Size = new Size(131, 29);
+            button2.TabIndex = 1;
+            button2.Tag = "https://blog.csdn.net/lweiyue/article/details/105782985";
+            button2.Text = "霍夫概率变换";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += btnBlur_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(58, 420);
+            label5.Name = "label5";
+            label5.Size = new Size(65, 19);
+            label5.TabIndex = 0;
+            label5.Text = "图像优化";
+            // 
+            // button3
+            // 
+            button3.Location = new Point(27, 452);
+            button3.Name = "button3";
+            button3.Size = new Size(131, 29);
+            button3.TabIndex = 1;
+            button3.Tag = "https://blog.csdn.net/lweiyue/article/details/105784854";
+            button3.Text = "https://blog.csdn.net/lweiyue/article/details/105784854";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += btnBlur_Click;
+            // 
+            // button4
+            // 
+            button4.Location = new Point(27, 487);
+            button4.Name = "button4";
+            button4.Size = new Size(131, 29);
+            button4.TabIndex = 1;
+            button4.Tag = "https://blog.csdn.net/lweiyue/article/details/105784854";
+            button4.Text = "https://blog.csdn.net/lweiyue/article/details/105784854";
+            button4.UseVisualStyleBackColor = true;
+            button4.Click += btnBlur_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(58, 557);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 19);
+            label6.TabIndex = 0;
+            label6.Text = "像素操作";
+            // 
+            // button5
+            // 
+            button5.Location = new Point(27, 589);
+            button5.Name = "button5";
+            button5.Size = new Size(131, 29);
+            button5.TabIndex = 1;
+            button5.Tag = "https://blog.csdn.net/lweiyue/article/details/105506415";
+            button5.Text = "读取像素";
+            button5.UseVisualStyleBackColor = true;
+            button5.Click += btnBlur_Click;
+            // 
+            // button6
+            // 
+            button6.Location = new Point(27, 624);
+            button6.Name = "button6";
+            button6.Size = new Size(131, 29);
+            button6.TabIndex = 1;
+            button6.Tag = "https://blog.csdn.net/lweiyue/article/details/105506415";
+            button6.Text = "写入像素";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += btnBlur_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(205, 420);
+            label7.Name = "label7";
+            label7.Size = new Size(65, 19);
+            label7.TabIndex = 0;
+            label7.Text = "色彩转换";
+            // 
+            // button7
+            // 
+            button7.Location = new Point(174, 452);
+            button7.Name = "button7";
+            button7.Size = new Size(131, 29);
+            button7.TabIndex = 1;
+            button7.Tag = "https://blog.csdn.net/lweiyue/article/details/105506738";
+            button7.Text = "HSV彩色";
+            button7.UseVisualStyleBackColor = true;
+            button7.Click += btnBlur_Click;
+            // 
+            // button8
+            // 
+            button8.Location = new Point(174, 487);
+            button8.Name = "button8";
+            button8.Size = new Size(131, 29);
+            button8.TabIndex = 1;
+            button8.Tag = "https://blog.csdn.net/lweiyue/article/details/105506738";
+            button8.Text = "反相";
+            button8.UseVisualStyleBackColor = true;
+            button8.Click += btnBlur_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.Location = new Point(205, 557);
+            label8.Name = "label8";
+            label8.Size = new Size(65, 19);
+            label8.TabIndex = 0;
+            label8.Text = "位置变换";
+            // 
+            // button9
+            // 
+            button9.Location = new Point(174, 589);
+            button9.Name = "button9";
+            button9.Size = new Size(131, 29);
+            button9.TabIndex = 1;
+            button9.Tag = "https://blog.csdn.net/lweiyue/article/details/105533859";
+            button9.Text = "https://blog.csdn.net/lweiyue/article/details/105533859";
+            button9.UseVisualStyleBackColor = true;
+            button9.Click += btnBlur_Click;
+            // 
+            // button10
+            // 
+            button10.Location = new Point(174, 624);
+            button10.Name = "button10";
+            button10.Size = new Size(131, 29);
+            button10.TabIndex = 1;
+            button10.Tag = "https://blog.csdn.net/lweiyue/article/details/105533859";
+            button10.Text = "https://blog.csdn.net/lweiyue/article/details/105533859";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += btnBlur_Click;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.Location = new Point(356, 420);
+            label9.Name = "label9";
+            label9.Size = new Size(65, 19);
+            label9.TabIndex = 0;
+            label9.Text = "图像分割";
+            // 
+            // button11
+            // 
+            button11.Location = new Point(325, 452);
+            button11.Name = "button11";
+            button11.Size = new Size(131, 29);
+            button11.TabIndex = 1;
+            button11.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
+            button11.Text = "漫水填充";
+            button11.UseVisualStyleBackColor = true;
+            button11.Click += btnBlur_Click;
+            // 
+            // button12
+            // 
+            button12.Location = new Point(325, 487);
+            button12.Name = "button12";
+            button12.Size = new Size(131, 29);
+            button12.TabIndex = 1;
+            button12.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
+            button12.Text = "分水岭算法";
+            button12.UseVisualStyleBackColor = true;
+            button12.Click += btnBlur_Click;
+            // 
+            // button13
+            // 
+            button13.Location = new Point(325, 522);
+            button13.Name = "button13";
+            button13.Size = new Size(131, 29);
+            button13.TabIndex = 1;
+            button13.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
+            button13.Text = "Grabcuts算法";
+            button13.UseVisualStyleBackColor = true;
+            button13.Click += btnBlur_Click;
+            // 
+            // button14
+            // 
+            button14.Location = new Point(325, 557);
+            button14.Name = "button14";
+            button14.Size = new Size(131, 29);
+            button14.TabIndex = 1;
+            button14.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
+            button14.Text = "Mean-Shift算法";
+            button14.UseVisualStyleBackColor = true;
+            button14.Click += btnBlur_Click;
             // 
             // MainWindow
             // 
@@ -447,5 +679,23 @@
         private Button button1;
         private Button btnGryHist;
         private Button btnEqualHist;
+        private Button button6;
+        private Button button8;
+        private Button button4;
+        private Button button5;
+        private Button button7;
+        private Button button3;
+        private Button button2;
+        private Label label6;
+        private Label label7;
+        private Label label5;
+        private Button button10;
+        private Button button14;
+        private Button button13;
+        private Button button12;
+        private Button button11;
+        private Button button9;
+        private Label label9;
+        private Label label8;
     }
 }
