@@ -32,6 +32,7 @@
             table = new TableLayoutPanel();
             picTopLeft = new PictureBox();
             plOperates = new Panel();
+            label4 = new Label();
             label3 = new Label();
             btnKrisch = new Button();
             btnPrewitt = new Button();
@@ -44,18 +45,19 @@
             btnOpaque = new Button();
             btnBilateralFilter = new Button();
             btnMedianBlur = new Button();
+            button1 = new Button();
             btnBlur = new Button();
             btnCanny = new Button();
             btnStructure = new Button();
             btnShrink = new Button();
             btnBanary = new Button();
+            btnGryHist = new Button();
             btnGry = new Button();
             btnRestore = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
             label1 = new Label();
-            button1 = new Button();
-            label4 = new Label();
+            btnEqualHist = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -123,6 +125,8 @@
             plOperates.Controls.Add(btnStructure);
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
+            plOperates.Controls.Add(btnEqualHist);
+            plOperates.Controls.Add(btnGryHist);
             plOperates.Controls.Add(btnGry);
             plOperates.Controls.Add(btnRestore);
             plOperates.Controls.Add(btnSelectImage);
@@ -132,6 +136,16 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(636, 757);
             plOperates.TabIndex = 1;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(524, 9);
+            label4.Name = "label4";
+            label4.Size = new Size(37, 19);
+            label4.TabIndex = 2;
+            label4.Text = "滤波";
             // 
             // label3
             // 
@@ -253,6 +267,15 @@
             btnMedianBlur.UseVisualStyleBackColor = true;
             btnMedianBlur.Click += btnMedianBlur_Click;
             // 
+            // button1
+            // 
+            button1.Location = new Point(475, 40);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 29);
+            button1.TabIndex = 1;
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += btnBlur_Click;
+            // 
             // btnBlur
             // 
             btnBlur.Location = new Point(325, 40);
@@ -275,7 +298,7 @@
             // 
             // btnStructure
             // 
-            btnStructure.Location = new Point(27, 215);
+            btnStructure.Location = new Point(27, 285);
             btnStructure.Name = "btnStructure";
             btnStructure.Size = new Size(131, 29);
             btnStructure.TabIndex = 1;
@@ -285,23 +308,33 @@
             // 
             // btnShrink
             // 
-            btnShrink.Location = new Point(27, 180);
+            btnShrink.Location = new Point(27, 250);
             btnShrink.Name = "btnShrink";
             btnShrink.Size = new Size(131, 29);
             btnShrink.TabIndex = 1;
-            btnShrink.Text = "收缩图像";
+            btnShrink.Text = "缩放图像";
             btnShrink.UseVisualStyleBackColor = true;
             btnShrink.Click += btnShrink_Click;
             // 
             // btnBanary
             // 
-            btnBanary.Location = new Point(27, 145);
+            btnBanary.Location = new Point(27, 215);
             btnBanary.Name = "btnBanary";
             btnBanary.Size = new Size(131, 29);
             btnBanary.TabIndex = 1;
             btnBanary.Text = "二值处理";
             btnBanary.UseVisualStyleBackColor = true;
             btnBanary.Click += btnBanary_Click;
+            // 
+            // btnGryHist
+            // 
+            btnGryHist.Location = new Point(27, 145);
+            btnGryHist.Name = "btnGryHist";
+            btnGryHist.Size = new Size(131, 29);
+            btnGryHist.TabIndex = 1;
+            btnGryHist.Text = "灰度直方图";
+            btnGryHist.UseVisualStyleBackColor = true;
+            btnGryHist.Click += btnGryHist_Click;
             // 
             // btnGry
             // 
@@ -353,24 +386,15 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // button1
+            // btnEqualHist
             // 
-            button1.Location = new Point(475, 40);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 29);
-            button1.TabIndex = 1;
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += btnBlur_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(524, 9);
-            label4.Name = "label4";
-            label4.Size = new Size(37, 19);
-            label4.TabIndex = 2;
-            label4.Text = "滤波";
+            btnEqualHist.Location = new Point(27, 180);
+            btnEqualHist.Name = "btnEqualHist";
+            btnEqualHist.Size = new Size(131, 29);
+            btnEqualHist.TabIndex = 1;
+            btnEqualHist.Text = "灰度均衡";
+            btnEqualHist.UseVisualStyleBackColor = true;
+            btnEqualHist.Click += btnEqualHist_Click;
             // 
             // MainWindow
             // 
@@ -421,5 +445,7 @@
         private Button btnRestore;
         private Label label4;
         private Button button1;
+        private Button btnGryHist;
+        private Button btnEqualHist;
     }
 }

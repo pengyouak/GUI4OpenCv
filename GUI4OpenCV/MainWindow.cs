@@ -82,6 +82,25 @@ namespace GUI4OpenCV
             picTopLeft.Image = PretreatmentHelper.RgbToGray((Bitmap)picTopLeft.Image);
         }
 
+        private void btnGryHist_Click(object sender, EventArgs e)
+        {
+            ChangeTable(2, 1);
+            var picBottom = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picBottom,new Point(1,0)),
+            });
+
+            var img = (Bitmap)picTopLeft.Image;
+            picBottom.Image = PretreatmentHelper.GrayHistogram(img);
+        }
+
+        private void btnEqualHist_Click(object sender, EventArgs e)
+        {
+            picTopLeft.Image = PretreatmentHelper.EqualizeHist((Bitmap)picTopLeft.Image);
+        }
+
         private void btnBanary_Click(object sender, EventArgs e)
         {
             var config = new ConfigGrayToBanary();
