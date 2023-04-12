@@ -65,8 +65,6 @@ namespace GUI4OpenCV.Helpers
             Cv2.Normalize(g_hist, g_hist, 0, histImage.Rows, NormTypes.MinMax, -1, null);
             Cv2.Normalize(r_hist, r_hist, 0, histImage.Rows, NormTypes.MinMax, -1, null);
 
-            
-
             for (int i = 1; i < histSize[0]; i++)
             {
                 Cv2.Line(histImage,
