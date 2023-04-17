@@ -21,5 +21,26 @@ namespace GUI4OpenCV.ConfigWindows
         {
             InitializeComponent();
         }
+
+        public ConfigPerspectiveTransform(int width, int height) : this()
+        {
+            x1.Value = 0;
+            y1.Value = 0;
+            x2.Value = width;
+            y2.Value = 0;
+            x3.Value = 0;
+            y3.Value = height;
+            x4.Value = width;
+            y4.Value = height;
+
+            dx1.Value = 50;
+            dy1.Value = 50;
+            dx2.Value = width-50;
+            dy2.Value = 50;
+            dx3.Value = 0;
+            dy3.Value = height;
+            dx4.Value = width;
+            dy4.Value = height;
+        }
     }
 }

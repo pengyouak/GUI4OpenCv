@@ -1,6 +1,6 @@
 ﻿namespace GUI4OpenCV.ConfigWindows
 {
-    partial class ConfigShrink
+    partial class ConfigResize
     {
         /// <summary>
         /// Required designer variable.
@@ -46,21 +46,21 @@
             // 
             shrinkRate.DecimalPlaces = 2;
             shrinkRate.Location = new Point(169, 35);
-            shrinkRate.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            shrinkRate.Maximum = new decimal(new int[] { 5, 0, 0, 0 });
             shrinkRate.Name = "shrinkRate";
             shrinkRate.Size = new Size(92, 23);
             shrinkRate.TabIndex = 1;
             shrinkRate.TextAlign = HorizontalAlignment.Center;
             shrinkRate.Value = new decimal(new int[] { 5, 0, 0, 65536 });
             // 
-            // ConfigShrink
+            // ConfigResize
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(386, 153);
             Controls.Add(shrinkRate);
             Controls.Add(label1);
-            Name = "ConfigShrink";
+            Name = "ConfigResize";
             Text = "ConfigShrink";
             Controls.SetChildIndex(label1, 0);
             Controls.SetChildIndex(shrinkRate, 0);

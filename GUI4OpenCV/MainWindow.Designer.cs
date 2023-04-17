@@ -59,6 +59,11 @@
             btnBlur = new Button();
             btnCanny = new Button();
             btnStructure = new Button();
+            btnPerspective = new Button();
+            btnAffine = new Button();
+            btnTranslation = new Button();
+            btnRotate = new Button();
+            btnOverturn = new Button();
             btnShrink = new Button();
             btnBanary = new Button();
             btnEqualHist = new Button();
@@ -71,11 +76,6 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
-            btnOverturn = new Button();
-            btnRotate = new Button();
-            btnTranslation = new Button();
-            btnAffine = new Button();
-            btnPerspective = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -177,6 +177,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Purple;
             label7.Location = new Point(58, 325);
             label7.Name = "label7";
             label7.Size = new Size(65, 19);
@@ -187,6 +188,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.ForeColor = Color.Purple;
             label4.Location = new Point(508, 10);
             label4.Name = "label4";
             label4.Size = new Size(65, 19);
@@ -197,6 +199,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.Purple;
             label3.Location = new Point(374, 10);
             label3.Name = "label3";
             label3.Size = new Size(37, 19);
@@ -453,6 +456,56 @@
             btnStructure.UseVisualStyleBackColor = true;
             btnStructure.Click += btnStructure_Click;
             // 
+            // btnPerspective
+            // 
+            btnPerspective.Location = new Point(475, 426);
+            btnPerspective.Name = "btnPerspective";
+            btnPerspective.Size = new Size(131, 29);
+            btnPerspective.TabIndex = 1;
+            btnPerspective.Text = "透视";
+            btnPerspective.UseVisualStyleBackColor = true;
+            btnPerspective.Click += btnPerspective_Click;
+            // 
+            // btnAffine
+            // 
+            btnAffine.Location = new Point(475, 390);
+            btnAffine.Name = "btnAffine";
+            btnAffine.Size = new Size(131, 29);
+            btnAffine.TabIndex = 1;
+            btnAffine.Text = "仿射";
+            btnAffine.UseVisualStyleBackColor = true;
+            btnAffine.Click += btnAffine_Click;
+            // 
+            // btnTranslation
+            // 
+            btnTranslation.Location = new Point(475, 355);
+            btnTranslation.Name = "btnTranslation";
+            btnTranslation.Size = new Size(131, 29);
+            btnTranslation.TabIndex = 1;
+            btnTranslation.Text = "平移";
+            btnTranslation.UseVisualStyleBackColor = true;
+            btnTranslation.Click += btnTranslation_Click;
+            // 
+            // btnRotate
+            // 
+            btnRotate.Location = new Point(475, 320);
+            btnRotate.Name = "btnRotate";
+            btnRotate.Size = new Size(131, 29);
+            btnRotate.TabIndex = 1;
+            btnRotate.Text = "旋转";
+            btnRotate.UseVisualStyleBackColor = true;
+            btnRotate.Click += btnRotate_Click;
+            // 
+            // btnOverturn
+            // 
+            btnOverturn.Location = new Point(475, 285);
+            btnOverturn.Name = "btnOverturn";
+            btnOverturn.Size = new Size(131, 29);
+            btnOverturn.TabIndex = 1;
+            btnOverturn.Text = "翻转";
+            btnOverturn.UseVisualStyleBackColor = true;
+            btnOverturn.Click += btnOverturn_Click;
+            // 
             // btnShrink
             // 
             btnShrink.Location = new Point(475, 250);
@@ -485,7 +538,7 @@
             // 
             // btnGryHist
             // 
-            btnGryHist.BackColor = Color.RosyBrown;
+            btnGryHist.BackColor = Color.White;
             btnGryHist.Location = new Point(27, 355);
             btnGryHist.Name = "btnGryHist";
             btnGryHist.Size = new Size(131, 29);
@@ -528,6 +581,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.Purple;
             label2.Location = new Point(205, 10);
             label2.Name = "label2";
             label2.Size = new Size(65, 19);
@@ -538,6 +592,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.Purple;
             label9.Location = new Point(206, 254);
             label9.Name = "label9";
             label9.Size = new Size(65, 19);
@@ -548,6 +603,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label8.ForeColor = Color.Purple;
             label8.Location = new Point(506, 219);
             label8.Name = "label8";
             label8.Size = new Size(65, 19);
@@ -558,6 +614,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.ForeColor = Color.Purple;
             label5.Location = new Point(506, 114);
             label5.Name = "label5";
             label5.Size = new Size(65, 19);
@@ -568,61 +625,12 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.Purple;
             label1.Location = new Point(52, 10);
             label1.Name = "label1";
             label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
-            // 
-            // btnOverturn
-            // 
-            btnOverturn.Location = new Point(475, 285);
-            btnOverturn.Name = "btnOverturn";
-            btnOverturn.Size = new Size(131, 29);
-            btnOverturn.TabIndex = 1;
-            btnOverturn.Text = "翻转";
-            btnOverturn.UseVisualStyleBackColor = true;
-            btnOverturn.Click += btnOverturn_Click;
-            // 
-            // btnRotate
-            // 
-            btnRotate.Location = new Point(475, 320);
-            btnRotate.Name = "btnRotate";
-            btnRotate.Size = new Size(131, 29);
-            btnRotate.TabIndex = 1;
-            btnRotate.Text = "旋转";
-            btnRotate.UseVisualStyleBackColor = true;
-            btnRotate.Click += btnRotate_Click;
-            // 
-            // btnTranslation
-            // 
-            btnTranslation.Location = new Point(475, 355);
-            btnTranslation.Name = "btnTranslation";
-            btnTranslation.Size = new Size(131, 29);
-            btnTranslation.TabIndex = 1;
-            btnTranslation.Text = "平移";
-            btnTranslation.UseVisualStyleBackColor = true;
-            btnTranslation.Click += btnTranslation_Click;
-            // 
-            // btnAffine
-            // 
-            btnAffine.Location = new Point(475, 390);
-            btnAffine.Name = "btnAffine";
-            btnAffine.Size = new Size(131, 29);
-            btnAffine.TabIndex = 1;
-            btnAffine.Text = "仿射";
-            btnAffine.UseVisualStyleBackColor = true;
-            btnAffine.Click += btnAffine_Click;
-            // 
-            // btnPerspective
-            // 
-            btnPerspective.Location = new Point(475, 426);
-            btnPerspective.Name = "btnPerspective";
-            btnPerspective.Size = new Size(131, 29);
-            btnPerspective.TabIndex = 1;
-            btnPerspective.Text = "透视";
-            btnPerspective.UseVisualStyleBackColor = true;
-            btnPerspective.Click += btnPerspective_Click;
             // 
             // MainWindow
             // 

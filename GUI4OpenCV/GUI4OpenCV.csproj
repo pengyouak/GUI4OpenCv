@@ -53,7 +53,7 @@
     <Compile Update="ConfigWindows\ConfigStructure.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ConfigWindows\ConfigShrink.cs">
+    <Compile Update="ConfigWindows\ConfigResize.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ConfigWindows\ConfigOpaque.cs">

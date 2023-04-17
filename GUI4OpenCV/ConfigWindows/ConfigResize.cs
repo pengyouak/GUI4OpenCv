@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI4OpenCV.ConfigWindows
 {
-    public partial class ConfigShrink : ConfigBaseWindow
+    public partial class ConfigResize : ConfigBaseWindow
     {
         public double ShrinkRate => (double)shrinkRate.Value;
 
-        public ConfigShrink()
+        public ConfigResize()
         {
             InitializeComponent();
         }

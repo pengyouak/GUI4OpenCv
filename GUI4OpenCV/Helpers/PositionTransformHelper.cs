@@ -36,8 +36,16 @@ namespace GUI4OpenCV.Helpers
             {
                 for (int j = 0; j < src.Height; j++)
                 {
-                    if (leftTurnToRight) map_x.Set(j, i, (float)(src.Width - i));
-                    else map_y.Set(j, i, (float)(src.Height - j));
+                    if (leftTurnToRight)
+                    {
+                        map_x.Set(j, i, (float)(src.Width - i));
+                        map_y.Set(j, i, (float)j);
+                    }
+                    else
+                    {
+                        map_x.Set(j, i, (float)i);
+                        map_y.Set(j, i, (float)(src.Height - j));
+                    }
                 }
             }
 
@@ -77,12 +85,15 @@ namespace GUI4OpenCV.Helpers
 
             using Mat map_x = new Mat(src.Size(), MatType.CV_32FC1);
             using Mat map_y = new Mat(src.Size(), MatType.CV_32FC1);
-            for (int i = 0; i < src.Width + x; i++)
+            for (int i = (x < 0 ? (int)x * -1 : 0); i < (x < 0 ? src.Width : src.Width - x); i++)
             {
-                for (int j = 0; j < src.Height + y; j++)
+                for (int j = (y < 0 ? (int)y * -1 : 0); j < (y < 0 ? src.Height : src.Height - y); j++)
                 {
-                    map_x.Set(j, i, (float)(i - x));
-                    map_y.Set(j, i, (float)(j - y));
+                    if (i + x < 0) map_x.Set(j, i, 0);
+                    else map_x.Set(j, i, (float)(i + x));
+
+                    if (j + y < 0) map_y.Set(j, i, 0);
+                    else map_y.Set(j, i, (float)(j + y));
                 }
             }
 

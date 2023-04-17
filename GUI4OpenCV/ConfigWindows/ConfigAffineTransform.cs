@@ -19,5 +19,22 @@ namespace GUI4OpenCV.ConfigWindows
         {
             InitializeComponent();
         }
+
+        public ConfigAffineTransform(int width, int height):this()
+        {
+            x1.Value = 0;
+            y1.Value = 0;
+            x2.Value = 0;
+            y2.Value = height;
+            x3.Value = width;
+            y3.Value = height;
+
+            dx1.Value = 50;
+            dy1.Value = 50;
+            dx2.Value = 0;
+            dy2.Value = height;
+            dx3.Value = width;
+            dy3.Value = height;
+        }
     }
 }

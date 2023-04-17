@@ -489,11 +489,11 @@ namespace GUI4OpenCV
 
         private void btnShrink_Click(object sender, EventArgs e)
         {
-            var config = new ConfigShrink();
+            var config = new ConfigResize();
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
-            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.CenterImage };
 
             SetControlPosition(new List<(Control, Point)>
             {
@@ -523,7 +523,8 @@ namespace GUI4OpenCV
 
         private void btnRotate_Click(object sender, EventArgs e)
         {
-            var config = new ConfigRotate();
+            var img = picTopLeft.Image;
+            var config = new ConfigRotate(img.Width,img.Height);
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
@@ -534,7 +535,6 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            var img = picTopLeft.Image;
             picTopRight.Image = PositionTransformHelper.Rotate((Bitmap)img, config.CenterPoint.X, config.CenterPoint.Y, config.Angle, config.Scale);
         }
 
@@ -552,12 +552,13 @@ namespace GUI4OpenCV
             });
 
             var img = picTopLeft.Image;
-            picTopRight.Image = PositionTransformHelper.Translation((Bitmap)img, config.MoveX,config.MoveY);
+            picTopRight.Image = PositionTransformHelper.Translation((Bitmap)img, config.MoveX, config.MoveY);
         }
 
         private void btnAffine_Click(object sender, EventArgs e)
         {
-            var config = new ConfigAffineTransform();
+            var img = picTopLeft.Image;
+            var config = new ConfigAffineTransform(img.Width, img.Height);
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
@@ -568,13 +569,13 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            var img = picTopLeft.Image;
             picTopRight.Image = PositionTransformHelper.AffineTransform((Bitmap)img, config.SourcePoint, config.DestinationPoint);
         }
 
         private void btnPerspective_Click(object sender, EventArgs e)
         {
-            var config = new ConfigPerspectiveTransform();
+            var img = picTopLeft.Image;
+            var config = new ConfigPerspectiveTransform(img.Width,img.Height);
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
@@ -585,7 +586,6 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            var img = picTopLeft.Image;
             picTopRight.Image = PositionTransformHelper.PerspectiveTransform((Bitmap)img, config.SourcePoint, config.DestinationPoint);
         }
         #endregion

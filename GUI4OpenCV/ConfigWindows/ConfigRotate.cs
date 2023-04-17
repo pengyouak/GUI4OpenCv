@@ -22,5 +22,14 @@ namespace GUI4OpenCV.ConfigWindows
         {
             InitializeComponent();
         }
+
+        public ConfigRotate(int width, int height) : this()
+        {
+            if (width < 2048)
+                x.Value = width / 2;
+
+            if (height < 2048)
+                y.Value = height / 2;
+        }
     }
 }

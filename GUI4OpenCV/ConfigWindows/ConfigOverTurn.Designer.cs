@@ -43,7 +43,6 @@
             rbtnLR.TabStop = true;
             rbtnLR.Text = "左右";
             rbtnLR.UseVisualStyleBackColor = true;
-            rbtnLR.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // rbtnTB
             // 
@@ -54,7 +53,6 @@
             rbtnTB.TabIndex = 3;
             rbtnTB.Text = "上下";
             rbtnTB.UseVisualStyleBackColor = true;
-            rbtnTB.CheckedChanged += radioButton1_CheckedChanged;
             // 
             // ConfigOverTurn
             // 
