@@ -1,6 +1,7 @@
 using GUI4OpenCV.ConfigWindows;
 using GUI4OpenCV.Helpers;
 using System.Globalization;
+using System.Transactions;
 
 namespace GUI4OpenCV
 {
@@ -48,6 +49,18 @@ namespace GUI4OpenCV
             table.ResumeLayout();
         }
 
+        private void btnGryHist_Click(object sender, EventArgs e)
+        {
+            ChangeTable(2, 1);
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picBottomLeft,new Point(1,0)),
+            });
+
+            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
+        }
+
         #region 图像预处理
         private void btnSelectImage_Click(object sender, EventArgs e)
         {
@@ -79,44 +92,24 @@ namespace GUI4OpenCV
 
         private void btnGry_Click(object sender, EventArgs e)
         {
+            ChangeTable(1, 1);
             picTopLeft.Image = PretreatmentHelper.RgbToGray((Bitmap)picTopLeft.Image);
-        }
-
-        private void btnGryHist_Click(object sender, EventArgs e)
-        {
-            ChangeTable(2, 1);
-            var picBottom = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
-
-            SetControlPosition(new List<(Control, Point)>
-            {
-                (picBottom,new Point(1,0)),
-            });
-
-            var img = (Bitmap)picTopLeft.Image;
-            picBottom.Image = PretreatmentHelper.GrayHistogram(img);
         }
 
         private void btnEqualHist_Click(object sender, EventArgs e)
         {
-            picTopLeft.Image = PretreatmentHelper.EqualizeHist((Bitmap)picTopLeft.Image);
+            ChangeTable(1, 1);
+            picTopLeft.Image = PretreatmentHelper.EqualizeHist((Bitmap)Image.FromFile(_sourceImagePath));
         }
 
         private void btnBanary_Click(object sender, EventArgs e)
         {
             var config = new ConfigGrayToBanary();
             if (config.ShowDialog() != DialogResult.OK) return;
+            ChangeTable(1, 1);
 
             var image = Image.FromFile(_sourceImagePath);
             picTopLeft.Image = PretreatmentHelper.GrayToBinary(PretreatmentHelper.RgbToGray((Bitmap)image), config.Thresh, config.MaxVal);
-        }
-
-        private void btnShrink_Click(object sender, EventArgs e)
-        {
-            var config = new ConfigShrink();
-            if (config.ShowDialog() != DialogResult.OK) return;
-
-            var img = (Bitmap)picTopLeft.Image;
-            picTopLeft.Image = PretreatmentHelper.Shrink(img, config.ShrinkRate);
         }
 
         private void btnStructure_Click(object sender, EventArgs e)
@@ -124,8 +117,23 @@ namespace GUI4OpenCV
             var config = new ConfigStructure();
             if (config.ShowDialog() != DialogResult.OK) return;
 
-            var img = (Bitmap)picTopLeft.Image;
-            picTopLeft.Image = PretreatmentHelper.Structure(img, config.SWidth, config.SHeight);
+            ChangeTable(1, 1);
+            var img = Image.FromFile(_sourceImagePath);
+            picTopLeft.Image = PretreatmentHelper.Structure((Bitmap)img, config.SWidth, config.SHeight);
+        }
+
+        private void btnHSV_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 1);
+            var img = Image.FromFile(_sourceImagePath);
+            picTopLeft.Image = PretreatmentHelper.HSV((Bitmap)img);
+        }
+
+        private void btnRevert_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 1);
+            var img = Image.FromFile(_sourceImagePath);
+            picTopLeft.Image = PretreatmentHelper.Revert((Bitmap)img);
         }
         #endregion
 
@@ -421,7 +429,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = ImageTransferHelper.HouphLineTransferStraight(img);
+            picTopRight.Image = ImageTransformHelper.HouphLineTransferStraight(img);
         }
 
         private void btnHoughLinTransferCurve_Click(object sender, EventArgs e)
@@ -436,7 +444,7 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            picTopRight.Image = ImageTransferHelper.HouphLineTransferCurve(img);
+            picTopRight.Image = ImageTransformHelper.HouphLineTransferCurve(img);
         }
 
         #endregion
@@ -474,6 +482,111 @@ namespace GUI4OpenCV
             });
 
             picTopRight.Image = ImageProcessHelper.ImageDenoise(img);
+        }
+        #endregion
+
+        #region 位置变换
+
+        private void btnShrink_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigShrink();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.Resize((Bitmap)img, config.ShrinkRate);
+        }
+
+        private void btnOverturn_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigOverTurn();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.OverTurn((Bitmap)img, config.LeftToRight);
+        }
+
+        private void btnRotate_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigRotate();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.Rotate((Bitmap)img, config.CenterPoint.X, config.CenterPoint.Y, config.Angle, config.Scale);
+        }
+
+        private void btnTranslation_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigTranslation();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.Translation((Bitmap)img, config.MoveX,config.MoveY);
+        }
+
+        private void btnAffine_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigAffineTransform();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.AffineTransform((Bitmap)img, config.SourcePoint, config.DestinationPoint);
+        }
+
+        private void btnPerspective_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigPerspectiveTransform();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = PositionTransformHelper.PerspectiveTransform((Bitmap)img, config.SourcePoint, config.DestinationPoint);
         }
         #endregion
     }

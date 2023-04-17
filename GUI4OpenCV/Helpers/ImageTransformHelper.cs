@@ -3,7 +3,7 @@ using OpenCvSharp.Extensions;
 
 namespace GUI4OpenCV.Helpers
 {
-    internal class ImageTransferHelper
+    internal class ImageTransformHelper
     {
         public static Bitmap HouphLineTransferStraight(Bitmap bitmap)
         {

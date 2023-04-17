@@ -5,21 +5,6 @@ namespace GUI4OpenCV.Helpers
 {
     public class PretreatmentHelper
     {
-        /// <summary>
-        /// 放大
-        /// </summary>
-        /// <param name="bitmap"></param>
-        /// <param name="p"></param>
-        /// <returns></returns>
-        public static Bitmap Shrink(Bitmap bitmap, double p)
-        {
-            if (p <= 0) return bitmap;
-
-            var dst = new Mat();
-            Cv2.Resize(bitmap.ToMat(), dst, new OpenCvSharp.Size(bitmap.Width * p, bitmap.Height * p), interpolation: InterpolationFlags.Cubic);
-            var t = dst.ToBitmap();
-            return t;
-        }
 
         /// <summary>
         /// 灰度
@@ -28,7 +13,7 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap RgbToGray(Bitmap bitmap)
         {
-            var clrDst = new Mat();
+            using var clrDst = new Mat();
             Cv2.CvtColor(bitmap.ToMat(), clrDst, ColorConversionCodes.RGB2GRAY);
             var t = clrDst.ToBitmap();
             return t;
@@ -48,9 +33,9 @@ namespace GUI4OpenCV.Helpers
             Rangef[] histRange = { new Rangef(0, 256) }; //the upper boundary is exclusive               
 
             bool uniform = true, accumulate = false;
-            Mat b_hist = new Mat();
-            Mat g_hist = new Mat();
-            Mat r_hist = new Mat();
+            using Mat b_hist = new Mat();
+            using Mat g_hist = new Mat();
+            using Mat r_hist = new Mat();
 
             Cv2.CalcHist(bgr_planes, new int[] { 0 }, null, b_hist, 1, histSize, histRange, uniform, accumulate);
             Cv2.CalcHist(bgr_planes, new int[] { 1 }, null, g_hist, 1, histSize, histRange, uniform, accumulate);
@@ -59,7 +44,7 @@ namespace GUI4OpenCV.Helpers
             int hist_w = src.Width, hist_h = src.Height;
             int bin_w = (int)Math.Round((double)hist_w / histSize[0]);
 
-            Mat histImage = new Mat(hist_h, hist_w, MatType.CV_8UC3, new Scalar(0, 0, 0));
+            using Mat histImage = new Mat(hist_h, hist_w, MatType.CV_8UC3, new Scalar(0, 0, 0));
 
             Cv2.Normalize(b_hist, b_hist, 0, histImage.Rows, NormTypes.MinMax, -1, null);
             Cv2.Normalize(g_hist, g_hist, 0, histImage.Rows, NormTypes.MinMax, -1, null);
@@ -99,7 +84,7 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap EqualizeHist(Bitmap src)
         {
-            Mat output = new Mat();
+            using Mat output = new Mat();
             Cv2.CvtColor(src.ToMat(), output, ColorConversionCodes.BGR2GRAY);
             Cv2.EqualizeHist(output, output);
             return output.ToBitmap();
@@ -114,7 +99,7 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap GrayToBinary(Bitmap bitmap, double thresh = 135, double maxval=255)
         {
-            var thdDst = new Mat();
+            using var thdDst = new Mat();
             Cv2.Threshold(bitmap.ToMat(), thdDst, thresh, maxval, ThresholdTypes.Binary);
             return thdDst.ToBitmap();
         }
@@ -123,15 +108,41 @@ namespace GUI4OpenCV.Helpers
         /// 膨胀
         /// </summary>
         /// <param name="bitmap"></param>
-        /// <param name="p"></param>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
         /// <returns></returns>
         public static Bitmap Structure(Bitmap bitmap, int width = 2, int height=2)
         {
-            var element = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(width, height));
-            var dltDst = new Mat();
+            using var element = Cv2.GetStructuringElement(MorphShapes.Rect, new OpenCvSharp.Size(width, height));
+            using var dltDst = new Mat();
             Cv2.Dilate(bitmap.ToMat(), dltDst, element);
             var t = dltDst.ToBitmap();
             return t;
+        }
+
+        /// <summary>
+        /// HSV
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap HSV(Bitmap bitmap)
+        {
+            using Mat src = bitmap.ToMat();
+            using Mat result = src.CvtColor(ColorConversionCodes.BGR2HSV);
+            return result.ToBitmap();
+        }
+
+        /// <summary>
+        /// HSV
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap Revert(Bitmap bitmap)
+        {
+            using Mat src = bitmap.ToMat();
+            using Mat result = new Mat();
+            Cv2.BitwiseNot(src, result);
+            return result.ToBitmap();
         }
     }
 }

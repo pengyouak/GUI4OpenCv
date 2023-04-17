@@ -32,6 +32,7 @@
             table = new TableLayoutPanel();
             picTopLeft = new PictureBox();
             plOperates = new Panel();
+            label7 = new Label();
             label4 = new Label();
             label3 = new Label();
             btnKrisch = new Button();
@@ -45,17 +46,13 @@
             btnOpaque = new Button();
             btnBilateralFilter = new Button();
             btnMedianBlur = new Button();
-            button6 = new Button();
-            button10 = new Button();
             button14 = new Button();
             button13 = new Button();
             button12 = new Button();
-            button8 = new Button();
+            btnRevert = new Button();
             btnDenoise = new Button();
-            button5 = new Button();
             button11 = new Button();
-            button9 = new Button();
-            button7 = new Button();
+            btnHSV = new Button();
             btnImgRepair = new Button();
             btnHoughLinTransferCurve = new Button();
             btnHoughLineTransfer = new Button();
@@ -70,12 +67,15 @@
             btnRestore = new Button();
             btnSelectImage = new Button();
             label2 = new Label();
-            label6 = new Label();
             label9 = new Label();
             label8 = new Label();
-            label7 = new Label();
             label5 = new Label();
             label1 = new Label();
+            btnOverturn = new Button();
+            btnRotate = new Button();
+            btnTranslation = new Button();
+            btnAffine = new Button();
+            btnPerspective = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -124,6 +124,7 @@
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(label7);
             plOperates.Controls.Add(label4);
             plOperates.Controls.Add(label3);
             plOperates.Controls.Add(btnKrisch);
@@ -137,23 +138,24 @@
             plOperates.Controls.Add(btnOpaque);
             plOperates.Controls.Add(btnBilateralFilter);
             plOperates.Controls.Add(btnMedianBlur);
-            plOperates.Controls.Add(button6);
-            plOperates.Controls.Add(button10);
             plOperates.Controls.Add(button14);
             plOperates.Controls.Add(button13);
             plOperates.Controls.Add(button12);
-            plOperates.Controls.Add(button8);
+            plOperates.Controls.Add(btnRevert);
             plOperates.Controls.Add(btnDenoise);
-            plOperates.Controls.Add(button5);
             plOperates.Controls.Add(button11);
-            plOperates.Controls.Add(button9);
-            plOperates.Controls.Add(button7);
+            plOperates.Controls.Add(btnHSV);
             plOperates.Controls.Add(btnImgRepair);
             plOperates.Controls.Add(btnHoughLinTransferCurve);
             plOperates.Controls.Add(btnHoughLineTransfer);
             plOperates.Controls.Add(btnBlur);
             plOperates.Controls.Add(btnCanny);
             plOperates.Controls.Add(btnStructure);
+            plOperates.Controls.Add(btnPerspective);
+            plOperates.Controls.Add(btnAffine);
+            plOperates.Controls.Add(btnTranslation);
+            plOperates.Controls.Add(btnRotate);
+            plOperates.Controls.Add(btnOverturn);
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnEqualHist);
@@ -162,10 +164,8 @@
             plOperates.Controls.Add(btnRestore);
             plOperates.Controls.Add(btnSelectImage);
             plOperates.Controls.Add(label2);
-            plOperates.Controls.Add(label6);
             plOperates.Controls.Add(label9);
             plOperates.Controls.Add(label8);
-            plOperates.Controls.Add(label7);
             plOperates.Controls.Add(label5);
             plOperates.Controls.Add(label1);
             plOperates.Location = new Point(871, 12);
@@ -173,11 +173,21 @@
             plOperates.Size = new Size(636, 757);
             plOperates.TabIndex = 1;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.Location = new Point(58, 325);
+            label7.Name = "label7";
+            label7.Size = new Size(65, 19);
+            label7.TabIndex = 0;
+            label7.Text = "图像曲线";
+            // 
             // label4
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(508, 9);
+            label4.Location = new Point(508, 10);
             label4.Name = "label4";
             label4.Size = new Size(65, 19);
             label4.TabIndex = 2;
@@ -187,7 +197,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(374, 9);
+            label3.Location = new Point(374, 10);
             label3.Name = "label3";
             label3.Size = new Size(37, 19);
             label3.TabIndex = 2;
@@ -303,31 +313,9 @@
             btnMedianBlur.UseVisualStyleBackColor = true;
             btnMedianBlur.Click += btnMedianBlur_Click;
             // 
-            // button6
-            // 
-            button6.Location = new Point(27, 624);
-            button6.Name = "button6";
-            button6.Size = new Size(131, 29);
-            button6.TabIndex = 1;
-            button6.Tag = "https://blog.csdn.net/lweiyue/article/details/105506415";
-            button6.Text = "写入像素";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += btnBlur_Click;
-            // 
-            // button10
-            // 
-            button10.Location = new Point(174, 624);
-            button10.Name = "button10";
-            button10.Size = new Size(131, 29);
-            button10.TabIndex = 1;
-            button10.Tag = "https://blog.csdn.net/lweiyue/article/details/105533859";
-            button10.Text = "https://blog.csdn.net/lweiyue/article/details/105533859";
-            button10.UseVisualStyleBackColor = true;
-            button10.Click += btnBlur_Click;
-            // 
             // button14
             // 
-            button14.Location = new Point(325, 557);
+            button14.Location = new Point(175, 390);
             button14.Name = "button14";
             button14.Size = new Size(131, 29);
             button14.TabIndex = 1;
@@ -338,7 +326,7 @@
             // 
             // button13
             // 
-            button13.Location = new Point(325, 522);
+            button13.Location = new Point(175, 355);
             button13.Name = "button13";
             button13.Size = new Size(131, 29);
             button13.TabIndex = 1;
@@ -349,7 +337,7 @@
             // 
             // button12
             // 
-            button12.Location = new Point(325, 487);
+            button12.Location = new Point(175, 320);
             button12.Name = "button12";
             button12.Size = new Size(131, 29);
             button12.TabIndex = 1;
@@ -358,20 +346,20 @@
             button12.UseVisualStyleBackColor = true;
             button12.Click += btnBlur_Click;
             // 
-            // button8
+            // btnRevert
             // 
-            button8.Location = new Point(174, 487);
-            button8.Name = "button8";
-            button8.Size = new Size(131, 29);
-            button8.TabIndex = 1;
-            button8.Tag = "https://blog.csdn.net/lweiyue/article/details/105506738";
-            button8.Text = "反相";
-            button8.UseVisualStyleBackColor = true;
-            button8.Click += btnBlur_Click;
+            btnRevert.Location = new Point(27, 285);
+            btnRevert.Name = "btnRevert";
+            btnRevert.Size = new Size(131, 29);
+            btnRevert.TabIndex = 1;
+            btnRevert.Tag = "";
+            btnRevert.Text = "反相";
+            btnRevert.UseVisualStyleBackColor = true;
+            btnRevert.Click += btnRevert_Click;
             // 
             // btnDenoise
             // 
-            btnDenoise.Location = new Point(27, 487);
+            btnDenoise.Location = new Point(475, 180);
             btnDenoise.Name = "btnDenoise";
             btnDenoise.Size = new Size(131, 29);
             btnDenoise.TabIndex = 1;
@@ -380,20 +368,9 @@
             btnDenoise.UseVisualStyleBackColor = true;
             btnDenoise.Click += btnDenoise_Click;
             // 
-            // button5
-            // 
-            button5.Location = new Point(27, 589);
-            button5.Name = "button5";
-            button5.Size = new Size(131, 29);
-            button5.TabIndex = 1;
-            button5.Tag = "https://blog.csdn.net/lweiyue/article/details/105506415";
-            button5.Text = "读取像素";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += btnBlur_Click;
-            // 
             // button11
             // 
-            button11.Location = new Point(325, 452);
+            button11.Location = new Point(175, 285);
             button11.Name = "button11";
             button11.Size = new Size(131, 29);
             button11.TabIndex = 1;
@@ -402,31 +379,20 @@
             button11.UseVisualStyleBackColor = true;
             button11.Click += btnBlur_Click;
             // 
-            // button9
+            // btnHSV
             // 
-            button9.Location = new Point(174, 589);
-            button9.Name = "button9";
-            button9.Size = new Size(131, 29);
-            button9.TabIndex = 1;
-            button9.Tag = "https://blog.csdn.net/lweiyue/article/details/105533859";
-            button9.Text = "https://blog.csdn.net/lweiyue/article/details/105533859";
-            button9.UseVisualStyleBackColor = true;
-            button9.Click += btnBlur_Click;
-            // 
-            // button7
-            // 
-            button7.Location = new Point(174, 452);
-            button7.Name = "button7";
-            button7.Size = new Size(131, 29);
-            button7.TabIndex = 1;
-            button7.Tag = "https://blog.csdn.net/lweiyue/article/details/105506738";
-            button7.Text = "HSV彩色";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += btnBlur_Click;
+            btnHSV.Location = new Point(27, 250);
+            btnHSV.Name = "btnHSV";
+            btnHSV.Size = new Size(131, 29);
+            btnHSV.TabIndex = 1;
+            btnHSV.Tag = "";
+            btnHSV.Text = "HSV彩色";
+            btnHSV.UseVisualStyleBackColor = true;
+            btnHSV.Click += btnHSV_Click;
             // 
             // btnImgRepair
             // 
-            btnImgRepair.Location = new Point(27, 452);
+            btnImgRepair.Location = new Point(475, 145);
             btnImgRepair.Name = "btnImgRepair";
             btnImgRepair.Size = new Size(131, 29);
             btnImgRepair.TabIndex = 1;
@@ -479,7 +445,7 @@
             // 
             // btnStructure
             // 
-            btnStructure.Location = new Point(27, 285);
+            btnStructure.Location = new Point(27, 215);
             btnStructure.Name = "btnStructure";
             btnStructure.Size = new Size(131, 29);
             btnStructure.TabIndex = 1;
@@ -489,17 +455,17 @@
             // 
             // btnShrink
             // 
-            btnShrink.Location = new Point(27, 250);
+            btnShrink.Location = new Point(475, 250);
             btnShrink.Name = "btnShrink";
             btnShrink.Size = new Size(131, 29);
             btnShrink.TabIndex = 1;
-            btnShrink.Text = "缩放图像";
+            btnShrink.Text = "缩放";
             btnShrink.UseVisualStyleBackColor = true;
             btnShrink.Click += btnShrink_Click;
             // 
             // btnBanary
             // 
-            btnBanary.Location = new Point(27, 215);
+            btnBanary.Location = new Point(27, 180);
             btnBanary.Name = "btnBanary";
             btnBanary.Size = new Size(131, 29);
             btnBanary.TabIndex = 1;
@@ -509,7 +475,7 @@
             // 
             // btnEqualHist
             // 
-            btnEqualHist.Location = new Point(27, 180);
+            btnEqualHist.Location = new Point(27, 145);
             btnEqualHist.Name = "btnEqualHist";
             btnEqualHist.Size = new Size(131, 29);
             btnEqualHist.TabIndex = 1;
@@ -520,7 +486,7 @@
             // btnGryHist
             // 
             btnGryHist.BackColor = Color.RosyBrown;
-            btnGryHist.Location = new Point(27, 145);
+            btnGryHist.Location = new Point(27, 355);
             btnGryHist.Name = "btnGryHist";
             btnGryHist.Size = new Size(131, 29);
             btnGryHist.TabIndex = 1;
@@ -530,7 +496,7 @@
             // 
             // btnGry
             // 
-            btnGry.Location = new Point(175, 522);
+            btnGry.Location = new Point(27, 110);
             btnGry.Name = "btnGry";
             btnGry.Size = new Size(131, 29);
             btnGry.TabIndex = 1;
@@ -562,27 +528,17 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(205, 9);
+            label2.Location = new Point(205, 10);
             label2.Name = "label2";
             label2.Size = new Size(65, 19);
             label2.TabIndex = 0;
             label2.Text = "边缘检测";
             // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(58, 557);
-            label6.Name = "label6";
-            label6.Size = new Size(65, 19);
-            label6.TabIndex = 0;
-            label6.Text = "像素操作";
-            // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.Location = new Point(356, 420);
+            label9.Location = new Point(206, 254);
             label9.Name = "label9";
             label9.Size = new Size(65, 19);
             label9.TabIndex = 0;
@@ -592,27 +548,17 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label8.Location = new Point(205, 557);
+            label8.Location = new Point(506, 219);
             label8.Name = "label8";
             label8.Size = new Size(65, 19);
             label8.TabIndex = 0;
             label8.Text = "位置变换";
             // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(205, 420);
-            label7.Name = "label7";
-            label7.Size = new Size(65, 19);
-            label7.TabIndex = 0;
-            label7.Text = "色彩转换";
-            // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(58, 420);
+            label5.Location = new Point(506, 114);
             label5.Name = "label5";
             label5.Size = new Size(65, 19);
             label5.TabIndex = 0;
@@ -622,11 +568,61 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(52, 9);
+            label1.Location = new Point(52, 10);
             label1.Name = "label1";
             label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
+            // 
+            // btnOverturn
+            // 
+            btnOverturn.Location = new Point(475, 285);
+            btnOverturn.Name = "btnOverturn";
+            btnOverturn.Size = new Size(131, 29);
+            btnOverturn.TabIndex = 1;
+            btnOverturn.Text = "翻转";
+            btnOverturn.UseVisualStyleBackColor = true;
+            btnOverturn.Click += btnOverturn_Click;
+            // 
+            // btnRotate
+            // 
+            btnRotate.Location = new Point(475, 320);
+            btnRotate.Name = "btnRotate";
+            btnRotate.Size = new Size(131, 29);
+            btnRotate.TabIndex = 1;
+            btnRotate.Text = "旋转";
+            btnRotate.UseVisualStyleBackColor = true;
+            btnRotate.Click += btnRotate_Click;
+            // 
+            // btnTranslation
+            // 
+            btnTranslation.Location = new Point(475, 355);
+            btnTranslation.Name = "btnTranslation";
+            btnTranslation.Size = new Size(131, 29);
+            btnTranslation.TabIndex = 1;
+            btnTranslation.Text = "平移";
+            btnTranslation.UseVisualStyleBackColor = true;
+            btnTranslation.Click += btnTranslation_Click;
+            // 
+            // btnAffine
+            // 
+            btnAffine.Location = new Point(475, 390);
+            btnAffine.Name = "btnAffine";
+            btnAffine.Size = new Size(131, 29);
+            btnAffine.TabIndex = 1;
+            btnAffine.Text = "仿射";
+            btnAffine.UseVisualStyleBackColor = true;
+            btnAffine.Click += btnAffine_Click;
+            // 
+            // btnPerspective
+            // 
+            btnPerspective.Location = new Point(475, 426);
+            btnPerspective.Name = "btnPerspective";
+            btnPerspective.Size = new Size(131, 29);
+            btnPerspective.TabIndex = 1;
+            btnPerspective.Text = "透视";
+            btnPerspective.UseVisualStyleBackColor = true;
+            btnPerspective.Click += btnPerspective_Click;
             // 
             // MainWindow
             // 
@@ -679,23 +675,23 @@
         private Button btnHoughLineTransfer;
         private Button btnGryHist;
         private Button btnEqualHist;
-        private Button button6;
-        private Button button8;
+        private Button btnRevert;
         private Button btnDenoise;
-        private Button button5;
-        private Button button7;
+        private Button btnHSV;
         private Button btnImgRepair;
-        private Label label6;
-        private Label label7;
         private Label label5;
-        private Button button10;
         private Button button14;
         private Button button13;
         private Button button12;
         private Button button11;
-        private Button button9;
         private Label label9;
         private Label label8;
         private Button btnHoughLinTransferCurve;
+        private Label label7;
+        private Button btnPerspective;
+        private Button btnAffine;
+        private Button btnTranslation;
+        private Button btnRotate;
+        private Button btnOverturn;
     }
 }
