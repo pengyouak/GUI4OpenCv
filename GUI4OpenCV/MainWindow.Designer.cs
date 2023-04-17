@@ -51,7 +51,7 @@
             button13 = new Button();
             button12 = new Button();
             button8 = new Button();
-            button4 = new Button();
+            btnDenoise = new Button();
             button5 = new Button();
             button11 = new Button();
             button9 = new Button();
@@ -143,7 +143,7 @@
             plOperates.Controls.Add(button13);
             plOperates.Controls.Add(button12);
             plOperates.Controls.Add(button8);
-            plOperates.Controls.Add(button4);
+            plOperates.Controls.Add(btnDenoise);
             plOperates.Controls.Add(button5);
             plOperates.Controls.Add(button11);
             plOperates.Controls.Add(button9);
@@ -369,16 +369,16 @@
             button8.UseVisualStyleBackColor = true;
             button8.Click += btnBlur_Click;
             // 
-            // button4
+            // btnDenoise
             // 
-            button4.Location = new Point(27, 487);
-            button4.Name = "button4";
-            button4.Size = new Size(131, 29);
-            button4.TabIndex = 1;
-            button4.Tag = "https://blog.csdn.net/lweiyue/article/details/105784854";
-            button4.Text = "https://blog.csdn.net/lweiyue/article/details/105784854";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += btnBlur_Click;
+            btnDenoise.Location = new Point(27, 487);
+            btnDenoise.Name = "btnDenoise";
+            btnDenoise.Size = new Size(131, 29);
+            btnDenoise.TabIndex = 1;
+            btnDenoise.Tag = "";
+            btnDenoise.Text = "去除噪声";
+            btnDenoise.UseVisualStyleBackColor = true;
+            btnDenoise.Click += btnDenoise_Click;
             // 
             // button5
             // 
@@ -681,7 +681,7 @@
         private Button btnEqualHist;
         private Button button6;
         private Button button8;
-        private Button button4;
+        private Button btnDenoise;
         private Button button5;
         private Button button7;
         private Button btnImgRepair;

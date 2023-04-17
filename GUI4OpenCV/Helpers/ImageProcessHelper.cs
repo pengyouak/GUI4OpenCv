@@ -42,5 +42,17 @@ namespace GUI4OpenCV.Helpers
             
             return result.ToBitmap();
         }
+
+        public static Bitmap ImageDenoise(Bitmap bitmap)
+        {
+            using var src = bitmap.ToMat();
+            using var srcLab = src.CvtColor(ColorConversionCodes.BGR2Lab);//转换到Lab空间有更好的效果
+
+            using Mat resultTmp = new Mat();
+            Cv2.FastNlMeansDenoisingColored(srcLab, resultTmp);
+
+            using var result = resultTmp.CvtColor(ColorConversionCodes.Lab2BGR);
+            return result.ToBitmap();
+        }
     }
 }
