@@ -406,5 +406,60 @@ namespace GUI4OpenCV
         }
 
         #endregion
+
+        #region Í¼Ïñ±ä»»
+
+        private void btnHoughLineTransfer_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = ImageTransferHelper.HouphLineTransferStraight(img);
+        }
+
+        private void btnHoughLinTransferCurve_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = ImageTransferHelper.HouphLineTransferCurve(img);
+        }
+
+        #endregion
+
+        #region Í¼ÏñÐÞ¸´
+
+        private void btnImgRepair_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigImageRepair();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var img = (Bitmap)picTopLeft.Image;
+
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            picTopRight.Image = ImageProcessHelper.ImageRepair(img, config.R+config.G+config.B-config.V, config.R + config.G + config.B + config.V);
+        }
+        #endregion
     }
 }
