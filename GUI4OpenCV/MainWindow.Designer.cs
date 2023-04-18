@@ -72,6 +72,7 @@
             btnShrink = new Button();
             btnBanary = new Button();
             btnEqualHist = new Button();
+            btnGaussianNoisy = new Button();
             btnSaltNoisy = new Button();
             btnGryHist = new Button();
             btnGry = new Button();
@@ -82,7 +83,7 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
-            btnGaussianNoisy = new Button();
+            btnPoissonNoisy = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -189,6 +190,7 @@
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnEqualHist);
+            plOperates.Controls.Add(btnPoissonNoisy);
             plOperates.Controls.Add(btnGaussianNoisy);
             plOperates.Controls.Add(btnSaltNoisy);
             plOperates.Controls.Add(btnGryHist);
@@ -579,6 +581,17 @@
             btnEqualHist.UseVisualStyleBackColor = true;
             btnEqualHist.Click += btnEqualHist_Click;
             // 
+            // btnGaussianNoisy
+            // 
+            btnGaussianNoisy.BackColor = Color.White;
+            btnGaussianNoisy.Location = new Point(325, 355);
+            btnGaussianNoisy.Name = "btnGaussianNoisy";
+            btnGaussianNoisy.Size = new Size(131, 29);
+            btnGaussianNoisy.TabIndex = 1;
+            btnGaussianNoisy.Text = "高斯噪声";
+            btnGaussianNoisy.UseVisualStyleBackColor = false;
+            btnGaussianNoisy.Click += btnGaussianNoisy_Click;
+            // 
             // btnSaltNoisy
             // 
             btnSaltNoisy.BackColor = Color.White;
@@ -686,16 +699,16 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnGaussianNoisy
+            // btnPoissonNoisy
             // 
-            btnGaussianNoisy.BackColor = Color.White;
-            btnGaussianNoisy.Location = new Point(325, 355);
-            btnGaussianNoisy.Name = "btnGaussianNoisy";
-            btnGaussianNoisy.Size = new Size(131, 29);
-            btnGaussianNoisy.TabIndex = 1;
-            btnGaussianNoisy.Text = "高斯噪声";
-            btnGaussianNoisy.UseVisualStyleBackColor = false;
-            btnGaussianNoisy.Click += btnGaussianNoisy_Click;
+            btnPoissonNoisy.BackColor = Color.White;
+            btnPoissonNoisy.Location = new Point(325, 390);
+            btnPoissonNoisy.Name = "btnPoissonNoisy";
+            btnPoissonNoisy.Size = new Size(131, 29);
+            btnPoissonNoisy.TabIndex = 1;
+            btnPoissonNoisy.Text = "泊松噪声";
+            btnPoissonNoisy.UseVisualStyleBackColor = false;
+            btnPoissonNoisy.Click += btnPoissonNoisy_Click;
             // 
             // MainWindow
             // 
@@ -773,5 +786,6 @@
         private Button btnSaltNoisy;
         private ToolStripMenuItem mnuBig;
         private Button btnGaussianNoisy;
+        private Button btnPoissonNoisy;
     }
 }

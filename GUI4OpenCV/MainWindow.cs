@@ -85,8 +85,7 @@ namespace GUI4OpenCV
             var form = new Form()
             {
                 StartPosition = FormStartPosition.CenterScreen,
-                Width = 500,
-                Height = 500,
+                WindowState= FormWindowState.Maximized
             };
             var pic = new PictureBox
             {
@@ -664,7 +663,36 @@ namespace GUI4OpenCV
 
         private void btnGaussianNoisy_Click(object sender, EventArgs e)
         {
+            var config = new ConfigGaussianNoisy();
+            if (config.ShowDialog() != DialogResult.OK) return;
 
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = NoiseHelper.Gaussian((Bitmap)img, config.Mean, config.StdDev);
+        }
+
+        private void btnPoissonNoisy_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigPoissonNoisy();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = NoiseHelper.Poisson((Bitmap)img, config.Lambda);
         }
         #endregion
     }
