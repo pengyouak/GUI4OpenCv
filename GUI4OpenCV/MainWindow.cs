@@ -652,6 +652,11 @@ namespace GUI4OpenCV
             var img = picTopLeft.Image;
             picTopRight.Image = NoiseHelper.Salt((Bitmap)img, Color.FromArgb(config.R, config.G, config.B), config.NoiseCount);
         }
+
+        private void btnGaussianNoisy_Click(object sender, EventArgs e)
+        {
+
+        }
         #endregion
     }
 }

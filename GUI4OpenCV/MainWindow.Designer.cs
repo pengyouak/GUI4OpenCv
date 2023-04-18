@@ -34,6 +34,7 @@
             picTopLeft = new PictureBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             mnuSaveAs = new ToolStripMenuItem();
+            mnuBig = new ToolStripMenuItem();
             plOperates = new Panel();
             label6 = new Label();
             label7 = new Label();
@@ -81,7 +82,7 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
-            mnuBig = new ToolStripMenuItem();
+            btnGaussianNoisy = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -132,14 +133,21 @@
             // 
             contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnuSaveAs, mnuBig });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(181, 70);
+            contextMenuStrip1.Size = new Size(137, 48);
             // 
             // mnuSaveAs
             // 
             mnuSaveAs.Name = "mnuSaveAs";
-            mnuSaveAs.Size = new Size(180, 22);
+            mnuSaveAs.Size = new Size(136, 22);
             mnuSaveAs.Text = "图像另存为";
             mnuSaveAs.Click += mnuSaveAs_Click;
+            // 
+            // mnuBig
+            // 
+            mnuBig.Name = "mnuBig";
+            mnuBig.Size = new Size(136, 22);
+            mnuBig.Text = "放大显示";
+            mnuBig.Click += mnuBig_Click;
             // 
             // plOperates
             // 
@@ -181,6 +189,7 @@
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnEqualHist);
+            plOperates.Controls.Add(btnGaussianNoisy);
             plOperates.Controls.Add(btnSaltNoisy);
             plOperates.Controls.Add(btnGryHist);
             plOperates.Controls.Add(btnGry);
@@ -677,12 +686,16 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // mnuBig
+            // btnGaussianNoisy
             // 
-            mnuBig.Name = "mnuBig";
-            mnuBig.Size = new Size(180, 22);
-            mnuBig.Text = "放大显示";
-            mnuBig.Click += mnuBig_Click;
+            btnGaussianNoisy.BackColor = Color.White;
+            btnGaussianNoisy.Location = new Point(325, 355);
+            btnGaussianNoisy.Name = "btnGaussianNoisy";
+            btnGaussianNoisy.Size = new Size(131, 29);
+            btnGaussianNoisy.TabIndex = 1;
+            btnGaussianNoisy.Text = "高斯噪声";
+            btnGaussianNoisy.UseVisualStyleBackColor = false;
+            btnGaussianNoisy.Click += btnGaussianNoisy_Click;
             // 
             // MainWindow
             // 
@@ -759,5 +772,6 @@
         private Label label6;
         private Button btnSaltNoisy;
         private ToolStripMenuItem mnuBig;
+        private Button btnGaussianNoisy;
     }
 }
