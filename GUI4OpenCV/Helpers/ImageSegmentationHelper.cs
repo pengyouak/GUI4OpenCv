@@ -86,10 +86,6 @@ namespace GUI4OpenCV.Helpers
             using Mat kernel = Cv2.GetStructuringElement(MorphShapes.Ellipse, new OpenCvSharp.Size(10, 10));
             using Mat seedsDil = new Mat();
             Cv2.Dilate(seeds, seedsDil, kernel);
-       
-            //// 将seedsDil转换为CV_8U
-            //using var seedsDil8U = new Mat();
-            //seedsDil.ConvertTo(seedsDil8U, MatType.CV_8U);
 
             using var dist8U=new Mat();
             distanceNorm.ConvertTo(dist8U, MatType.CV_8U);
