@@ -162,7 +162,7 @@ namespace GUI4OpenCV
             ChangeTable(1, 1);
 
             var image = Image.FromFile(_sourceImagePath);
-            picTopLeft.Image = PretreatmentHelper.GrayToBinary(PretreatmentHelper.RgbToGray((Bitmap)image), config.Thresh, config.MaxVal);
+            picTopLeft.Image = PretreatmentHelper.GrayToBinary((Bitmap)image, config.Thresh, config.MaxVal);
         }
 
         private void btnStructure_Click(object sender, EventArgs e)
@@ -711,7 +711,24 @@ namespace GUI4OpenCV
             });
 
             var img = picTopLeft.Image;
-            picTopRight.Image = ImageSegmentationHelper.FloodFill((Bitmap)img,config.X,config.Y, Color.FromArgb(config.R,config.G,config.B), config.Value);
+            picTopRight.Image = ImageSegmentationHelper.FloodFill((Bitmap)img, config.X, config.Y, Color.FromArgb(config.R, config.G, config.B), config.Value);
+        }
+
+        private void btnWatershed_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigWatershed();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = ImageSegmentationHelper.Watershed((Bitmap)img, config.Alpha, config.Beta, config.Thresh, config.MaxVal);
         }
 
         #endregion

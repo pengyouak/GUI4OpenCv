@@ -15,8 +15,7 @@ namespace GUI4OpenCV.Helpers
         {
             using var clrDst = new Mat();
             Cv2.CvtColor(bitmap.ToMat(), clrDst, ColorConversionCodes.RGB2GRAY);
-            var t = clrDst.ToBitmap();
-            return t;
+            return clrDst.ToBitmap();
         }
 
         /// <summary>
@@ -99,9 +98,15 @@ namespace GUI4OpenCV.Helpers
         /// <returns></returns>
         public static Bitmap GrayToBinary(Bitmap bitmap, double thresh = 135, double maxval=255)
         {
-            using var thdDst = new Mat();
-            Cv2.Threshold(bitmap.ToMat(), thdDst, thresh, maxval, ThresholdTypes.Binary);
-            return thdDst.ToBitmap();
+            // 转换为灰度图像
+            using Mat gray = new Mat();
+            Cv2.CvtColor(bitmap.ToMat(), gray, ColorConversionCodes.RGB2GRAY);
+
+            // 对图像进行二值化处理
+            using Mat binary = new Mat();
+            Cv2.Threshold(gray, binary, thresh, maxval, ThresholdTypes.Binary | ThresholdTypes.Otsu);
+
+            return binary.ToBitmap();
         }
 
         /// <summary>

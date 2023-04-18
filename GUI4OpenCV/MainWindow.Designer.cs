@@ -53,7 +53,7 @@
             btnMedianBlur = new Button();
             button14 = new Button();
             button13 = new Button();
-            button12 = new Button();
+            btnWatershed = new Button();
             btnRevert = new Button();
             btnDenoise = new Button();
             btnFloodFill = new Button();
@@ -171,7 +171,7 @@
             plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(button14);
             plOperates.Controls.Add(button13);
-            plOperates.Controls.Add(button12);
+            plOperates.Controls.Add(btnWatershed);
             plOperates.Controls.Add(btnRevert);
             plOperates.Controls.Add(btnDenoise);
             plOperates.Controls.Add(btnFloodFill);
@@ -383,16 +383,16 @@
             button13.UseVisualStyleBackColor = true;
             button13.Click += btnBlur_Click;
             // 
-            // button12
+            // btnWatershed
             // 
-            button12.Location = new Point(175, 320);
-            button12.Name = "button12";
-            button12.Size = new Size(131, 29);
-            button12.TabIndex = 1;
-            button12.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
-            button12.Text = "分水岭算法";
-            button12.UseVisualStyleBackColor = true;
-            button12.Click += btnBlur_Click;
+            btnWatershed.Location = new Point(175, 320);
+            btnWatershed.Name = "btnWatershed";
+            btnWatershed.Size = new Size(131, 29);
+            btnWatershed.TabIndex = 1;
+            btnWatershed.Tag = "";
+            btnWatershed.Text = "分水岭算法";
+            btnWatershed.UseVisualStyleBackColor = true;
+            btnWatershed.Click += btnWatershed_Click;
             // 
             // btnRevert
             // 
@@ -423,7 +423,7 @@
             btnFloodFill.Size = new Size(131, 29);
             btnFloodFill.TabIndex = 1;
             btnFloodFill.Tag = "";
-            btnFloodFill.Text = "漫水填充";
+            btnFloodFill.Text = "泛洪填充";
             btnFloodFill.UseVisualStyleBackColor = true;
             btnFloodFill.Click += btnFloodFill_Click;
             // 
@@ -769,7 +769,7 @@
         private Label label5;
         private Button button14;
         private Button button13;
-        private Button button12;
+        private Button btnWatershed;
         private Button btnFloodFill;
         private Label label9;
         private Label label8;
