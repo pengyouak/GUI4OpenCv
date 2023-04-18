@@ -147,7 +147,7 @@ namespace GUI4OpenCV
         private void btnGry_Click(object sender, EventArgs e)
         {
             ChangeTable(1, 1);
-            picTopLeft.Image = PretreatmentHelper.RgbToGray((Bitmap)picTopLeft.Image);
+            picTopLeft.Image = PretreatmentHelper.RgbToGray((Bitmap)Image.FromFile(_sourceImagePath));
         }
 
         private void btnEqualHist_Click(object sender, EventArgs e)
