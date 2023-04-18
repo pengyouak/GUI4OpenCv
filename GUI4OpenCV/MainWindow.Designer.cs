@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             plImages = new Panel();
             table = new TableLayoutPanel();
             picTopLeft = new PictureBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            mnuSaveAs = new ToolStripMenuItem();
             plOperates = new Panel();
+            label6 = new Label();
             label7 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -67,6 +71,7 @@
             btnShrink = new Button();
             btnBanary = new Button();
             btnEqualHist = new Button();
+            btnSaltNoisy = new Button();
             btnGryHist = new Button();
             btnGry = new Button();
             btnRestore = new Button();
@@ -76,9 +81,11 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
+            mnuBig = new ToolStripMenuItem();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
+            contextMenuStrip1.SuspendLayout();
             plOperates.SuspendLayout();
             SuspendLayout();
             // 
@@ -112,6 +119,7 @@
             // 
             // picTopLeft
             // 
+            picTopLeft.ContextMenuStrip = contextMenuStrip1;
             picTopLeft.Dock = DockStyle.Fill;
             picTopLeft.Location = new Point(9, 9);
             picTopLeft.Name = "picTopLeft";
@@ -120,10 +128,24 @@
             picTopLeft.TabIndex = 0;
             picTopLeft.TabStop = false;
             // 
+            // contextMenuStrip1
+            // 
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { mnuSaveAs, mnuBig });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(181, 70);
+            // 
+            // mnuSaveAs
+            // 
+            mnuSaveAs.Name = "mnuSaveAs";
+            mnuSaveAs.Size = new Size(180, 22);
+            mnuSaveAs.Text = "图像另存为";
+            mnuSaveAs.Click += mnuSaveAs_Click;
+            // 
             // plOperates
             // 
             plOperates.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             plOperates.BorderStyle = BorderStyle.FixedSingle;
+            plOperates.Controls.Add(label6);
             plOperates.Controls.Add(label7);
             plOperates.Controls.Add(label4);
             plOperates.Controls.Add(label3);
@@ -159,6 +181,7 @@
             plOperates.Controls.Add(btnShrink);
             plOperates.Controls.Add(btnBanary);
             plOperates.Controls.Add(btnEqualHist);
+            plOperates.Controls.Add(btnSaltNoisy);
             plOperates.Controls.Add(btnGryHist);
             plOperates.Controls.Add(btnGry);
             plOperates.Controls.Add(btnRestore);
@@ -172,6 +195,17 @@
             plOperates.Name = "plOperates";
             plOperates.Size = new Size(636, 757);
             plOperates.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.Purple;
+            label6.Location = new Point(374, 289);
+            label6.Name = "label6";
+            label6.Size = new Size(37, 19);
+            label6.TabIndex = 0;
+            label6.Text = "噪声";
             // 
             // label7
             // 
@@ -536,6 +570,17 @@
             btnEqualHist.UseVisualStyleBackColor = true;
             btnEqualHist.Click += btnEqualHist_Click;
             // 
+            // btnSaltNoisy
+            // 
+            btnSaltNoisy.BackColor = Color.White;
+            btnSaltNoisy.Location = new Point(325, 321);
+            btnSaltNoisy.Name = "btnSaltNoisy";
+            btnSaltNoisy.Size = new Size(131, 29);
+            btnSaltNoisy.TabIndex = 1;
+            btnSaltNoisy.Text = "椒盐噪声";
+            btnSaltNoisy.UseVisualStyleBackColor = false;
+            btnSaltNoisy.Click += btnSaltNoisy_Click;
+            // 
             // btnGryHist
             // 
             btnGryHist.BackColor = Color.White;
@@ -632,6 +677,13 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
+            // mnuBig
+            // 
+            mnuBig.Name = "mnuBig";
+            mnuBig.Size = new Size(180, 22);
+            mnuBig.Text = "放大显示";
+            mnuBig.Click += mnuBig_Click;
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -646,6 +698,7 @@
             plImages.ResumeLayout(false);
             table.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)picTopLeft).EndInit();
+            contextMenuStrip1.ResumeLayout(false);
             plOperates.ResumeLayout(false);
             plOperates.PerformLayout();
             ResumeLayout(false);
@@ -701,5 +754,10 @@
         private Button btnTranslation;
         private Button btnRotate;
         private Button btnOverturn;
+        private ContextMenuStrip contextMenuStrip1;
+        private ToolStripMenuItem mnuSaveAs;
+        private Label label6;
+        private Button btnSaltNoisy;
+        private ToolStripMenuItem mnuBig;
     }
 }

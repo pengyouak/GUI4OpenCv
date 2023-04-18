@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="ConfigWindows\ConfigSaltNoisy.cs" />
     <Compile Update="ConfigWindows\ConfigPerspectiveTransform.cs">
       <SubType>Form</SubType>
     </Compile>

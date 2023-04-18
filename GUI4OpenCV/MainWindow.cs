@@ -1,5 +1,6 @@
 using GUI4OpenCV.ConfigWindows;
 using GUI4OpenCV.Helpers;
+using System.Drawing.Imaging;
 using System.Globalization;
 using System.Transactions;
 
@@ -12,6 +13,49 @@ namespace GUI4OpenCV
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void mnuSaveAs_Click(object sender, EventArgs e)
+        {
+            var diag = new SaveFileDialog()
+            {
+                AddExtension = true,
+                Title = "保存图像",
+                Filter = "Png|*.png",
+                DefaultExt = "*.png",
+            };
+            if (diag.ShowDialog() != DialogResult.OK) return;
+
+            var toolTripMenuItem = sender as ToolStripMenuItem;
+            var contextMenuStrip = toolTripMenuItem.GetCurrentParent() as ContextMenuStrip;
+            var sourcePicControl = contextMenuStrip.SourceControl as PictureBox;
+            var image = sourcePicControl.Image;
+
+            image.Save(diag.FileName, ImageFormat.Png);
+
+            MessageBoxHelper.ShowInformationMessageBox("保存成功");
+        }
+
+        private void mnuBig_Click(object sender, EventArgs e)
+        {
+            var toolTripMenuItem = sender as ToolStripMenuItem;
+            var contextMenuStrip = toolTripMenuItem.GetCurrentParent() as ContextMenuStrip;
+            var sourcePicControl = contextMenuStrip.SourceControl as PictureBox;
+            var image = sourcePicControl.Image;
+            var form = new Form()
+            {
+                StartPosition = FormStartPosition.CenterScreen,
+                Width = 500,
+                Height = 500,
+            };
+            var pic = new PictureBox
+            {
+                Dock = DockStyle.Fill,
+                SizeMode = PictureBoxSizeMode.Zoom,
+                Image = image,
+            };
+            form.Controls.Add(pic);
+            form.ShowDialog();
         }
 
         private void ChangeTable(int rows, int columns)
@@ -42,6 +86,7 @@ namespace GUI4OpenCV
             table.SuspendLayout();
             foreach (var item in values)
             {
+                item.Item1.ContextMenuStrip = contextMenuStrip1;
                 table.Controls.Add(item.Item1);
                 table.SetRow(item.Item1, item.Item2.X);
                 table.SetColumn(item.Item1, item.Item2.Y);
@@ -524,7 +569,7 @@ namespace GUI4OpenCV
         private void btnRotate_Click(object sender, EventArgs e)
         {
             var img = picTopLeft.Image;
-            var config = new ConfigRotate(img.Width,img.Height);
+            var config = new ConfigRotate(img.Width, img.Height);
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
@@ -575,7 +620,7 @@ namespace GUI4OpenCV
         private void btnPerspective_Click(object sender, EventArgs e)
         {
             var img = picTopLeft.Image;
-            var config = new ConfigPerspectiveTransform(img.Width,img.Height);
+            var config = new ConfigPerspectiveTransform(img.Width, img.Height);
             if (config.ShowDialog() != DialogResult.OK) return;
 
             ChangeTable(1, 2);
@@ -587,6 +632,25 @@ namespace GUI4OpenCV
             });
 
             picTopRight.Image = PositionTransformHelper.PerspectiveTransform((Bitmap)img, config.SourcePoint, config.DestinationPoint);
+        }
+        #endregion
+
+        #region 噪声
+        private void btnSaltNoisy_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigSaltNoisy();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = NoiseHelper.Salt((Bitmap)img, Color.FromArgb(config.R, config.G, config.B), config.NoiseCount);
         }
         #endregion
     }
