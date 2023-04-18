@@ -56,7 +56,7 @@
             button12 = new Button();
             btnRevert = new Button();
             btnDenoise = new Button();
-            button11 = new Button();
+            btnFloodFill = new Button();
             btnHSV = new Button();
             btnImgRepair = new Button();
             btnHoughLinTransferCurve = new Button();
@@ -72,6 +72,7 @@
             btnShrink = new Button();
             btnBanary = new Button();
             btnEqualHist = new Button();
+            btnPoissonNoisy = new Button();
             btnGaussianNoisy = new Button();
             btnSaltNoisy = new Button();
             btnGryHist = new Button();
@@ -83,7 +84,6 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
-            btnPoissonNoisy = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -174,7 +174,7 @@
             plOperates.Controls.Add(button12);
             plOperates.Controls.Add(btnRevert);
             plOperates.Controls.Add(btnDenoise);
-            plOperates.Controls.Add(button11);
+            plOperates.Controls.Add(btnFloodFill);
             plOperates.Controls.Add(btnHSV);
             plOperates.Controls.Add(btnImgRepair);
             plOperates.Controls.Add(btnHoughLinTransferCurve);
@@ -416,16 +416,16 @@
             btnDenoise.UseVisualStyleBackColor = true;
             btnDenoise.Click += btnDenoise_Click;
             // 
-            // button11
+            // btnFloodFill
             // 
-            button11.Location = new Point(175, 285);
-            button11.Name = "button11";
-            button11.Size = new Size(131, 29);
-            button11.TabIndex = 1;
-            button11.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
-            button11.Text = "漫水填充";
-            button11.UseVisualStyleBackColor = true;
-            button11.Click += btnBlur_Click;
+            btnFloodFill.Location = new Point(175, 285);
+            btnFloodFill.Name = "btnFloodFill";
+            btnFloodFill.Size = new Size(131, 29);
+            btnFloodFill.TabIndex = 1;
+            btnFloodFill.Tag = "";
+            btnFloodFill.Text = "漫水填充";
+            btnFloodFill.UseVisualStyleBackColor = true;
+            btnFloodFill.Click += btnFloodFill_Click;
             // 
             // btnHSV
             // 
@@ -581,6 +581,17 @@
             btnEqualHist.UseVisualStyleBackColor = true;
             btnEqualHist.Click += btnEqualHist_Click;
             // 
+            // btnPoissonNoisy
+            // 
+            btnPoissonNoisy.BackColor = Color.White;
+            btnPoissonNoisy.Location = new Point(325, 390);
+            btnPoissonNoisy.Name = "btnPoissonNoisy";
+            btnPoissonNoisy.Size = new Size(131, 29);
+            btnPoissonNoisy.TabIndex = 1;
+            btnPoissonNoisy.Text = "泊松噪声";
+            btnPoissonNoisy.UseVisualStyleBackColor = false;
+            btnPoissonNoisy.Click += btnPoissonNoisy_Click;
+            // 
             // btnGaussianNoisy
             // 
             btnGaussianNoisy.BackColor = Color.White;
@@ -699,17 +710,6 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
-            // btnPoissonNoisy
-            // 
-            btnPoissonNoisy.BackColor = Color.White;
-            btnPoissonNoisy.Location = new Point(325, 390);
-            btnPoissonNoisy.Name = "btnPoissonNoisy";
-            btnPoissonNoisy.Size = new Size(131, 29);
-            btnPoissonNoisy.TabIndex = 1;
-            btnPoissonNoisy.Text = "泊松噪声";
-            btnPoissonNoisy.UseVisualStyleBackColor = false;
-            btnPoissonNoisy.Click += btnPoissonNoisy_Click;
-            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -770,7 +770,7 @@
         private Button button14;
         private Button button13;
         private Button button12;
-        private Button button11;
+        private Button btnFloodFill;
         private Label label9;
         private Label label8;
         private Button btnHoughLinTransferCurve;

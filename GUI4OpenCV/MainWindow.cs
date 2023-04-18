@@ -85,7 +85,7 @@ namespace GUI4OpenCV
             var form = new Form()
             {
                 StartPosition = FormStartPosition.CenterScreen,
-                WindowState= FormWindowState.Maximized
+                WindowState = FormWindowState.Maximized
             };
             var pic = new PictureBox
             {
@@ -694,6 +694,26 @@ namespace GUI4OpenCV
             var img = picTopLeft.Image;
             picTopRight.Image = NoiseHelper.Poisson((Bitmap)img, config.Lambda);
         }
+        #endregion
+
+        #region Í¼Ïñ·Ö¸î
+        private void btnFloodFill_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigFloodFill();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = ImageSegmentationHelper.FloodFill((Bitmap)img,config.X,config.Y, Color.FromArgb(config.R,config.G,config.B), config.Value);
+        }
+
         #endregion
     }
 }
