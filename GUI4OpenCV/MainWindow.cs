@@ -15,6 +15,62 @@ namespace GUI4OpenCV
             InitializeComponent();
         }
 
+        #region 私有方法
+        private void ChangeTable(int rows, int columns)
+        {
+            table.Controls.Clear();
+            table.RowStyles.Clear();
+            table.ColumnStyles.Clear();
+            table.RowCount = rows;
+            table.ColumnCount = columns;
+
+            for (int i = 0; i < rows; i++)
+            {
+                table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            }
+
+            for (int i = 0; i < columns; i++)
+            {
+                table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
+            }
+
+            table.Controls.Add(picTopLeft);
+            table.SetRow(picTopLeft, 0);
+            table.SetColumn(picTopLeft, 0);
+        }
+
+        private void SetControlPosition(List<(Control, Point)> values)
+        {
+            table.SuspendLayout();
+            foreach (var item in values)
+            {
+                item.Item1.ContextMenuStrip = contextMenuStrip1;
+                table.Controls.Add(item.Item1);
+                table.SetRow(item.Item1, item.Item2.X);
+                table.SetColumn(item.Item1, item.Item2.Y);
+            }
+            table.ResumeLayout();
+        }
+
+        #endregion
+
+        #region 图像曲线
+
+        private void btnGryHist_Click(object sender, EventArgs e)
+        {
+            ChangeTable(2, 1);
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picBottomLeft,new Point(1,0)),
+            });
+
+            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
+        }
+
+        #endregion
+
+        #region 右键菜单
         private void mnuSaveAs_Click(object sender, EventArgs e)
         {
             var diag = new SaveFileDialog()
@@ -57,54 +113,7 @@ namespace GUI4OpenCV
             form.Controls.Add(pic);
             form.ShowDialog();
         }
-
-        private void ChangeTable(int rows, int columns)
-        {
-            table.Controls.Clear();
-            table.RowStyles.Clear();
-            table.ColumnStyles.Clear();
-            table.RowCount = rows;
-            table.ColumnCount = columns;
-
-            for (int i = 0; i < rows; i++)
-            {
-                table.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            }
-
-            for (int i = 0; i < columns; i++)
-            {
-                table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100));
-            }
-
-            table.Controls.Add(picTopLeft);
-            table.SetRow(picTopLeft, 0);
-            table.SetColumn(picTopLeft, 0);
-        }
-
-        private void SetControlPosition(List<(Control, Point)> values)
-        {
-            table.SuspendLayout();
-            foreach (var item in values)
-            {
-                item.Item1.ContextMenuStrip = contextMenuStrip1;
-                table.Controls.Add(item.Item1);
-                table.SetRow(item.Item1, item.Item2.X);
-                table.SetColumn(item.Item1, item.Item2.Y);
-            }
-            table.ResumeLayout();
-        }
-
-        private void btnGryHist_Click(object sender, EventArgs e)
-        {
-            ChangeTable(2, 1);
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
-            SetControlPosition(new List<(Control, Point)>
-            {
-                (picBottomLeft,new Point(1,0)),
-            });
-
-            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
-        }
+        #endregion
 
         #region 图像预处理
         private void btnSelectImage_Click(object sender, EventArgs e)
