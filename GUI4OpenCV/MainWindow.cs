@@ -54,22 +54,6 @@ namespace GUI4OpenCV
 
         #endregion
 
-        #region Í¼ÏñÇúÏß
-
-        private void btnGryHist_Click(object sender, EventArgs e)
-        {
-            ChangeTable(2, 1);
-            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
-            SetControlPosition(new List<(Control, Point)>
-            {
-                (picBottomLeft,new Point(1,0)),
-            });
-
-            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
-        }
-
-        #endregion
-
         #region ÓÒ¼ü²Ëµ¥
         private void mnuSaveAs_Click(object sender, EventArgs e)
         {
@@ -113,6 +97,22 @@ namespace GUI4OpenCV
             form.Controls.Add(pic);
             form.ShowDialog();
         }
+        #endregion
+
+        #region Í¼ÏñÇúÏß
+
+        private void btnGryHist_Click(object sender, EventArgs e)
+        {
+            ChangeTable(2, 1);
+            var picBottomLeft = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picBottomLeft,new Point(1,0)),
+            });
+
+            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
+        }
+
         #endregion
 
         #region Í¼ÏñÔ¤´¦Àí
