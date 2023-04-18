@@ -58,6 +58,15 @@ namespace GUI4OpenCV.Helpers
             return result.ToBitmap();
         }
 
+        /// <summary>
+        /// 分水岭算法（png图像不适合）
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <param name="alpha"></param>
+        /// <param name="beta"></param>
+        /// <param name="thresh"></param>
+        /// <param name="maxval"></param>
+        /// <returns></returns>
         public static Bitmap Watershed(Bitmap bitmap, double alpha=0, double beta=255, double thresh=1, double maxval=255)
         {
             using Mat src = bitmap.ToMat();
