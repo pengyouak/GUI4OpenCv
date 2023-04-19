@@ -51,7 +51,7 @@
             btnOpaque = new Button();
             btnBilateralFilter = new Button();
             btnMedianBlur = new Button();
-            button14 = new Button();
+            btnMeanShift = new Button();
             btnGrabcuts = new Button();
             btnWatershed = new Button();
             btnRevert = new Button();
@@ -169,7 +169,7 @@
             plOperates.Controls.Add(btnOpaque);
             plOperates.Controls.Add(btnBilateralFilter);
             plOperates.Controls.Add(btnMedianBlur);
-            plOperates.Controls.Add(button14);
+            plOperates.Controls.Add(btnMeanShift);
             plOperates.Controls.Add(btnGrabcuts);
             plOperates.Controls.Add(btnWatershed);
             plOperates.Controls.Add(btnRevert);
@@ -361,16 +361,16 @@
             btnMedianBlur.UseVisualStyleBackColor = true;
             btnMedianBlur.Click += btnMedianBlur_Click;
             // 
-            // button14
+            // btnMeanShift
             // 
-            button14.Location = new Point(175, 390);
-            button14.Name = "button14";
-            button14.Size = new Size(131, 29);
-            button14.TabIndex = 1;
-            button14.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
-            button14.Text = "Mean-Shift算法";
-            button14.UseVisualStyleBackColor = true;
-            button14.Click += btnBlur_Click;
+            btnMeanShift.Location = new Point(175, 390);
+            btnMeanShift.Name = "btnMeanShift";
+            btnMeanShift.Size = new Size(131, 29);
+            btnMeanShift.TabIndex = 1;
+            btnMeanShift.Tag = "";
+            btnMeanShift.Text = "Mean-Shift算法";
+            btnMeanShift.UseVisualStyleBackColor = true;
+            btnMeanShift.Click += btnMeanShift_Click;
             // 
             // btnGrabcuts
             // 
@@ -767,7 +767,7 @@
         private Button btnHSV;
         private Button btnImgRepair;
         private Label label5;
-        private Button button14;
+        private Button btnMeanShift;
         private Button btnGrabcuts;
         private Button btnWatershed;
         private Button btnFloodFill;

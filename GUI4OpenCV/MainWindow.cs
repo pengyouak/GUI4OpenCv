@@ -733,6 +733,10 @@ namespace GUI4OpenCV
 
         private void btnGrabcuts_Click(object sender, EventArgs e)
         {
+            var img = picTopLeft.Image;
+            var config = new ConfigGrabcuts(img.Size);
+            if (config.ShowDialog() != DialogResult.OK) return;
+
             ChangeTable(1, 2);
             var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
 
@@ -741,8 +745,12 @@ namespace GUI4OpenCV
                 (picTopRight,new Point(0,1)),
             });
 
-            var img = picTopLeft.Image;
-            picTopRight.Image = ImageSegmentationHelper.Grabcuts((Bitmap)img);
+            picTopRight.Image = ImageSegmentationHelper.Grabcuts((Bitmap)img, config.X, config.Y, config.X1, config.Y1, config.IterCount);
+        }
+
+        private void btnMeanShift_Click(object sender, EventArgs e)
+        {
+
         }
 
         #endregion

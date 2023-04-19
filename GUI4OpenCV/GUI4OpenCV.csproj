@@ -51,6 +51,9 @@
     <Compile Update="ConfigWindows\ConfigFloodFill.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConfigWindows\ConfigGrabcuts.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigWatershed.cs">
       <SubType>Form</SubType>
     </Compile>
