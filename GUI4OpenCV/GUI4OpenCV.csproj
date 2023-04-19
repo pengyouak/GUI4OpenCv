@@ -97,6 +97,7 @@
 
   <ItemGroup>
     <Folder Include="Consts\" />
+    <Folder Include="Images\" />
   </ItemGroup>
 
 </Project>
