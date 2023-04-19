@@ -37,6 +37,9 @@
             mnuBig = new ToolStripMenuItem();
             plOperates = new Panel();
             label6 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label10 = new Label();
             label7 = new Label();
             label4 = new Label();
             label3 = new Label();
@@ -74,6 +77,24 @@
             btnEqualHist = new Button();
             btnPoissonNoisy = new Button();
             btnGaussianNoisy = new Button();
+            button18 = new Button();
+            button17 = new Button();
+            button11 = new Button();
+            button16 = new Button();
+            button10 = new Button();
+            button5 = new Button();
+            button15 = new Button();
+            button9 = new Button();
+            button4 = new Button();
+            button14 = new Button();
+            button8 = new Button();
+            button3 = new Button();
+            button13 = new Button();
+            button7 = new Button();
+            button2 = new Button();
+            button12 = new Button();
+            button6 = new Button();
+            button1 = new Button();
             btnSaltNoisy = new Button();
             btnGryHist = new Button();
             btnGry = new Button();
@@ -84,27 +105,6 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
-            button1 = new Button();
-            label10 = new Label();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
-            button5 = new Button();
-            label11 = new Label();
-            label12 = new Label();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
-            button9 = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button14 = new Button();
-            button15 = new Button();
-            button16 = new Button();
-            button17 = new Button();
-            button18 = new Button();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -259,6 +259,39 @@
             label6.Size = new Size(37, 19);
             label6.TabIndex = 0;
             label6.Text = "噪声";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.ForeColor = Color.Purple;
+            label11.Location = new Point(506, 463);
+            label11.Name = "label11";
+            label11.Size = new Size(65, 19);
+            label11.TabIndex = 0;
+            label11.Text = "特征提取";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.ForeColor = Color.Purple;
+            label12.Location = new Point(206, 429);
+            label12.Name = "label12";
+            label12.Size = new Size(65, 19);
+            label12.TabIndex = 0;
+            label12.Text = "背景处理";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label10.ForeColor = Color.Purple;
+            label10.Location = new Point(358, 430);
+            label10.Name = "label10";
+            label10.Size = new Size(65, 19);
+            label10.TabIndex = 0;
+            label10.Text = "特征明显";
             // 
             // label7
             // 
@@ -645,6 +678,204 @@
             btnGaussianNoisy.UseVisualStyleBackColor = false;
             btnGaussianNoisy.Click += btnGaussianNoisy_Click;
             // 
+            // button18
+            // 
+            button18.BackColor = Color.White;
+            button18.Location = new Point(472, 704);
+            button18.Name = "button18";
+            button18.Size = new Size(131, 29);
+            button18.TabIndex = 1;
+            button18.Text = "Face_Haar";
+            button18.UseVisualStyleBackColor = false;
+            button18.Click += btnGryHist_Click;
+            // 
+            // button17
+            // 
+            button17.BackColor = Color.White;
+            button17.Location = new Point(472, 669);
+            button17.Name = "button17";
+            button17.Size = new Size(131, 29);
+            button17.TabIndex = 1;
+            button17.Text = "Haar算法 水平";
+            button17.UseVisualStyleBackColor = false;
+            button17.Click += btnGryHist_Click;
+            // 
+            // button11
+            // 
+            button11.BackColor = Color.White;
+            button11.Location = new Point(325, 634);
+            button11.Name = "button11";
+            button11.Size = new Size(131, 29);
+            button11.TabIndex = 1;
+            button11.Text = "Garber滤波";
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += btnGryHist_Click;
+            // 
+            // button16
+            // 
+            button16.BackColor = Color.White;
+            button16.Location = new Point(472, 634);
+            button16.Name = "button16";
+            button16.Size = new Size(131, 29);
+            button16.TabIndex = 1;
+            button16.Text = "Haar算法 垂直";
+            button16.UseVisualStyleBackColor = false;
+            button16.Click += btnGryHist_Click;
+            // 
+            // button10
+            // 
+            button10.BackColor = Color.White;
+            button10.Location = new Point(325, 599);
+            button10.Name = "button10";
+            button10.Size = new Size(131, 29);
+            button10.TabIndex = 1;
+            button10.Text = "颜色匹配";
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += btnGryHist_Click;
+            // 
+            // button5
+            // 
+            button5.BackColor = Color.White;
+            button5.Location = new Point(175, 599);
+            button5.Name = "button5";
+            button5.Size = new Size(131, 29);
+            button5.TabIndex = 1;
+            button5.Text = "高斯混合";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += btnGryHist_Click;
+            // 
+            // button15
+            // 
+            button15.BackColor = Color.White;
+            button15.Location = new Point(472, 599);
+            button15.Name = "button15";
+            button15.Size = new Size(131, 29);
+            button15.TabIndex = 1;
+            button15.Text = "字符测试";
+            button15.UseVisualStyleBackColor = false;
+            button15.Click += btnGryHist_Click;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.White;
+            button9.Location = new Point(325, 564);
+            button9.Name = "button9";
+            button9.Size = new Size(131, 29);
+            button9.TabIndex = 1;
+            button9.Text = "隐身效果";
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += btnGryHist_Click;
+            // 
+            // button4
+            // 
+            button4.BackColor = Color.White;
+            button4.Location = new Point(175, 564);
+            button4.Name = "button4";
+            button4.Size = new Size(131, 29);
+            button4.TabIndex = 1;
+            button4.Text = "帧间差分";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += btnGryHist_Click;
+            // 
+            // button14
+            // 
+            button14.BackColor = Color.White;
+            button14.Location = new Point(472, 564);
+            button14.Name = "button14";
+            button14.Size = new Size(131, 29);
+            button14.TabIndex = 1;
+            button14.Text = "坐标点SVM";
+            button14.UseVisualStyleBackColor = false;
+            button14.Click += btnGryHist_Click;
+            // 
+            // button8
+            // 
+            button8.BackColor = Color.White;
+            button8.Location = new Point(325, 529);
+            button8.Name = "button8";
+            button8.Size = new Size(131, 29);
+            button8.TabIndex = 1;
+            button8.Text = "模板匹配";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += btnGryHist_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.White;
+            button3.Location = new Point(175, 529);
+            button3.Name = "button3";
+            button3.Size = new Size(131, 29);
+            button3.TabIndex = 1;
+            button3.Text = "Kittler";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += btnGryHist_Click;
+            // 
+            // button13
+            // 
+            button13.BackColor = Color.White;
+            button13.Location = new Point(472, 529);
+            button13.Name = "button13";
+            button13.Size = new Size(131, 29);
+            button13.TabIndex = 1;
+            button13.Text = "ORB";
+            button13.UseVisualStyleBackColor = false;
+            button13.Click += btnGryHist_Click;
+            // 
+            // button7
+            // 
+            button7.BackColor = Color.White;
+            button7.Location = new Point(325, 494);
+            button7.Name = "button7";
+            button7.Size = new Size(131, 29);
+            button7.TabIndex = 1;
+            button7.Text = "直方图检测";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += btnGryHist_Click;
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.White;
+            button2.Location = new Point(175, 494);
+            button2.Name = "button2";
+            button2.Size = new Size(131, 29);
+            button2.TabIndex = 1;
+            button2.Text = "OSTU";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += btnGryHist_Click;
+            // 
+            // button12
+            // 
+            button12.BackColor = Color.White;
+            button12.Location = new Point(472, 494);
+            button12.Name = "button12";
+            button12.Size = new Size(131, 29);
+            button12.TabIndex = 1;
+            button12.Text = "SIFT";
+            button12.UseVisualStyleBackColor = false;
+            button12.Click += btnGryHist_Click;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.White;
+            button6.Location = new Point(325, 459);
+            button6.Name = "button6";
+            button6.Size = new Size(131, 29);
+            button6.TabIndex = 1;
+            button6.Text = "LBP";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += btnGryHist_Click;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.White;
+            button1.Location = new Point(175, 459);
+            button1.Name = "button1";
+            button1.Size = new Size(131, 29);
+            button1.TabIndex = 1;
+            button1.Text = "阈值分割";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += btnGryHist_Click;
+            // 
             // btnSaltNoisy
             // 
             btnSaltNoisy.BackColor = Color.White;
@@ -751,237 +982,6 @@
             label1.Size = new Size(79, 19);
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
-            // 
-            // button1
-            // 
-            button1.BackColor = Color.White;
-            button1.Location = new Point(27, 424);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 29);
-            button1.TabIndex = 1;
-            button1.Text = "阈值分割";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnGryHist_Click;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label10.ForeColor = Color.Purple;
-            label10.Location = new Point(205, 428);
-            label10.Name = "label10";
-            label10.Size = new Size(65, 19);
-            label10.TabIndex = 0;
-            label10.Text = "特征明显";
-            // 
-            // button2
-            // 
-            button2.BackColor = Color.White;
-            button2.Location = new Point(27, 459);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 29);
-            button2.TabIndex = 1;
-            button2.Text = "OSTU";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += btnGryHist_Click;
-            // 
-            // button3
-            // 
-            button3.BackColor = Color.White;
-            button3.Location = new Point(27, 494);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 29);
-            button3.TabIndex = 1;
-            button3.Text = "Kittler";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += btnGryHist_Click;
-            // 
-            // button4
-            // 
-            button4.BackColor = Color.White;
-            button4.Location = new Point(27, 529);
-            button4.Name = "button4";
-            button4.Size = new Size(131, 29);
-            button4.TabIndex = 1;
-            button4.Text = "帧间差分";
-            button4.UseVisualStyleBackColor = false;
-            button4.Click += btnGryHist_Click;
-            // 
-            // button5
-            // 
-            button5.BackColor = Color.White;
-            button5.Location = new Point(27, 564);
-            button5.Name = "button5";
-            button5.Size = new Size(131, 29);
-            button5.TabIndex = 1;
-            button5.Text = "高斯混合";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += btnGryHist_Click;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label11.ForeColor = Color.Purple;
-            label11.Location = new Point(359, 428);
-            label11.Name = "label11";
-            label11.Size = new Size(65, 19);
-            label11.TabIndex = 0;
-            label11.Text = "特征提取";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label12.ForeColor = Color.Purple;
-            label12.Location = new Point(58, 394);
-            label12.Name = "label12";
-            label12.Size = new Size(65, 19);
-            label12.TabIndex = 0;
-            label12.Text = "背景处理";
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.White;
-            button6.Location = new Point(175, 459);
-            button6.Name = "button6";
-            button6.Size = new Size(131, 29);
-            button6.TabIndex = 1;
-            button6.Text = "LBP";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += btnGryHist_Click;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.White;
-            button7.Location = new Point(175, 494);
-            button7.Name = "button7";
-            button7.Size = new Size(131, 29);
-            button7.TabIndex = 1;
-            button7.Text = "直方图检测";
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += btnGryHist_Click;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.White;
-            button8.Location = new Point(175, 529);
-            button8.Name = "button8";
-            button8.Size = new Size(131, 29);
-            button8.TabIndex = 1;
-            button8.Text = "模板匹配";
-            button8.UseVisualStyleBackColor = false;
-            button8.Click += btnGryHist_Click;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.White;
-            button9.Location = new Point(175, 564);
-            button9.Name = "button9";
-            button9.Size = new Size(131, 29);
-            button9.TabIndex = 1;
-            button9.Text = "隐身效果";
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += btnGryHist_Click;
-            // 
-            // button10
-            // 
-            button10.BackColor = Color.White;
-            button10.Location = new Point(175, 599);
-            button10.Name = "button10";
-            button10.Size = new Size(131, 29);
-            button10.TabIndex = 1;
-            button10.Text = "颜色匹配";
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += btnGryHist_Click;
-            // 
-            // button11
-            // 
-            button11.BackColor = Color.White;
-            button11.Location = new Point(175, 634);
-            button11.Name = "button11";
-            button11.Size = new Size(131, 29);
-            button11.TabIndex = 1;
-            button11.Text = "Garber滤波";
-            button11.UseVisualStyleBackColor = false;
-            button11.Click += btnGryHist_Click;
-            // 
-            // button12
-            // 
-            button12.BackColor = Color.White;
-            button12.Location = new Point(325, 459);
-            button12.Name = "button12";
-            button12.Size = new Size(131, 29);
-            button12.TabIndex = 1;
-            button12.Text = "SIFT";
-            button12.UseVisualStyleBackColor = false;
-            button12.Click += btnGryHist_Click;
-            // 
-            // button13
-            // 
-            button13.BackColor = Color.White;
-            button13.Location = new Point(325, 494);
-            button13.Name = "button13";
-            button13.Size = new Size(131, 29);
-            button13.TabIndex = 1;
-            button13.Text = "ORB";
-            button13.UseVisualStyleBackColor = false;
-            button13.Click += btnGryHist_Click;
-            // 
-            // button14
-            // 
-            button14.BackColor = Color.White;
-            button14.Location = new Point(325, 529);
-            button14.Name = "button14";
-            button14.Size = new Size(131, 29);
-            button14.TabIndex = 1;
-            button14.Text = "坐标点SVM";
-            button14.UseVisualStyleBackColor = false;
-            button14.Click += btnGryHist_Click;
-            // 
-            // button15
-            // 
-            button15.BackColor = Color.White;
-            button15.Location = new Point(325, 564);
-            button15.Name = "button15";
-            button15.Size = new Size(131, 29);
-            button15.TabIndex = 1;
-            button15.Text = "字符测试";
-            button15.UseVisualStyleBackColor = false;
-            button15.Click += btnGryHist_Click;
-            // 
-            // button16
-            // 
-            button16.BackColor = Color.White;
-            button16.Location = new Point(325, 599);
-            button16.Name = "button16";
-            button16.Size = new Size(131, 29);
-            button16.TabIndex = 1;
-            button16.Text = "Haar算法 垂直";
-            button16.UseVisualStyleBackColor = false;
-            button16.Click += btnGryHist_Click;
-            // 
-            // button17
-            // 
-            button17.BackColor = Color.White;
-            button17.Location = new Point(325, 634);
-            button17.Name = "button17";
-            button17.Size = new Size(131, 29);
-            button17.TabIndex = 1;
-            button17.Text = "Haar算法 水平";
-            button17.UseVisualStyleBackColor = false;
-            button17.Click += btnGryHist_Click;
-            // 
-            // button18
-            // 
-            button18.BackColor = Color.White;
-            button18.Location = new Point(325, 669);
-            button18.Name = "button18";
-            button18.Size = new Size(131, 29);
-            button18.TabIndex = 1;
-            button18.Text = "Face_Haar";
-            button18.UseVisualStyleBackColor = false;
-            button18.Click += btnGryHist_Click;
             // 
             // MainWindow
             // 
