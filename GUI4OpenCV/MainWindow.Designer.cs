@@ -94,7 +94,7 @@
             button2 = new Button();
             button12 = new Button();
             button6 = new Button();
-            button1 = new Button();
+            btnThreshSeg = new Button();
             btnSaltNoisy = new Button();
             btnGryHist = new Button();
             btnGry = new Button();
@@ -233,7 +233,7 @@
             plOperates.Controls.Add(button2);
             plOperates.Controls.Add(button12);
             plOperates.Controls.Add(button6);
-            plOperates.Controls.Add(button1);
+            plOperates.Controls.Add(btnThreshSeg);
             plOperates.Controls.Add(btnSaltNoisy);
             plOperates.Controls.Add(btnGryHist);
             plOperates.Controls.Add(btnGry);
@@ -865,16 +865,16 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += btnGryHist_Click;
             // 
-            // button1
+            // btnThreshSeg
             // 
-            button1.BackColor = Color.White;
-            button1.Location = new Point(175, 459);
-            button1.Name = "button1";
-            button1.Size = new Size(131, 29);
-            button1.TabIndex = 1;
-            button1.Text = "阈值分割";
-            button1.UseVisualStyleBackColor = false;
-            button1.Click += btnGryHist_Click;
+            btnThreshSeg.BackColor = Color.White;
+            btnThreshSeg.Location = new Point(175, 459);
+            btnThreshSeg.Name = "btnThreshSeg";
+            btnThreshSeg.Size = new Size(131, 29);
+            btnThreshSeg.TabIndex = 1;
+            btnThreshSeg.Text = "阈值分割";
+            btnThreshSeg.UseVisualStyleBackColor = false;
+            btnThreshSeg.Click += btnThreshSeg_Click;
             // 
             // btnSaltNoisy
             // 
@@ -1061,7 +1061,7 @@
         private Button btnGaussianNoisy;
         private Button btnPoissonNoisy;
         private Label label10;
-        private Button button1;
+        private Button btnThreshSeg;
         private Button button2;
         private Button button3;
         private Button button4;

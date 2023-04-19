@@ -766,5 +766,25 @@ namespace GUI4OpenCV
         }
 
         #endregion
+
+        #region ±≥æ∞¥¶¿Ì
+        private void btnThreshSeg_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigThreshSeg();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = BackgroundProcessHelper.ThreshSegmentation((Bitmap)img, config.Thresh, config.MaxVal);
+        }
+        #endregion
+
     }
 }

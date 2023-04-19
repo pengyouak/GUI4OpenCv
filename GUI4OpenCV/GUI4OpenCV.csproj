@@ -57,6 +57,9 @@
     <Compile Update="ConfigWindows\ConfigMeanShift.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="ConfigWindows\ConfigThreshSeg.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ConfigWindows\ConfigWatershed.cs">
       <SubType>Form</SubType>
     </Compile>
