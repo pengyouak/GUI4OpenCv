@@ -27,5 +27,15 @@ namespace GUI4OpenCV.Helpers
             Cv2.Threshold(src, dst, thresh, maxval, ThresholdTypes.Otsu | ThresholdTypes.Binary);
             return dst.ToBitmap();
         }
+
+        public static Bitmap KittlerThreshSegmentation(Bitmap bitmap, double thresh = 0, double maxval = 255)
+        {
+            using var src = PretreatmentHelper.RgbToGray(bitmap).ToMat();
+            using var dst = new Mat();
+
+            var threshold = Cv2.Threshold(src, dst, thresh, maxval, ThresholdTypes.Otsu | ThresholdTypes.Binary);
+            var kittlerThreshold = Cv2.Threshold(src, dst, thresh, maxval, ThresholdTypes.Binary | ThresholdTypes.Otsu | ThresholdTypes.Trunc);
+            return dst.ToBitmap();
+        }
     }
 }

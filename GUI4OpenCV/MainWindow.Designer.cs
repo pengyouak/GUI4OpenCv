@@ -88,7 +88,7 @@
             button4 = new Button();
             button14 = new Button();
             button8 = new Button();
-            button3 = new Button();
+            btnKittler = new Button();
             button13 = new Button();
             button7 = new Button();
             btnOSTUThreshSeg = new Button();
@@ -227,7 +227,7 @@
             plOperates.Controls.Add(button4);
             plOperates.Controls.Add(button14);
             plOperates.Controls.Add(button8);
-            plOperates.Controls.Add(button3);
+            plOperates.Controls.Add(btnKittler);
             plOperates.Controls.Add(button13);
             plOperates.Controls.Add(button7);
             plOperates.Controls.Add(btnOSTUThreshSeg);
@@ -799,16 +799,16 @@
             button8.UseVisualStyleBackColor = false;
             button8.Click += btnGryHist_Click;
             // 
-            // button3
+            // btnKittler
             // 
-            button3.BackColor = Color.White;
-            button3.Location = new Point(175, 529);
-            button3.Name = "button3";
-            button3.Size = new Size(131, 29);
-            button3.TabIndex = 1;
-            button3.Text = "Kittler";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += btnGryHist_Click;
+            btnKittler.BackColor = Color.White;
+            btnKittler.Location = new Point(175, 529);
+            btnKittler.Name = "btnKittler";
+            btnKittler.Size = new Size(131, 29);
+            btnKittler.TabIndex = 1;
+            btnKittler.Text = "Kittler 阈值分割";
+            btnKittler.UseVisualStyleBackColor = false;
+            btnKittler.Click += btnKittler_Click;
             // 
             // button13
             // 
@@ -839,7 +839,7 @@
             btnOSTUThreshSeg.Name = "btnOSTUThreshSeg";
             btnOSTUThreshSeg.Size = new Size(131, 29);
             btnOSTUThreshSeg.TabIndex = 1;
-            btnOSTUThreshSeg.Text = "OSTU";
+            btnOSTUThreshSeg.Text = "OSTU 阈值分割";
             btnOSTUThreshSeg.UseVisualStyleBackColor = false;
             btnOSTUThreshSeg.Click += btnOSTUThreshSeg_Click;
             // 
@@ -1063,7 +1063,7 @@
         private Label label10;
         private Button btnThreshSeg;
         private Button btnOSTUThreshSeg;
-        private Button button3;
+        private Button btnKittler;
         private Button button4;
         private Button button5;
         private Label label11;
