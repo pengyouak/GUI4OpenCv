@@ -11,6 +11,11 @@ namespace GUI4OpenCV.Helpers
 {
     internal class ImageSegmentationHelper
     {
+        private const int GC_BGD = 0;
+        private const int GC_FGD = 1;
+        private const int GC_PR_BGD = 2;
+        private const int GC_PR_FGD = 3;
+
         /// <summary>
         /// 泛洪填充
         /// </summary>
@@ -126,6 +131,25 @@ namespace GUI4OpenCV.Helpers
                     }
                 }
             }
+
+            return result.ToBitmap();
+        }
+
+        public static Bitmap Grabcuts(Bitmap bitmap, int areaX, int areaY, int areaWidth,int areaHeight, int itercount = 5)
+        {
+            using var src = bitmap.ToMat();
+
+            // 创建掩码和标签矩阵
+            using var mask = new Mat(src.Size(), MatType.CV_8UC1, Scalar.Black);
+            using var bgdModel= new Mat();
+            using var fgdModel= new Mat();
+            var rect = new Rect(areaX, areaY, areaWidth, areaHeight); // 设置矩形区域
+
+            // 进行 GrabCut 算法
+            Cv2.GrabCut(src, mask, rect, bgdModel, fgdModel, itercount, GrabCutModes.InitWithRect);
+
+            using var result = new Mat();
+            Cv2.Compare(mask, new Scalar((double)GrabCutClasses.PR_FGD), result, CmpType.EQ);
 
             return result.ToBitmap();
         }

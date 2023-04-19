@@ -52,7 +52,7 @@
             btnBilateralFilter = new Button();
             btnMedianBlur = new Button();
             button14 = new Button();
-            button13 = new Button();
+            btnGrabcuts = new Button();
             btnWatershed = new Button();
             btnRevert = new Button();
             btnDenoise = new Button();
@@ -170,7 +170,7 @@
             plOperates.Controls.Add(btnBilateralFilter);
             plOperates.Controls.Add(btnMedianBlur);
             plOperates.Controls.Add(button14);
-            plOperates.Controls.Add(button13);
+            plOperates.Controls.Add(btnGrabcuts);
             plOperates.Controls.Add(btnWatershed);
             plOperates.Controls.Add(btnRevert);
             plOperates.Controls.Add(btnDenoise);
@@ -372,16 +372,16 @@
             button14.UseVisualStyleBackColor = true;
             button14.Click += btnBlur_Click;
             // 
-            // button13
+            // btnGrabcuts
             // 
-            button13.Location = new Point(175, 355);
-            button13.Name = "button13";
-            button13.Size = new Size(131, 29);
-            button13.TabIndex = 1;
-            button13.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
-            button13.Text = "Grabcuts算法";
-            button13.UseVisualStyleBackColor = true;
-            button13.Click += btnBlur_Click;
+            btnGrabcuts.Location = new Point(175, 355);
+            btnGrabcuts.Name = "btnGrabcuts";
+            btnGrabcuts.Size = new Size(131, 29);
+            btnGrabcuts.TabIndex = 1;
+            btnGrabcuts.Tag = "https://blog.csdn.net/lweiyue/article/details/105953206";
+            btnGrabcuts.Text = "Grabcuts算法";
+            btnGrabcuts.UseVisualStyleBackColor = true;
+            btnGrabcuts.Click += btnGrabcuts_Click;
             // 
             // btnWatershed
             // 
@@ -768,7 +768,7 @@
         private Button btnImgRepair;
         private Label label5;
         private Button button14;
-        private Button button13;
+        private Button btnGrabcuts;
         private Button btnWatershed;
         private Button btnFloodFill;
         private Label label9;

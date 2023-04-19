@@ -731,6 +731,20 @@ namespace GUI4OpenCV
             picTopRight.Image = ImageSegmentationHelper.Watershed((Bitmap)img, config.Alpha, config.Beta, config.Thresh, config.MaxVal);
         }
 
+        private void btnGrabcuts_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = ImageSegmentationHelper.Grabcuts((Bitmap)img);
+        }
+
         #endregion
     }
 }
