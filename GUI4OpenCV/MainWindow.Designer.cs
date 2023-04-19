@@ -91,7 +91,7 @@
             button3 = new Button();
             button13 = new Button();
             button7 = new Button();
-            button2 = new Button();
+            btnOSTUThreshSeg = new Button();
             button12 = new Button();
             button6 = new Button();
             btnThreshSeg = new Button();
@@ -230,7 +230,7 @@
             plOperates.Controls.Add(button3);
             plOperates.Controls.Add(button13);
             plOperates.Controls.Add(button7);
-            plOperates.Controls.Add(button2);
+            plOperates.Controls.Add(btnOSTUThreshSeg);
             plOperates.Controls.Add(button12);
             plOperates.Controls.Add(button6);
             plOperates.Controls.Add(btnThreshSeg);
@@ -832,16 +832,16 @@
             button7.UseVisualStyleBackColor = false;
             button7.Click += btnGryHist_Click;
             // 
-            // button2
+            // btnOSTUThreshSeg
             // 
-            button2.BackColor = Color.White;
-            button2.Location = new Point(175, 494);
-            button2.Name = "button2";
-            button2.Size = new Size(131, 29);
-            button2.TabIndex = 1;
-            button2.Text = "OSTU";
-            button2.UseVisualStyleBackColor = false;
-            button2.Click += btnGryHist_Click;
+            btnOSTUThreshSeg.BackColor = Color.White;
+            btnOSTUThreshSeg.Location = new Point(175, 494);
+            btnOSTUThreshSeg.Name = "btnOSTUThreshSeg";
+            btnOSTUThreshSeg.Size = new Size(131, 29);
+            btnOSTUThreshSeg.TabIndex = 1;
+            btnOSTUThreshSeg.Text = "OSTU";
+            btnOSTUThreshSeg.UseVisualStyleBackColor = false;
+            btnOSTUThreshSeg.Click += btnOSTUThreshSeg_Click;
             // 
             // button12
             // 
@@ -1062,7 +1062,7 @@
         private Button btnPoissonNoisy;
         private Label label10;
         private Button btnThreshSeg;
-        private Button button2;
+        private Button btnOSTUThreshSeg;
         private Button button3;
         private Button button4;
         private Button button5;

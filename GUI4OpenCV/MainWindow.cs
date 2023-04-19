@@ -109,7 +109,7 @@ namespace GUI4OpenCV
                 (picBottomLeft,new Point(1,0)),
             });
 
-            picBottomLeft.Image = PretreatmentHelper.GrayHistogram((Bitmap)picTopLeft.Image);
+            picBottomLeft.Image = ChartHelper.GrayHistogram((Bitmap)picTopLeft.Image);
         }
 
         #endregion
@@ -784,7 +784,23 @@ namespace GUI4OpenCV
             var img = picTopLeft.Image;
             picTopRight.Image = BackgroundProcessHelper.ThreshSegmentation((Bitmap)img, config.Thresh, config.MaxVal);
         }
-        #endregion
 
+        private void btnOSTUThreshSeg_Click(object sender, EventArgs e)
+        {
+            var config = new ConfigOSTUThreshSeg();
+            if (config.ShowDialog() != DialogResult.OK) return;
+
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = BackgroundProcessHelper.OSTUThreshSegmentation((Bitmap)img, config.Thresh, config.MaxVal);
+        }
+        #endregion
     }
 }
