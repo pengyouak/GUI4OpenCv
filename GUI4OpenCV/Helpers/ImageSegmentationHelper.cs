@@ -153,5 +153,15 @@ namespace GUI4OpenCV.Helpers
 
             return result.ToBitmap();
         }
+
+        public static Bitmap MeanShift(Bitmap bitmap, double sp=5, double sr=50)
+        {
+            using var src = bitmap.ToMat();
+
+            using Mat result = new Mat();
+            Cv2.PyrMeanShiftFiltering(src, result, 5, 50);
+
+            return result.ToBitmap();
+        }
     }
 }
