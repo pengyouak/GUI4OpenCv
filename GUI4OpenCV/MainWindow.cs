@@ -801,7 +801,6 @@ namespace GUI4OpenCV
             var img = picTopLeft.Image;
             picTopRight.Image = BackgroundProcessHelper.OSTUThreshSegmentation((Bitmap)img, config.Thresh, config.MaxVal);
         }
-        #endregion
 
         private void btnKittler_Click(object sender, EventArgs e)
         {
@@ -818,6 +817,21 @@ namespace GUI4OpenCV
 
             var img = picTopLeft.Image;
             picTopRight.Image = BackgroundProcessHelper.KittlerThreshSegmentation((Bitmap)img, config.Thresh, config.MaxVal);
+        }
+        #endregion
+
+        private void btnLBP_Click(object sender, EventArgs e)
+        {
+            ChangeTable(1, 2);
+            var picTopRight = new PictureBox() { Dock = DockStyle.Fill, SizeMode = PictureBoxSizeMode.Zoom };
+
+            SetControlPosition(new List<(Control, Point)>
+            {
+                (picTopRight,new Point(0,1)),
+            });
+
+            var img = picTopLeft.Image;
+            picTopRight.Image = FeatureHelper.LBP((Bitmap)img);
         }
     }
 }

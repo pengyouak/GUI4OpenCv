@@ -93,7 +93,7 @@
             button7 = new Button();
             btnOSTUThreshSeg = new Button();
             button12 = new Button();
-            button6 = new Button();
+            btnLBP = new Button();
             btnThreshSeg = new Button();
             btnSaltNoisy = new Button();
             btnGryHist = new Button();
@@ -105,6 +105,7 @@
             label8 = new Label();
             label5 = new Label();
             label1 = new Label();
+            label13 = new Label();
             plImages.SuspendLayout();
             table.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)picTopLeft).BeginInit();
@@ -179,6 +180,7 @@
             plOperates.Controls.Add(label11);
             plOperates.Controls.Add(label12);
             plOperates.Controls.Add(label10);
+            plOperates.Controls.Add(label13);
             plOperates.Controls.Add(label7);
             plOperates.Controls.Add(label4);
             plOperates.Controls.Add(label3);
@@ -232,7 +234,7 @@
             plOperates.Controls.Add(button7);
             plOperates.Controls.Add(btnOSTUThreshSeg);
             plOperates.Controls.Add(button12);
-            plOperates.Controls.Add(button6);
+            plOperates.Controls.Add(btnLBP);
             plOperates.Controls.Add(btnThreshSeg);
             plOperates.Controls.Add(btnSaltNoisy);
             plOperates.Controls.Add(btnGryHist);
@@ -736,7 +738,8 @@
             // button5
             // 
             button5.BackColor = Color.White;
-            button5.Location = new Point(175, 599);
+            button5.Enabled = false;
+            button5.Location = new Point(27, 459);
             button5.Name = "button5";
             button5.Size = new Size(131, 29);
             button5.TabIndex = 1;
@@ -769,7 +772,8 @@
             // button4
             // 
             button4.BackColor = Color.White;
-            button4.Location = new Point(175, 564);
+            button4.Enabled = false;
+            button4.Location = new Point(27, 425);
             button4.Name = "button4";
             button4.Size = new Size(131, 29);
             button4.TabIndex = 1;
@@ -854,16 +858,16 @@
             button12.UseVisualStyleBackColor = false;
             button12.Click += btnGryHist_Click;
             // 
-            // button6
+            // btnLBP
             // 
-            button6.BackColor = Color.White;
-            button6.Location = new Point(325, 459);
-            button6.Name = "button6";
-            button6.Size = new Size(131, 29);
-            button6.TabIndex = 1;
-            button6.Text = "LBP";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += btnGryHist_Click;
+            btnLBP.BackColor = Color.White;
+            btnLBP.Location = new Point(325, 459);
+            btnLBP.Name = "btnLBP";
+            btnLBP.Size = new Size(131, 29);
+            btnLBP.TabIndex = 1;
+            btnLBP.Text = "LBP";
+            btnLBP.UseVisualStyleBackColor = false;
+            btnLBP.Click += btnLBP_Click;
             // 
             // btnThreshSeg
             // 
@@ -983,6 +987,17 @@
             label1.TabIndex = 0;
             label1.Text = "图像预处理";
             // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new Font("Microsoft YaHei UI", 10F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = Color.Purple;
+            label13.Location = new Point(58, 394);
+            label13.Name = "label13";
+            label13.Size = new Size(65, 19);
+            label13.TabIndex = 0;
+            label13.Text = "视频处理";
+            // 
             // MainWindow
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
@@ -1073,7 +1088,7 @@
         private Button button9;
         private Button button8;
         private Button button7;
-        private Button button6;
+        private Button btnLBP;
         private Button button18;
         private Button button17;
         private Button button16;
@@ -1081,5 +1096,6 @@
         private Button button14;
         private Button button13;
         private Button button12;
+        private Label label13;
     }
 }
